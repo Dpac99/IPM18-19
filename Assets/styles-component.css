@@ -4,6 +4,14 @@ body{
 }
 
 h1{
-    color: green;
-    
+    color: green;   
+}
+
+.number{
+    visibility: collapse
+}
+
+.img{
+    width: 100px;
+    height: 110px;
 }
