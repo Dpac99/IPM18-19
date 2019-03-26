@@ -24,7 +24,10 @@ a:hover{
     color: black;
 }
 
-/* Prototipo 1 */
+/* Prototipo 1================================================================================== */
+
+
+/* Screens */
 
 .screen{
     position: fixed;
@@ -40,65 +43,102 @@ a:hover{
 
     border: 8px solid black;
     border-radius: 15%;
-    width: 330px;
-    height: 330px;
+    width: 7.5cm;
+    max-width: 7.5cm;
+    height: 7.5cm;
+    max-height: 7.5cm;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+.screen-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 3;
+}
+
+/* End of screens */
+
+/*Rows and divisions */
+
 .top-row{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    padding-right: 25px;
-    padding-left: 25px;
+    padding-right: 0.6cm;
+    padding-left: 0.6cm;
+    padding-top: 0.3cm;
+    padding-bottom:0.18cm;
     top: 0%;
     height:5%;
     font-size: 20px;
+    align-items: flex-end;
 }
 
+.top-row-space-around{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start; 
+    padding-top: 0.21cm;
+}
+
+.center-row-space-between{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bottom-row-space-around{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-bottom: 0.26cm;
+}
+
+.bottom-row-space-between{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 0.26cm;
+}
+
+/* End of rows and divisions */
+
+/* Icons and images */
+
 .img2{
-    width: 90px;
-    height: 90px;
+    width: 2.4cm;
+    height: 2.4cm;
     cursor: pointer;
 }
 
 .battery{
-    width: 30px;
-    height: 20px;
+    width: 0.8cm;
+    height: 0.53cm;
 }
 
 .hours{
     font-size: 70px;
 }
 
-.middle-row{
-    padding-top: 10px;
-    padding-left: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: stretch;
-}
-
-.date{
+.pair{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.bottom-row{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
 .sos{
     border: 4px solid black;
     border-radius: 84% 0 45% 0;
-    height: 61px;
-    width:63px;
+    height: 1.64cm;
+    width:1.64cm;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -115,3 +155,45 @@ a:hover{
     justify-content: center;
     align-items: center;
 }
+
+.back{
+    height: 1.05cm;
+    width: 1.05cm;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 70%;
+    left: 49%;
+    cursor: pointer;
+}
+
+.icon{
+    border: 0.1cm solid black;
+    border-radius: 15%;
+    width: 1.2cm;
+    height: 1.2cm;
+    cursor: pointer;
+}
+
+.gauges{
+    border: 0.3cm solid black;
+    border-radius: 50%;
+    width: 1.2cm;
+    height: 1.2cm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.subtitles{
+    font-size: 10px;
+}
+
+.mytrip-icon{
+    width: 40%;
+    height: 40%;
+    border: 0.1cm solid black;
+    border-radius: 15%;
+}
+
