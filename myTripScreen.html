@@ -5,17 +5,19 @@
     <script src="Assets/js-component.js"></script>
 </head>
 
-<div class="screen">
-    <div class="screen-body">
-        <div class="top-row-space-around">
-            <img class="myTrip-icon" src="Assets/tickets.png">
-            <img class="myTrip-icon" src="Assets/bed.png">
-        </div>
-        <div class="bottom-row-space-around">
-            <img class="myTrip-icon" src="Assets/plan.png">
-            <img class="myTrip-icon" src="Assets/friends.png">
+<div class="frame">
+    <div class="screen">
+        <div class="screen-body">
+            <div class="top-row-space-around">
+                <img class="myTrip-icon" src="Assets/tickets.png" onclick="tickets()">
+                <img class="myTrip-icon" src="Assets/bed.png" onclick="hotels()">
+            </div>
+            <div class="bottom-row-space-around">
+                <img class="myTrip-icon" src="Assets/plan.png">
+                <img class="myTrip-icon" src="Assets/friends.png">
+            </div>
         </div>
     </div>
-</div>
 
-<div class="back" onclick="unlock()"></div>
+    <div class="back" onclick="mainMenu()"></div>
+</div>

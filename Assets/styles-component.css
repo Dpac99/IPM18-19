@@ -29,7 +29,7 @@ a:hover{
 
 /* Screens */
 
-.screen{
+.frame{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -40,7 +40,13 @@ a:hover{
     -ms-transform: translate(-50%,-50%);
     -o-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
+.screen{
     border: 8px solid black;
     border-radius: 15%;
     width: 7.5cm;
@@ -67,46 +73,86 @@ a:hover{
 .top-row{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     padding-right: 0.6cm;
     padding-left: 0.6cm;
-    padding-top: 0.3cm;
     padding-bottom:0.18cm;
-    top: 0%;
-    height:5%;
     font-size: 20px;
     align-items: flex-end;
 }
 
-.top-row-space-around{
+.top-row{
+    justify-content: space-between;
+}
+
+.top-row-space-around, .top-row-space-between, .top-row-right{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: flex-start; 
     padding-top: 0.21cm;
 }
 
-.center-row-space-between{
+.top-row-space-around{
+    justify-content: space-around;
+}
+
+.top-row-space-between{
+    justify-content: space-between;
+    padding-right: 0.4cm;
+    padding-left: 0.4cm;
+}
+
+.top-row-right{
+    justify-content: flex-end;
+    padding-right: 0.6cm;
+    padding-bottom: 0.21cm;
+}
+
+.center-row-space-between, 
+.center-row-left,
+.center-row-space-around{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: center;
 }
 
-.bottom-row-space-around{
+.center-row-left{
+    justify-content: flex-start;
+    padding-left: 0.2cm;
+}
+
+.center-row-space-between{
+    justify-content: space-between;
+}
+
+.center-row-space-around{
+    justify-content: space-around;
+}
+
+.bottom-row-space-around, 
+.bottom-row-space-between,
+.bottom-row-center,
+.bottom-row-left{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: flex-end;
     padding-bottom: 0.26cm;
 }
 
 .bottom-row-space-between{
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
-    padding-bottom: 0.26cm;
+}
+
+.bottom-row-space-around{
+    justify-content: space-around;
+}
+
+.bottom-row-center{
+    justify-content: center;
+}
+
+.bottom-row-left{
+    justify-content: flex-start;
+    padding-left: 0.2cm;
 }
 
 /* End of rows and divisions */
@@ -135,7 +181,8 @@ a:hover{
 }
 
 .sos{
-    border: 4px solid black;
+    border-top: 4px solid black;
+    border-left: 4px solid black;
     border-radius: 84% 0 45% 0;
     height: 1.64cm;
     width:1.64cm;
@@ -159,12 +206,11 @@ a:hover{
 .back{
     height: 1.05cm;
     width: 1.05cm;
-    border-radius: 50%;
+    border-radius: 30%;
     background-color: black;
-    position: fixed;
-    top: 70%;
-    left: 49%;
+    position: relative;
     cursor: pointer;
+    margin-left: 0.5cm;
 }
 
 .icon{
@@ -187,7 +233,7 @@ a:hover{
 }
 
 .subtitles{
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .mytrip-icon{
@@ -195,5 +241,46 @@ a:hover{
     height: 40%;
     border: 0.1cm solid black;
     border-radius: 15%;
+    cursor: pointer;
 }
 
+.plus-icon{
+    border: 0.1cm solid black;
+    border-radius: 15%;
+    width: 0.7cm;
+    height: 0.7cm;
+    cursor: pointer;
+    margin: 3px;
+}
+
+.ticket{
+    width: 90%;
+    height: 90%;
+    border: 0.1cm solid black;
+    border-radius: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.qrcode{
+    width: 35%;
+    height: 35%
+}
+
+.full-dot, .dot{
+    width: 0.2cm;
+    height: 0.2cm;
+    border-radius: 50%;
+    border: 0.05cm solid black;
+    margin: 2px;
+}
+
+.full-dot{
+    background-color: black;
+}
+
+.stars{
+    width: 0.5cm;
+    height: 0.5cm;
+}

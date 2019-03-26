@@ -5,7 +5,7 @@ function toggleVisible(id) {
     element.style.visibility = style
 }
 
-function unlock(){
+function mainMenu(){
     document.location.href = "mainScreen1.html"
 }
 
@@ -15,4 +15,12 @@ function myTrip(){
 
 function lock(){
     document.location.href = "protFuncional1-beta.html"
+}
+
+function tickets(){
+    document.location.href = "tickets.html"
+}
+
+function hotels(){
+    document.location.href="hotels.html"
 }
