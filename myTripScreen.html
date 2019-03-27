@@ -1,23 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+
 <head>
     <title>myTrip Menu</title>
     <link rel="stylesheet" href="Assets/styles-component.css">
     <style type="css"></style>
-    <script src="Assets/js-component.js"></script>
 </head>
 
-<div class="frame">
-    <div class="screen">
-        <div class="screen-body">
-            <div class="top-row-space-around">
-                <img class="myTrip-icon" src="Assets/tickets.png" onclick="tickets()">
-                <img class="myTrip-icon" src="Assets/bed.png" onclick="hotels()">
-            </div>
-            <div class="bottom-row-space-around">
-                <img class="myTrip-icon" src="Assets/plan.png">
-                <img class="myTrip-icon" src="Assets/friends.png">
+<body>
+    <div class="frame">
+        <div class="screen">
+            <div class="screen-body">
+                <div class="top-row-space-around">
+                    <div class="pair" style="width:45%">
+                        <img class="mytrip-icon" src="Assets/images/tickets.png" onclick="tickets()">
+                        <span class="subtitles">Tickets</span>
+                    </div>
+                    <div class="pair" style="width:45%">
+                        <img class="mytrip-icon" src="Assets/images/bed.png" onclick="hotels()">
+                        <span class="subtitles">Housing</span>
+                    </div>
+                </div>
+                <div class="bottom-row-space-around">
+                    <div class="pair" style="width:45%">
+                        <img class="mytrip-icon" src="Assets/images/plan.png">
+                        <span class="subtitles">Travel Plan</span>
+                    </div>
+                    <div class="pair" style="width:45%">
+                        <img class="mytrip-icon" src="Assets/images/friends.png">
+                        <span class="subtitles">Travel Friends</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="back" onclick="mainMenu()"></div>
-</div>
+        <div class="back" onclick="mainMenu()"></div>
+    </div>
+    <script src="Assets/js/js-component.js"></script>
+</body>
+
+</html>
