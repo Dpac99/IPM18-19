@@ -94,7 +94,7 @@ function nextFlight() {
 
 function prevFlight() {
     let size = flights.length
-    currentFlight =1
+    currentFlight -=1
     if (currentFlight <= -1) {
         currentFlight = size -1
     }
