@@ -63,6 +63,7 @@ a:hover{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-content: space-around;
     flex-grow: 3;
 }
 
@@ -211,6 +212,7 @@ a:hover{
     position: relative;
     cursor: pointer;
     margin-left: 0.5cm;
+    margin-right: 0.5cm;
 }
 
 .icon{
