@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>myTrip Menu</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div class="frame" id="ticket">
+        <img class="arrows" onclick="prevFlight()" src="Assets/images/left.png">
+        <div class="screen">
+            <div class="top-row-right">
+                <img class="plus-icon" src="Assets/images/plus.png">
+            </div>
+            <div class="screen-horizontal" style="align-items: center;">
+                <div v-for="(f, i) in flights" v-bind:id="'ticket' + i "class="ticket">
+                    <div class="top-row-space-between" style="font-size: 20px;">
+                        <span>{{ f.company }}</span>
+                        <span>{{ f.itinerary }}</span>
+                    </div>
+                    <div class="top-row-space-between">
+                        <div class="pair">
+                            <span>No. {{ f.number }}</span>
+                            <span>Seat {{ f.seat }}</span>
+                        </div>
+                        <div class="pair">
+                            <span>{{ f.date }}</span>
+                            <span>{{ f.time }}</span>
+                        </div>
+                    </div>
+                    <div class="bottom-row-space-around" id="code">
+                        <img v-bind:src="qrcode" class="qrcode">
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-row-center" id="dots" style="padding-top: 0.2cm;">
+                <span v-for="dot in dots" v-bind:class="dot.class">
+            </div>
+        </div>
+        <div class="back" onclick="myTrip()"></div>
+        <img class="arrows" onclick="nextFlight()" src="Assets/images/right.svg">
+    </div>
+
+    <script src="Assets/js/movement.js"></script>
+    <script src="Assets/js/tickets.js"></script>
+</body>
+
+</html>

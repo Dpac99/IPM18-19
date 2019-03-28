@@ -47,12 +47,16 @@ a:hover{
 }
 
 .screen{
-    border: 8px solid black;
+    border-left: 7px solid black;
+    border-right: 7px solid black;
+    border-top: 15px solid black;
+    border-bottom: 15px solid black;
     border-radius: 15%;
     width: 7.5cm;
     max-width: 7.5cm;
     height: 7.5cm;
     max-height: 7.5cm;
+    box-shadow: 3px 3px 5px 6px #ccc;
 
     display: flex;
     flex-direction: column;
@@ -65,6 +69,11 @@ a:hover{
     justify-content: space-between;
     align-content: space-around;
     flex-grow: 3;
+}
+
+.screen-horizontal{
+    display: -webkit-inline-box;
+    overflow: hidden;
 }
 
 /* End of screens */
@@ -105,7 +114,7 @@ a:hover{
 .top-row-right{
     justify-content: flex-end;
     padding-right: 0.6cm;
-    padding-bottom: 0.21cm;
+    padding-bottom: 0.1cm;
 }
 
 .center-row-space-between, 
@@ -179,6 +188,7 @@ a:hover{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .sos{
@@ -206,9 +216,19 @@ a:hover{
 
 .back{
     height: 1.05cm;
+    width: 0.3cm;
+    border-radius: 0 30% 30% 0;
+    background-color: black;
+    position: relative;
+    cursor: pointer;
+    align-self: flex-start;
+    margin-top: 2cm;
+}
+
+.arrows{
+    height: 1.05cm;
     width: 1.05cm;
     border-radius: 30%;
-    background-color: black;
     position: relative;
     cursor: pointer;
     margin-left: 0.5cm;
@@ -239,8 +259,7 @@ a:hover{
 }
 
 .mytrip-icon{
-    width: 40%;
-    height: 40%;
+    width: 80%;
     border: 0.1cm solid black;
     border-radius: 15%;
     cursor: pointer;
@@ -256,8 +275,7 @@ a:hover{
 }
 
 .ticket{
-    width: 90%;
-    height: 90%;
+    width: 7.3cm;
     border: 0.1cm solid black;
     border-radius: 15%;
     display: flex;
@@ -285,4 +303,10 @@ a:hover{
 .stars{
     width: 0.5cm;
     height: 0.5cm;
+}
+
+.dropdown{
+    display: flex;
+    border-radius: 15%;
+    border: 0.1cm solid black;
 }
