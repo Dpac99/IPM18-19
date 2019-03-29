@@ -13,7 +13,8 @@
     <div class="frame">
         <img class="arrows" onclick="prevHotel()" src="Assets/images/left.png">
         <div class="screen" id="hotel">
-            <div class="top-row-right">
+            <div class="top-row-space-between">
+                <img class="plus-icon" src="Assets/images/trash.png" onclick="deleteHotel()">
                 <img class="plus-icon" src="Assets/images/plus.png" onclick="addHotel()">
             </div>
             <div class="screen-horizontal" style="align-items: center;">
@@ -47,7 +48,7 @@
             </div>
         </div>
         <div class="back" onclick="myTrip()"></div>
-        <img class="arrows" onclick="nextHotel()"  src="Assets/images/right.svg">
+        <img class="arrows" onclick="nextHotel()" src="Assets/images/right.svg">
     </div>
     <script src="Assets/js/helpers.js"></script>
     <script src="Assets/js/hotels.js"></script>

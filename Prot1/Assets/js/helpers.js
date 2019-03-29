@@ -33,7 +33,7 @@ function addHotel(){
     document.location.href="addHotel.html"
 }
 
-function showSpeech(message){
+function showSpeech(){
     let doc = document.getElementById('screen')
     if (doc.classList.length == 1){
         doc.className +=" overlay"
@@ -43,4 +43,25 @@ function showSpeech(message){
         doc.className="screen"
         document.getElementById("textbox").style.display="none"
     }
+}
+
+function buildDate(date){
+    let hours = date.getHours()
+    let min = date.getMinutes()
+    console.log(min)
+    let extra0 = [false, false]
+    if(hours <10){
+        extra0[0] = true
+    }
+    if(min < 10){
+        extra0[1] = true
+    }
+    let s= ""
+    s+=date.getDate().toString() + "/"
+    s+=date.getMonth().toString() + "/"
+    s+=date.getFullYear().toString() + " - "
+
+    extra0[0]? s+="0" + hours.toString() + ":" : s+= hours.toString() + ":"
+    extra0[1]? s+="0" + min.toString() : s+= min.toString()
+    return s
 }
