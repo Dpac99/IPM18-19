@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>myTrip Menu</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div class="frame" id="friends">
+        <div class="screen" style="justify-content: flex-start">
+            <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black;padding-bottom: 0.5cm; ">
+                <span>Friends</span>
+                <img class="plus-icon" src="Assets/images/plus.png">
+            </div>
+            <div class="planBox">
+                <div class="planLine" v-for="f in friends">
+                    <span>{{ f }}</span>
+                    <img class="plus-icon" src="Assets/images/mapicon.svg">
+                </div>
+            </div>
+        </div>
+        <div class="back" onclick="myTrip()"></div>
+    </div>
+    <script src="Assets/js/helpers.js"></script>
+    <script src="Assets/js/friends.js"></script>
+</body>
+
+</html>

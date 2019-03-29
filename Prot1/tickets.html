@@ -16,7 +16,7 @@
             <div class="top-row-right">
                 <img class="plus-icon" src="Assets/images/plus.png">
             </div>
-            <div class="screen-horizontal" style="align-items: center;">
+            <div class="screen-horizontal">
                 <div v-for="(f, i) in flights" v-bind:id="'ticket' + i "class="ticket">
                     <div class="top-row-space-between" style="font-size: 20px;">
                         <span>{{ f.company }}</span>
@@ -45,7 +45,7 @@
         <img class="arrows" onclick="nextFlight()" src="Assets/images/right.svg">
     </div>
 
-    <script src="Assets/js/movement.js"></script>
+    <script src="Assets/js/helpers.js"></script>
     <script src="Assets/js/tickets.js"></script>
 </body>
 
