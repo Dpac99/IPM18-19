@@ -1,5 +1,5 @@
 body{
-    font-family:calibri; 
+    font-family: Tahoma, sans-serif; 
     text-align: center;
 }
 
@@ -173,6 +173,7 @@ a:hover{
 
 .hours{
     font-size: 70px;
+    padding-top: 5px;
 }
 
 .pair{
@@ -223,16 +224,74 @@ a:hover{
     cursor: pointer;
 }
 
-.gauges{
-    border: 0.3cm solid black;
-    border-radius: 50%;
-    width: 1.2cm;
-    height: 1.2cm;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
-}
+.gauge {
+    width: 5em; height: 5em;
+    display: inline-block;
+    background: rgba(0,0,0,0.05);
+    position: relative;
+    border: 1px solid #335;
+    text-indent: -999em;
+    margin: .5em;
+  }
+  
+  .gauge::before {
+    content: attr(data-value);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-indent: 0;
+  }
+  
+  .gauge,
+  .gauge span,
+  .gauge span::before,
+  .gauge span::after {
+    border-radius: 10em; 
+  }
+  
+  .gauge span,
+  .gauge span::before,
+  .gauge span::after {
+    box-sizing: border-box;
+    position: absolute; 
+    top: 0; left: 0; width: 100%; height: 100%;
+  }
+  
+   /*Container clipping handling */   
+  .gauge[data-fill^="6"] span,
+  .gauge[data-fill^="7"] span,
+  .gauge[data-fill^="8"] span,
+  .gauge[data-fill^="9"] span,
+  .gauge[data-fill^="10"] span{ clip: rect(auto,auto,auto,auto)}
+  
+  .gauge span,
+  .gauge[data-fill="6"] span,
+  .gauge[data-fill="7"] span,
+  .gauge[data-fill="8"] span,
+  .gauge[data-fill="9"] span,
+  .gauge[data-fill="10"] span {
+    clip: rect(0, 5em, 5em, 2.5em);
+  }
+  
+  .gauge span::before,
+  .gauge span::after {
+    border: 0.7em solid pink;
+    content: '';
+    clip: rect(0, 2.5em, 5em, 0);
+  }
+  .gauge span::before {
+    transform: rotate(180deg);
+  }
+  
+  /* All the values can be computed by a css pre processor loop */
+  .gauge[data-fill="0"]  span::before{transform: rotate(0deg)}
+  .gauge[data-fill="6"]  span::before{transform: rotate(10.8deg)}
+  .gauge[data-fill="25"] span::before{transform: rotate(90deg)}
+  .gauge[data-fill="33"] span::before{transform: rotate(151.2deg)}
+  .gauge[data-fill="50"] span::before{transform: rotate(180deg)}
+  .gauge[data-fill="66"] span::after{transform: rotate(-118.8deg)}
+  .gauge[data-fill="75"] span::after{transform: rotate(-90deg)}
+
 
 .subtitles{
     font-size: 12px;
