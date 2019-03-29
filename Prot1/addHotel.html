@@ -21,17 +21,41 @@
                 <span onclick="showSpeech()" class="planLine" style="border-bottom: 2px solid black">
                     Name: {{ newHotel.name }}
                 </span>
-                <span class="planLine" style="border-bottom: 2px solid black">Check-in:</span>
-                <span class="planLine" style="border-bottom: 2px solid black">Check-out:</span>
-                <span class="planLine" style="border-bottom: 2px solid black">Room:</span>
+                <span onclick="showHours(1)" class="planLine" style="border-bottom: 2px solid black">
+                    Check-in: {{ newHotel.checkin }}
+                </span>
+                <span onclick="showHours(2)" class="planLine" style="border-bottom: 2px solid black">
+                    Check-out: {{ newHotel.checkout }}
+                </span>
+                <span onclick="showRoom()" class="planLine">
+                    Room: {{ newHotel.room}}
+                </span>
             </div>
         </div>
         <div class="back" onclick="housing()"></div>
-        <div style="display: none" id="textbox">
+        <div style="display: none;margin-left: 0.2cm" id="textbox">
             <div class="pair">
-            Simulate speech by typing here: <input v-model="newHotel.name">
-            <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech()">
+                Simulate speech by typing here: <input v-model="newHotel.name">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech()">
+            </div>
         </div>
+        <div style="display: none;margin-left: 0.2cm" id="checkoutbox">
+            <div class="pair">
+                Checkout date: <input type="datetime-local" v-model="newHotel.pre_checkout">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showHours(2)">
+            </div>
+        </div>
+        <div style="display: none;margin-left: 0.2cm" id="checkinbox">
+            <div class="pair">
+                Checkin date: <input type="datetime-local" v-model="newHotel.pre_checkin">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showHours(1)">
+            </div>
+        </div>
+        <div style="display: none;margin-left: 0.2cm" id="roombox">
+            <div class="pair">
+                Room: <input type="number" min="100" max="500" v-model="newHotel.room">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showRoom()">
+            </div>
         </div>
     </div>
     <script src="Assets/js/hotels.js"></script>

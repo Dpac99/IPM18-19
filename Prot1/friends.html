@@ -11,19 +11,32 @@
 
 <body>
     <div class="frame" id="friends">
-        <div class="screen" style="justify-content: flex-start">
+        <div class="screen" id="screen" style="justify-content: flex-start">
             <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black;padding-bottom: 0.5cm; ">
                 <span>Friends</span>
-                <img class="plus-icon" src="Assets/images/plus.png">
+                <img class="plus-icon" src="Assets/images/plus.png" onclick="showSpeech()">
             </div>
             <div class="planBox">
                 <div class="planLine" v-for="f in friends">
                     <span>{{ f }}</span>
-                    <img class="plus-icon" src="Assets/images/mapicon.svg">
+                    <div>
+                        <img class="plus-icon" src="Assets/images/trash.png" v-on:click="deleteFriend(f)">
+                        <img class="plus-icon" src="Assets/images/mapicon.svg">
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="back" onclick="myTrip()"></div>
+        <div style="display: none;margin-left: 0.2cm" id="textbox">
+            <div class="pair">
+                Simulate speech by typing here: <input v-model="newFriend">
+                <div class="top-row-space-between">
+                <img class="plus-icon" src="Assets/images/cross.png" onclick="showSpeech()">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="addFriend()">
+            </div>
+            </div>
+        </div>
     </div>
     <script src="Assets/js/helpers.js"></script>
     <script src="Assets/js/friends.js"></script>
