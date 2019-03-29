@@ -14,7 +14,7 @@
         <img class="arrows" onclick="prevHotel()" src="Assets/images/left.png">
         <div class="screen" id="hotel">
             <div class="top-row-right">
-                <img class="plus-icon" src="Assets/images/plus.png">
+                <img class="plus-icon" src="Assets/images/plus.png" onclick="addHotel()">
             </div>
             <div class="screen-horizontal" style="align-items: center;">
                 <div v-for="(h,i) in hotels" v-bind:id="'hotel' + i" class="ticket">
@@ -49,7 +49,7 @@
         <div class="back" onclick="myTrip()"></div>
         <img class="arrows" onclick="nextHotel()"  src="Assets/images/right.svg">
     </div>
-    <script src="Assets/js/movement.js"></script>
+    <script src="Assets/js/helpers.js"></script>
     <script src="Assets/js/hotels.js"></script>
 </body>
 

@@ -94,7 +94,7 @@ a:hover{
     justify-content: space-between;
 }
 
-.top-row-space-around, .top-row-space-between, .top-row-right{
+.top-row-space-around, .top-row-space-between, .top-row-right, .top-row-left{
     display: flex;
     flex-direction: row;
     align-items: flex-start; 
@@ -113,6 +113,12 @@ a:hover{
 
 .top-row-right{
     justify-content: flex-end;
+    padding-right: 0.6cm;
+    padding-bottom: 0.1cm;
+}
+
+.top-row-left{
+    justify-content: flex-start;
     padding-right: 0.6cm;
     padding-bottom: 0.1cm;
 }
@@ -309,4 +315,27 @@ a:hover{
     display: flex;
     border-radius: 15%;
     border: 0.1cm solid black;
+}
+
+.planBox{
+    width:100%;
+    overflow-y:scroll;
+}
+
+.planBox::-webkit-scrollbar{
+    display: none;
+}
+
+.planLine{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.3cm;
+    align-items: center;
+}
+
+.overlay{
+    background-color: rgba(0,0,0,0.7);
+    background-image: url(Prot1/Assets/images/microphone.png);
+    background-size: cover;
 }
