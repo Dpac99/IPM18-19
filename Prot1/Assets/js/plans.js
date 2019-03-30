@@ -1,122 +1,30 @@
-var plans = [
-    {
-        date: "05/03/2019",
-        plans:[
-            {
-                content: "Breakfast",
-                time: "08:30"
-            },
-            {
-                content: "Lunch",
-                time: "13:00"
-            },
-            {
-                content: "Museum",
-                time: "14:30"
-            },
-            {
-                content: "Dinner",
-                time: "21:00"
-            },
-            {
-                content: "Disco",
-                time: "01:00"
-            },
-            {
-                content: "Breakfast",
-                time: "08:30"
-            },
-            {
-                content: "Lunch",
-                time: "13:00"
-            },
-            {
-                content: "Museum",
-                time: "14:30"
-            },
-            {
-                content: "Dinner",
-                time: "21:00"
-            },
-            {
-                content: "Disco",
-                time: "01:00"
-            }
-        ]
-    },
-    {
-        date: "06/03/2019",
-        plans:[
-            {
-                content: "Breakfast",
-                time: "08:30"
-            },
-            {
-                content: "Lunch",
-                time: "13:00"
-            },
-            {
-                content: "Museum",
-                time: "14:30"
-            },
-            {
-                content: "Dinner",
-                time: "21:00"
-            },
-            {
-                content: "Disco",
-                time: "01:00"
-            }
-        ]
-    },
-    {
-        date: "07/03/2019",
-        plans:[
-            {
-                content: "Breakfast",
-                time: "08:30"
-            },
-            {
-                content: "Lunch",
-                time: "13:00"
-            },
-            {
-                content: "Museum",
-                time: "14:30"
-            },
-            {
-                content: "Dinner",
-                time: "21:00"
-            },
-            {
-                content: "Disco",
-                time: "01:00"
-            }
-        ]
-    }
-]
-
-currentPlan = 0;
+let globalPlans = JSON.parse(localStorage.getItem("plans"))
+let currentPlan = 0;
 
 var exp = new Vue({
     el: "#plans",
     data:{
-        plans: [],
-        date: ""
+        events: [],
+        date: "",
+        newDate:"",
+        newEvent:{
+            content: "",
+            time:""
+        }
     }
 })
 
 function init(){
-    for( var i=0; i<plans.length; i++){
-        exp.plans.push(plans[i].plans)
-        exp.date = plans[currentPlan].date
+    for( var i=0; i<globalPlans.length; i++){
+        exp.events.push(globalPlans[i].plans)
+        exp.date = globalPlans[currentPlan].date
     }
 }
 
 init()
 
 function nextPlan(){
-    if(currentPlan===plans.length - 1){
+    if(currentPlan===globalPlans.length - 1){
         return;
     }
     currentPlan++
@@ -125,7 +33,7 @@ function nextPlan(){
         behavior: "smooth"
     })
 
-    exp.date=plans[currentPlan].date;
+    exp.date=globalPlans[currentPlan].date;
 }
 
 function prevPlan(){
@@ -137,5 +45,22 @@ function prevPlan(){
     element.scrollIntoView({
         behavior: "smooth"
     })
-    exp.date=plans[currentPlan].date;
+    exp.date=globalPlans[currentPlan].date;
+}
+
+function addNewDay(){
+    let doc = document.getElementById("newdaybox")
+    doc.style.display === 'none'? doc.style.display = "inline" : doc.style.display = "none"
+}
+
+function pushPlan(){
+    let d = new Date(exp.newDate)
+    let s = buildDateNoHours(d)
+    exp.newDate = ""
+    globalPlans.push({
+        date: s,
+        plans:[]
+    })
+    localStorage.setItem("plans", JSON.stringify(globalPlans))
+    location.reload()
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>myTrip Menu</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
+    <script src="Assets/js/helpers.js"></script>
+</head>
+
+<body>
+    <div class="frame" id="hotel">
+        <div class="screen" id="screen" style="justify-content: flex-start">
+            <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black; ">
+                <span style="font-size: 20px">Add Activity</span>
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushHotel()">
+            </div>
+            <div class="screen-body">
+                <span onclick="showSpeech()" class="planLine" style="border-bottom: 2px solid black">
+                    Description: {{ newEvent.content }}
+                </span>
+                <span onclick="showHours(1)" class="planLine" style="border-bottom: 2px solid black">
+                    Time: {{ newEvent.time }}
+                </span>
+            </div>
+        </div>
+        <div class="back" onclick="housing()"></div>
+        <div style="display: none;margin-left: 0.2cm" id="textbox">
+            <div class="pair">
+                Simulate speech by typing here: <input v-model="newHotel.name">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech()">
+            </div>
+        </div>
+        <div style="display: none;margin-left: 0.2cm" id="checkoutbox">
+            <div class="pair">
+                Checkout date: <input type="datetime-local" v-model="newHotel.pre_checkout">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showHours(2)">
+            </div>
+        </div>
+        <div style="display: none;margin-left: 0.2cm" id="checkinbox">
+            <div class="pair">
+                Checkin date: <input type="datetime-local" v-model="newHotel.pre_checkin">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showHours(1)">
+            </div>
+        </div>
+        <div style="display: none;margin-left: 0.2cm" id="roombox">
+            <div class="pair">
+                Room: <input type="number" min="100" max="500" v-model="newHotel.room">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showRoom()">
+            </div>
+        </div>
+    </div>
+    <script src="Assets/js/hotels.js"></script>
+</body>
+
+
+</html>

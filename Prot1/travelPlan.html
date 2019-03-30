@@ -18,10 +18,13 @@
                     <span>Today</span>
                     <span>{{ date }}</span>
                 </div>
-                <img class="plus-icon" src="Assets/images/plus.png">
+                <div>
+                    <img class="plus-icon" src="Assets/images/edit.svg" onclick="editDay()">
+                    <img class="plus-icon" src="Assets/images/plus.png" onclick="addNewDay()">
+                </div>
             </div>
             <div class="screen-horizontal">
-                <div class="planBox" v-for="(p,i) in plans" v-bind:id="'plan' + i">
+                <div class="planBox" v-for="(p,i) in events" v-bind:id="'plan' + i">
                     <div class="planLine" v-for="el in p">
                         <span>{{ el.content }}</span>
                         <span>{{ el.time }}</span>
@@ -31,6 +34,12 @@
         </div>
         <div class="back" onclick="myTrip()"></div>
         <img class="arrows" onclick="nextPlan()" src="Assets/images/right.svg">
+        <div style="display: none;margin-left: 0.2cm" id="newdaybox">
+                <div class="pair">
+                    New Date: <input type="date" v-model="newDate">
+                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushPlan()">
+                </div>
+            </div>
     </div>
     <script src="Assets/js/helpers.js"></script>
     <script src="Assets/js/plans.js"></script>

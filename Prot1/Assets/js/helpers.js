@@ -48,7 +48,6 @@ function showSpeech(){
 function buildDate(date){
     let hours = date.getHours()
     let min = date.getMinutes()
-    console.log(min)
     let extra0 = [false, false]
     if(hours <10){
         extra0[0] = true
@@ -58,10 +57,26 @@ function buildDate(date){
     }
     let s= ""
     s+=date.getDate().toString() + "/"
-    s+=date.getMonth().toString() + "/"
+    s+=(date.getMonth() +1 ).toString() + "/"
     s+=date.getFullYear().toString() + " - "
 
     extra0[0]? s+="0" + hours.toString() + ":" : s+= hours.toString() + ":"
     extra0[1]? s+="0" + min.toString() : s+= min.toString()
     return s
+}
+
+function buildDateNoHours(date){
+    let day = date.getDate()
+    let month = date.getMonth() + 1
+    let year = date.getFullYear()
+    let s = ""
+    if( day < 10){
+        s+="0"
+    }
+    s+=day.toString() + "/"
+    if(month < 10){
+        s+="0"
+    }
+    s+=month.toString() + "/" + year.toString()
+    return s;
 }
