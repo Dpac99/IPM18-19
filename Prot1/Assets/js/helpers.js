@@ -33,6 +33,10 @@ function addHotel(){
     document.location.href="addHotel.html"
 }
 
+function sos(){
+    document.location.href="sos.html"
+}
+
 function showSpeech(){
     let doc = document.getElementById('screen')
     if (doc.classList.length == 1){
