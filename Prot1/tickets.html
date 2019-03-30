@@ -12,9 +12,9 @@
 <body>
     <div class="frame" id="ticket">
         <img class="arrows" onclick="prevFlight()" src="Assets/images/left.png">
-        <div class="screen">
+        <div class="screen" id="screen">
             <div class="top-row-right">
-                <img class="plus-icon" src="Assets/images/plus.png">
+                <img class="plus-icon" src="Assets/images/plus.png" onclick="addTicket()">
             </div>
             <div class="screen-horizontal">
                 <div v-for="(f, i) in flights" v-bind:id="'ticket' + i "class="ticket">

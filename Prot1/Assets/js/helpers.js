@@ -49,6 +49,22 @@ function showSpeech(){
     }
 }
 
+function scanner() {
+    let doc = document.getElementById('screen')
+    if (doc.classList.length == 1){
+        doc.className +=" scan"
+    }
+    else{
+        doc.className="screen"
+    }
+}
+
+function addTicket() {
+    scanner()
+    setTimeout(scanner, 6000)
+}
+
+
 function buildDate(date){
     let hours = date.getHours()
     let min = date.getMinutes()

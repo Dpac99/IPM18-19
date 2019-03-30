@@ -1,5 +1,5 @@
 body{
-    font-family:calibri; 
+    font-family: Tahoma, sans-serif; 
     text-align: center;
 }
 
@@ -188,6 +188,7 @@ a:hover{
 
 .hours{
     font-size: 70px;
+    padding-top: 5px;
 }
 
 .pair{
@@ -248,18 +249,94 @@ a:hover{
     width: 1.2cm;
     height: 1.2cm;
     cursor: pointer;
+    box-shadow: 1px 1px lightslategrey;
 }
 
-.gauges{
-    border: 0.3cm solid black;
-    border-radius: 50%;
-    width: 1.2cm;
-    height: 1.2cm;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
+.gauge {
+    width: 4.5em; height: 4.5em;
+    display: inline-block;
+    background: rgba(80, 77, 77, 0.05);
+    position: relative;
+    border: 1px ;
+    text-indent: -999em;
+    margin: 0.2em;
+    box-shadow: 1px 1px pink ;
+  }
+  
+.gauge::before {
+    content: attr(data-value);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-indent: 0;
 }
+  
+.gauge,
+.gauge span,
+.gauge span::before,
+.gauge span::after {
+    border-radius: 10em; 
+}
+ 
+.gauge span,
+.gauge span::before,
+.gauge span::after {
+    box-sizing: border-box;
+    position: absolute; 
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+  
+  /* Container clipping handling */
+.gauge[data-fill^="6"] span,
+.gauge[data-fill^="7"] span,
+.gauge[data-fill^="8"] span,
+.gauge[data-fill^="9"] span,
+.gauge[data-fill^="10"] span{ clip: rect(auto,auto,auto,auto)}
+  
+.gauge span,
+.gauge[data-fill="6"] span,
+.gauge[data-fill="7"] span,
+.gauge[data-fill="8"] span,
+.gauge[data-fill="9"] span,
+.gauge[data-fill="10"] span {
+clip: rect(0, 4.5em, 4.5em, 2.25em);
+}
+
+.gauge span::before,
+.gauge span::after {
+border: 0.7em solid pink;
+content: '';
+clip: rect(0, 2.25em, 4.5em, 0);
+}
+.gauge span::before {
+transform: rotate(180deg);
+}
+
+
+/* All the values can be computed by a css pre processor loop */
+.gauge[data-fill="0"] span::before{transform: rotate(0deg)}
+.gauge[data-fill="5"] span::before{transform: rotate(18deg)}
+.gauge[data-fill="10"] span::before{transform: rotate(36deg)}
+.gauge[data-fill="15"] span::before{transform: rotate(54deg)}
+.gauge[data-fill="20"] span::before{transform: rotate(72deg)}
+.gauge[data-fill="25"] span::before{transform: rotate(90deg)}
+.gauge[data-fill="30"] span::before{transform: rotate(108deg)}
+.gauge[data-fill="35"] span::before{transform: rotate(126deg)}
+.gauge[data-fill="40"] span::before{transform: rotate(144deg)}
+.gauge[data-fill="45"] span::before{transform: rotate(162deg)}
+.gauge[data-fill="50"] span::before{transform: rotate(180deg)}
+.gauge[data-fill="55"] span::after{transform: rotate(-162deg)}
+.gauge[data-fill="60"] span::after{transform: rotate(-144deg)}
+.gauge[data-fill="65"] span::after{transform: rotate(-126deg)}
+.gauge[data-fill="70"] span::after{transform: rotate(-108deg)}
+.gauge[data-fill="75"] span::after{transform: rotate(-90deg)}
+.gauge[data-fill="80"] span::after{transform: rotate(-72deg)}
+.gauge[data-fill="85"] span::after{transform: rotate(-54deg)}
+.gauge[data-fill="90"] span::after{transform: rotate(-36deg)}
+.gauge[data-fill="95"] span::after{transform: rotate(-18deg)}
+
+
+
 
 .subtitles{
     font-size: 12px;
@@ -288,6 +365,26 @@ a:hover{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.scan {
+    background-color: rgba(0,0,0,0.7);
+    background-size: cover;
+  }
+  
+.scan::after {
+    content: '';
+    position: absolute;
+    width: 7.5cm;
+    height: 11px;
+    background-image: linear-gradient(to bottom,
+      rgba(170, 184, 190, 0),
+      rgba(170, 184, 190, .8));
+    animation: scanning 3s linear infinite;
+}
+
+@keyframes scanning {
+    100% { transform: translate(0, 7cm); }
 }
 
 .qrcode{
