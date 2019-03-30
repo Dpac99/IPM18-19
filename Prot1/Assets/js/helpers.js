@@ -13,6 +13,10 @@ function lock() {
     document.location.href = "protFuncional1-beta.html"
 }
 
+function calling() {
+    document.location.href = "calling.html"
+}
+
 function tickets() {
     document.location.href = "tickets.html"
 }
