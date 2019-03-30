@@ -120,5 +120,6 @@ function showRoom(){
 function deleteHotel(){
     hotels.splice(currentHotel, 1)
     localStorage.setItem("hotels", JSON.stringify(hotels))
-    location.reload()
+    prevHotel()
+    exp.hotels = hotels
 }
