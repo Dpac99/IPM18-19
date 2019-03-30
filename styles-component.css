@@ -181,6 +181,12 @@ a:hover{
     cursor: pointer;
 }
 
+.calling-img{
+    width: 4cm;
+    height: 4cm;
+    cursor: pointer;
+}
+
 .battery{
     width: 0.8cm;
     height: 0.53cm;
