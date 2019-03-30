@@ -47,12 +47,16 @@ a:hover{
 }
 
 .screen{
-    border: 8px solid black;
+    border-left: 7px solid black;
+    border-right: 7px solid black;
+    border-top: 15px solid black;
+    border-bottom: 15px solid black;
     border-radius: 15%;
     width: 7.5cm;
     max-width: 7.5cm;
     height: 7.5cm;
     max-height: 7.5cm;
+    box-shadow: 3px 3px 5px 6px #ccc;
 
     display: flex;
     flex-direction: column;
@@ -65,6 +69,11 @@ a:hover{
     justify-content: space-between;
     align-content: space-around;
     flex-grow: 3;
+}
+
+.screen-horizontal{
+    display: -webkit-inline-box;
+    overflow: hidden;
 }
 
 /* End of screens */
@@ -85,7 +94,7 @@ a:hover{
     justify-content: space-between;
 }
 
-.top-row-space-around, .top-row-space-between, .top-row-right{
+.top-row-space-around, .top-row-space-between, .top-row-right, .top-row-left{
     display: flex;
     flex-direction: row;
     align-items: flex-start; 
@@ -105,7 +114,13 @@ a:hover{
 .top-row-right{
     justify-content: flex-end;
     padding-right: 0.6cm;
-    padding-bottom: 0.21cm;
+    padding-bottom: 0.1cm;
+}
+
+.top-row-left{
+    justify-content: flex-start;
+    padding-right: 0.6cm;
+    padding-bottom: 0.1cm;
 }
 
 .center-row-space-between, 
@@ -180,6 +195,7 @@ a:hover{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .sos{
@@ -207,9 +223,19 @@ a:hover{
 
 .back{
     height: 1.05cm;
+    width: 0.3cm;
+    border-radius: 0 30% 30% 0;
+    background-color: black;
+    position: relative;
+    cursor: pointer;
+    align-self: flex-start;
+    margin-top: 2cm;
+}
+
+.arrows{
+    height: 1.05cm;
     width: 1.05cm;
     border-radius: 30%;
-    background-color: black;
     position: relative;
     cursor: pointer;
     margin-left: 0.5cm;
@@ -222,75 +248,93 @@ a:hover{
     width: 1.2cm;
     height: 1.2cm;
     cursor: pointer;
+    box-shadow: 1px 1px lightslategrey;
 }
 
 .gauge {
-    width: 5em; height: 5em;
+    width: 4.5em; height: 4.5em;
     display: inline-block;
-    background: rgba(0,0,0,0.05);
+    background: rgba(80, 77, 77, 0.05);
     position: relative;
-    border: 1px solid #335;
+    border: 1px ;
     text-indent: -999em;
-    margin: .5em;
+    margin: 0.2em;
+    box-shadow: 1px 1px pink ;
   }
   
-  .gauge::before {
+.gauge::before {
     content: attr(data-value);
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     text-indent: 0;
-  }
+}
   
-  .gauge,
-  .gauge span,
-  .gauge span::before,
-  .gauge span::after {
+.gauge,
+.gauge span,
+.gauge span::before,
+.gauge span::after {
     border-radius: 10em; 
-  }
-  
-  .gauge span,
-  .gauge span::before,
-  .gauge span::after {
+}
+ 
+.gauge span,
+.gauge span::before,
+.gauge span::after {
     box-sizing: border-box;
     position: absolute; 
     top: 0; left: 0; width: 100%; height: 100%;
-  }
+}
   
-   /*Container clipping handling */   
-  .gauge[data-fill^="6"] span,
-  .gauge[data-fill^="7"] span,
-  .gauge[data-fill^="8"] span,
-  .gauge[data-fill^="9"] span,
-  .gauge[data-fill^="10"] span{ clip: rect(auto,auto,auto,auto)}
+  /* Container clipping handling */
+.gauge[data-fill^="6"] span,
+.gauge[data-fill^="7"] span,
+.gauge[data-fill^="8"] span,
+.gauge[data-fill^="9"] span,
+.gauge[data-fill^="10"] span{ clip: rect(auto,auto,auto,auto)}
   
-  .gauge span,
-  .gauge[data-fill="6"] span,
-  .gauge[data-fill="7"] span,
-  .gauge[data-fill="8"] span,
-  .gauge[data-fill="9"] span,
-  .gauge[data-fill="10"] span {
-    clip: rect(0, 5em, 5em, 2.5em);
-  }
-  
-  .gauge span::before,
-  .gauge span::after {
-    border: 0.7em solid pink;
-    content: '';
-    clip: rect(0, 2.5em, 5em, 0);
-  }
-  .gauge span::before {
-    transform: rotate(180deg);
-  }
-  
-  /* All the values can be computed by a css pre processor loop */
-  .gauge[data-fill="0"]  span::before{transform: rotate(0deg)}
-  .gauge[data-fill="6"]  span::before{transform: rotate(10.8deg)}
-  .gauge[data-fill="25"] span::before{transform: rotate(90deg)}
-  .gauge[data-fill="33"] span::before{transform: rotate(151.2deg)}
-  .gauge[data-fill="50"] span::before{transform: rotate(180deg)}
-  .gauge[data-fill="66"] span::after{transform: rotate(-118.8deg)}
-  .gauge[data-fill="75"] span::after{transform: rotate(-90deg)}
+.gauge span,
+.gauge[data-fill="6"] span,
+.gauge[data-fill="7"] span,
+.gauge[data-fill="8"] span,
+.gauge[data-fill="9"] span,
+.gauge[data-fill="10"] span {
+clip: rect(0, 4.5em, 4.5em, 2.25em);
+}
+
+.gauge span::before,
+.gauge span::after {
+border: 0.7em solid pink;
+content: '';
+clip: rect(0, 2.25em, 4.5em, 0);
+}
+.gauge span::before {
+transform: rotate(180deg);
+}
+
+
+/* All the values can be computed by a css pre processor loop */
+.gauge[data-fill="0"] span::before{transform: rotate(0deg)}
+.gauge[data-fill="5"] span::before{transform: rotate(18deg)}
+.gauge[data-fill="10"] span::before{transform: rotate(36deg)}
+.gauge[data-fill="15"] span::before{transform: rotate(54deg)}
+.gauge[data-fill="20"] span::before{transform: rotate(72deg)}
+.gauge[data-fill="25"] span::before{transform: rotate(90deg)}
+.gauge[data-fill="30"] span::before{transform: rotate(108deg)}
+.gauge[data-fill="35"] span::before{transform: rotate(126deg)}
+.gauge[data-fill="40"] span::before{transform: rotate(144deg)}
+.gauge[data-fill="45"] span::before{transform: rotate(162deg)}
+.gauge[data-fill="50"] span::before{transform: rotate(180deg)}
+.gauge[data-fill="55"] span::after{transform: rotate(-162deg)}
+.gauge[data-fill="60"] span::after{transform: rotate(-144deg)}
+.gauge[data-fill="65"] span::after{transform: rotate(-126deg)}
+.gauge[data-fill="70"] span::after{transform: rotate(-108deg)}
+.gauge[data-fill="75"] span::after{transform: rotate(-90deg)}
+.gauge[data-fill="80"] span::after{transform: rotate(-72deg)}
+.gauge[data-fill="85"] span::after{transform: rotate(-54deg)}
+.gauge[data-fill="90"] span::after{transform: rotate(-36deg)}
+.gauge[data-fill="95"] span::after{transform: rotate(-18deg)}
+
+
 
 
 .subtitles{
@@ -298,8 +342,7 @@ a:hover{
 }
 
 .mytrip-icon{
-    width: 40%;
-    height: 40%;
+    width: 80%;
     border: 0.1cm solid black;
     border-radius: 15%;
     cursor: pointer;
@@ -315,13 +358,32 @@ a:hover{
 }
 
 .ticket{
-    width: 90%;
-    height: 90%;
+    width: 7.3cm;
     border: 0.1cm solid black;
     border-radius: 15%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.scan {
+    background-color: rgba(0,0,0,0.7);
+    background-size: cover;
+  }
+  
+.scan::after {
+    content: '';
+    position: absolute;
+    width: 7.5cm;
+    height: 11px;
+    background-image: linear-gradient(to bottom,
+      rgba(170, 184, 190, 0),
+      rgba(170, 184, 190, .8));
+    animation: scanning 3s linear infinite;
+}
+
+@keyframes scanning {
+    100% { transform: translate(0, 7cm); }
 }
 
 .qrcode{
@@ -344,4 +406,33 @@ a:hover{
 .stars{
     width: 0.5cm;
     height: 0.5cm;
+}
+
+.dropdown{
+    display: flex;
+    border-radius: 15%;
+    border: 0.1cm solid black;
+}
+
+.planBox{
+    width:100%;
+    overflow-y:scroll;
+}
+
+.planBox::-webkit-scrollbar{
+    display: none;
+}
+
+.planLine{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.3cm;
+    align-items: center;
+}
+
+.overlay{
+    background-color: rgba(0,0,0,0.7);
+    background-image: url(Prot1/Assets/images/microphone.png);
+    background-size: cover;
 }

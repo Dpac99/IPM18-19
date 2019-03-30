@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>myTrip Menu</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
+    <script src="Assets/js/helpers.js"></script>
+</head>
+
+<body>
+    <div class="frame" id="hotel">
+        <div class="screen" id="screen" style="justify-content: flex-start">
+            <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black; ">
+                <span style="font-size: 20px">Add Hotel</span>
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushHotel()">
+            </div>
+            <div class="screen-body">
+                <span onclick="showSpeech()" class="planLine" style="border-bottom: 2px solid black">
+                    Name: {{ newHotel.name }}
+                </span>
+                <span class="planLine" style="border-bottom: 2px solid black">Check-in:</span>
+                <span class="planLine" style="border-bottom: 2px solid black">Check-out:</span>
+                <span class="planLine" style="border-bottom: 2px solid black">Room:</span>
+            </div>
+        </div>
+        <div class="back" onclick="housing()"></div>
+        <div style="display: none" id="textbox">
+            <div class="pair">
+            Simulate speech by typing here: <input v-model="newHotel.name">
+            <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech()">
+        </div>
+        </div>
+    </div>
+    <script src="Assets/js/hotels.js"></script>
+</body>
+
+
+</html>

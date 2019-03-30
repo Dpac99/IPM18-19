@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>myTrip Menu</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+</head>
+
+<body>
+    <div class="frame">
+        <div class="screen">
+            <div class="screen-body">
+                <div class="top-row-space-around">
+                    <div class="pair" style="width:45%">
+                        <img class="mytrip-icon" src="Assets/images/tickets.png" onclick="tickets()">
+                        <span class="subtitles">Tickets</span>
+                    </div>
+                    <div class="pair" style="width:45%">
+                        <img class="mytrip-icon" src="Assets/images/bed.png" onclick="housing()">
+                        <span class="subtitles">Housing</span>
+                    </div>
+                </div>
+                <div class="bottom-row-space-around">
+                    <div class="pair" style="width:45%">
+                        <img class="mytrip-icon" src="Assets/images/plan.png" onclick="travelPlan()">
+                        <span class="subtitles">Travel Plan</span>
+                    </div>
+                    <div class="pair" style="width:45%">
+                        <img class="mytrip-icon" src="Assets/images/friends.png" onclick="travelFriends()">
+                        <span class="subtitles">Travel Friends</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="back" onclick="mainMenu()"></div>
+    </div>
+    <script src="Assets/js/helpers.js"></script>
+</body>
+
+</html>

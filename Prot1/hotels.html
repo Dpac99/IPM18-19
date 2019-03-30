@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>myTrip Menu</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div class="frame">
+        <img class="arrows" onclick="prevHotel()" src="Assets/images/left.png">
+        <div class="screen" id="hotel">
+            <div class="top-row-right">
+                <img class="plus-icon" src="Assets/images/plus.png" onclick="addHotel()">
+            </div>
+            <div class="screen-horizontal" style="align-items: center;">
+                <div v-for="(h,i) in hotels" v-bind:id="'hotel' + i" class="ticket">
+                    <div class="top-row-space-between">
+                        <span style="font-size: 20px;text-align: left;padding-bottom: 0.4cm">{{ h.name }}</span>
+                        <div class=center-row-space-between">
+                            <img v-for="star in h.stars" class="stars" src="Assets/images/star.png">
+                        </div>
+                    </div>
+                    <div class="center-row-left">
+                        <div class="pair" style="align-items:flex-start;padding-bottom: 0.2cm">
+                            <span class="subtitles">Check-in: {{ h.checkin }}</span>
+                            <span class="subtitles">Check-out: {{ h.checkout }}</span>
+                        </div>
+                    </div>
+                    <div class="center-row-space-between">
+                        <div class="pair" style="align-items:flex-start;padding-left: 0.2cm;padding-bottom: 0.2cm">
+                            <span>{{ h.address }}</span>
+                            <span>{{ h.contact }}</span>
+                        </div>
+                        <img class="plus-icon" src="Assets/images/mapicon.svg">
+                    </div>
+                    <div class="bottom-row-left">
+                        <span>Room {{ h.room }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-row-center" style="padding-top: 0.2cm;">
+                <span v-for="dot in dots" v-bind:class="dot.class"></span>
+            </div>
+        </div>
+        <div class="back" onclick="myTrip()"></div>
+        <img class="arrows" onclick="nextHotel()"  src="Assets/images/right.svg">
+    </div>
+    <script src="Assets/js/helpers.js"></script>
+    <script src="Assets/js/hotels.js"></script>
+</body>
+
+</html>

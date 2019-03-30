@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>myTrip Menu</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div class="frame" id="plans">
+        <img class="arrows" onclick="prevPlan()" src="Assets/images/left.png">
+        <div class="screen" style="justify-content: flex-start">
+            <div class="top-row-space-between" style="border-radius: 15%;border-bottom: 2px solid black;padding-bottom: 0.5cm ">
+                <div class="pair" style="align-items: flex-start;margin-left: 0.5cm;">
+                    <span>Today</span>
+                    <span>{{ date }}</span>
+                </div>
+                <img class="plus-icon" src="Assets/images/plus.png">
+            </div>
+            <div class="screen-horizontal">
+                <div class="planBox" v-for="(p,i) in plans" v-bind:id="'plan' + i">
+                    <div class="planLine" v-for="el in p">
+                        <span>{{ el.content }}</span>
+                        <span>{{ el.time }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="back" onclick="myTrip()"></div>
+        <img class="arrows" onclick="nextPlan()" src="Assets/images/right.svg">
+    </div>
+    <script src="Assets/js/plans.js"></script>
+    <script src="Assets/js/plans.js"></script>
+</body>
+
+</html>
