@@ -3,7 +3,9 @@ var newHotelTemplate = {
     name: "",
     checkin: "",
     checkout: "",
-    room: ""
+    room: "",
+    pre_checkin: "",
+    pre_checkout: "",
 }
 
 var exp = new Vue({
@@ -11,12 +13,7 @@ var exp = new Vue({
     data: {
         hotels: [],
         dots: [],
-        newHotel: {
-            name: "",
-            checkin: "",
-            checkout: "",
-            room: ""
-        }
+        newHotel: newHotelTemplate
     }
 })
 
@@ -92,4 +89,37 @@ function pushHotel() {
     localStorage.setItem("hotels", JSON.stringify(hotels))
     exp.newHotel = newHotelTemplate
     housing()
+}
+
+function showHours(type) {
+    let doc
+    if (type === 1) {
+        doc = document.getElementById("checkinbox")
+    }
+    else if (type === 2) {
+        doc = document.getElementById("checkoutbox")
+    }
+    if (doc.style.display === "none") {
+        doc.style.display = "inline";
+        return;
+    }
+    else {
+        let date
+        type === 1 ? date = new Date(exp.newHotel.pre_checkin) : date = new Date(exp.newHotel.pre_checkout)
+        let s = buildDate(date)
+        type === 1 ? exp.newHotel.checkin = s : exp.newHotel.checkout = s
+        doc.style.display = "none"
+    }
+}
+
+function showRoom(){
+    let doc = document.getElementById("roombox")
+    doc.style.display === "none"? doc.style.display= "inline" : doc.style.display="none"
+}
+
+function deleteHotel(){
+    hotels.splice(currentHotel, 1)
+    localStorage.setItem("hotels", JSON.stringify(hotels))
+    prevHotel()
+    exp.hotels = hotels
 }

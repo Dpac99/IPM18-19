@@ -14,21 +14,15 @@
     <div class="frame" id="hotel">
         <div class="screen" id="screen" style="justify-content: flex-start">
             <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black; ">
-                <span style="font-size: 20px">Add Hotel</span>
+                <span style="font-size: 20px">Add Activity</span>
                 <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushHotel()">
             </div>
             <div class="screen-body">
                 <span onclick="showSpeech()" class="planLine" style="border-bottom: 2px solid black">
-                    Name: {{ newHotel.name }}
+                    Description: {{ newEvent.content }}
                 </span>
                 <span onclick="showHours(1)" class="planLine" style="border-bottom: 2px solid black">
-                    Check-in: {{ newHotel.checkin }}
-                </span>
-                <span onclick="showHours(2)" class="planLine" style="border-bottom: 2px solid black">
-                    Check-out: {{ newHotel.checkout }}
-                </span>
-                <span onclick="showRoom()" class="planLine">
-                    Room: {{ newHotel.room}}
+                    Time: {{ newEvent.time }}
                 </span>
             </div>
         </div>

@@ -33,7 +33,11 @@ function addHotel(){
     document.location.href="addHotel.html"
 }
 
-function showSpeech(message){
+function sos(){
+    document.location.href="sos.html"
+}
+
+function showSpeech(){
     let doc = document.getElementById('screen')
     if (doc.classList.length == 1){
         doc.className +=" overlay"
@@ -61,3 +65,38 @@ function addTicket() {
 }
 
 
+function buildDate(date){
+    let hours = date.getHours()
+    let min = date.getMinutes()
+    let extra0 = [false, false]
+    if(hours <10){
+        extra0[0] = true
+    }
+    if(min < 10){
+        extra0[1] = true
+    }
+    let s= ""
+    s+=date.getDate().toString() + "/"
+    s+=(date.getMonth() +1 ).toString() + "/"
+    s+=date.getFullYear().toString() + " - "
+
+    extra0[0]? s+="0" + hours.toString() + ":" : s+= hours.toString() + ":"
+    extra0[1]? s+="0" + min.toString() : s+= min.toString()
+    return s
+}
+
+function buildDateNoHours(date){
+    let day = date.getDate()
+    let month = date.getMonth() + 1
+    let year = date.getFullYear()
+    let s = ""
+    if( day < 10){
+        s+="0"
+    }
+    s+=day.toString() + "/"
+    if(month < 10){
+        s+="0"
+    }
+    s+=month.toString() + "/" + year.toString()
+    return s;
+}

@@ -207,6 +207,7 @@ a:hover{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    cursor: pointer;
 }
 
 .blank{
@@ -435,4 +436,31 @@ transform: rotate(180deg);
     background-color: rgba(0,0,0,0.7);
     background-image: url(Prot1/Assets/images/microphone.png);
     background-size: cover;
+}
+
+.sosBpm{
+    font-size: 40px;
+}
+
+.sosBpmNumber{
+    font-size: 30px;
+}
+
+.sosRectangles{
+    width: 6cm;
+    margin-left: 0.7cm;
+    border: 0.1cm solid black;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.right-arrow-icon{
+    border: 0cm solid black;
+    border-radius: 15%;
+    width: 0.7cm;
+    height: 0.7cm;
+    cursor: pointer;
+    margin: 3px;
 }
