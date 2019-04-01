@@ -1,37 +1,4 @@
-var flights = [
-    {
-        company: "Ryanair",
-        itinerary: "LIS-OPO",
-        number: "2543",
-        seat: "28A",
-        date: "11/03/2019",
-        time: "06:15",
-    },
-    {
-        company: "Ryanair",
-        itinerary: "OPO-LIS",
-        number: "2271",
-        seat: "24A",
-        date: "18/03/2019",
-        time: "18:55",
-    },
-    {
-        company: "TAP",
-        itinerary: "LIS-PDL",
-        number: "1371",
-        seat: "2A",
-        date: "19/05/2019",
-        time: "19:05",
-    },
-    {
-        company: "TAP",
-        itinerary: "PDL-LIS",
-        number: "1149",
-        seat: "5F",
-        date: "22/06/2019",
-        time: "10:25",
-    }
-]
+var flights = JSON.parse(localStorage.getItem("flights"))
 
 var currentFlight = 0;
 
