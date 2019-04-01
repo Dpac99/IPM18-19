@@ -34,7 +34,6 @@ if (localStorage.getItem("hotels") === null) {
         "Tiago Le",
         "Diogo Pacheco",
         "Andreia Pereira",
-        "Alfredo Santa Cona",
         "Pedro Lamego",
         "Joao Silva",
     ]))
