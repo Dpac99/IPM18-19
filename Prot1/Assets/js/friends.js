@@ -6,9 +6,11 @@ var exp = new Vue({
     },
     methods:{
         deleteFriend: function(name){
-            let i = friends.findIndex(function(el){
-                el === name
-            })
+            function findName(s){
+                return s === name
+            }
+            let i = friends.findIndex(findName)
+            console.log(friends[i])
             friends.splice(i,1)
             localStorage.setItem("friends", JSON.stringify(friends))
             location.reload()
