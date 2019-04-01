@@ -18,7 +18,6 @@ var exp = new Vue({
 })
 
 let hotels = JSON.parse(localStorage.getItem("hotels"))
-console.log(hotels)
 
 function init() {
     for (i = 0; i < hotels.length; i++) {

@@ -10,7 +10,6 @@ var exp = new Vue({
                 return s === name
             }
             let i = friends.findIndex(findName)
-            console.log(friends[i])
             friends.splice(i,1)
             localStorage.setItem("friends", JSON.stringify(friends))
             location.reload()
