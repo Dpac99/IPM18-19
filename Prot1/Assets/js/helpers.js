@@ -59,11 +59,6 @@ function scanner() {
     }
 }
 
-function addTicket() {
-    scanner()
-    setTimeout(scanner, 6000)
-}
-
 
 function buildDate(date){
     let hours = date.getHours()

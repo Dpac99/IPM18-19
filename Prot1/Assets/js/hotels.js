@@ -101,7 +101,7 @@ function showHours(type) {
     }
     if (doc.style.display === "none") {
         doc.style.display = "inline";
-        return;
+        return;TreeWalker
     }
     else {
         let date

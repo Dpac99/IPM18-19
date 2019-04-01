@@ -33,6 +33,8 @@ var flights = [
     }
 ]
 
+
+
 var currentFlight = 0;
 
 var exp = new Vue({
@@ -101,3 +103,16 @@ function prevFlight() {
     })
     updateDots()
 }
+
+function addTicket() {
+    scanner()
+    setTimeout(scanner, 6000)
+    exp.flights.push({
+            company: "Ryanair ",
+            itinerary: "LIS- LDN",
+            number: "1148",
+            seat: "30F",
+            date: "25/06/2019",
+            time: "11:25",
+    })
+} 
