@@ -12,13 +12,14 @@
 <body>
     <div class="frame" id="ticket">
         <img class="arrows" onclick="prevFlight()" src="Assets/images/left.png">
+        <div class="lock" onclick="lock()"></div>
         <div class="screen" id="screen">
             <div class="top-row-right">
                 <img class="plus-icon" src="Assets/images/plus.png" onclick="addTicket()">
                 <img class="delete-icon" src="Assets/images/trash.png" onclick="addTicket()">
             </div>
             <div class="screen-horizontal">
-                <div v-for="(f, i) in flights" v-bind:id="'ticket' + i "class="ticket">
+                <div v-for="(f, i) in flights" v-bind:id="'ticket' + i " class="ticket">
                     <div class="top-row-space-between" style="font-size: 20px;">
                         <span>{{ f.company }}</span>
                         <span>{{ f.itinerary }}</span>
@@ -34,12 +35,22 @@
                         </div>
                     </div>
                     <div class="bottom-row-space-around" id="code">
+                        <div class="icon" style="border: white;box-shadow:none"></div>
                         <img v-bind:src="qrcode" class="qrcode">
+                        <img src="Assets/images/trash.png" class="plus-icon" onclick="deleteTicket()">
                     </div>
                 </div>
             </div>
             <div class="bottom-row-center" id="dots" style="padding-top: 0.2cm;">
                 <span v-for="dot in dots" v-bind:class="dot.class">
+            </div>
+        </div>
+        <div class="screen confirm" id="confirm" style="display: none">
+            <img style="align-self: center;" class="img2" src="Assets/images/question.png">
+            <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
+            <div class="center-row-space-around">
+                <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
+                <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
             </div>
         </div>
         <div class="back" onclick="myTrip()"></div>
