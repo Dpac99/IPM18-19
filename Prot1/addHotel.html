@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <div class="frame" id="hotel">
+    <div class="frame" id="hotels">
+        <div class="lock" onclick="lock()"></div>
         <div class="screen" id="screen" style="justify-content: flex-start">
             <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black; ">
                 <span style="font-size: 20px">Add Hotel</span>
@@ -30,6 +31,14 @@
                 <span onclick="showRoom()" class="planLine">
                     Room: {{ newHotel.room}}
                 </span>
+            </div>
+        </div>
+        <div class="screen confirm" id="confirm" style="display: none">
+            <img style="align-self: center;" class="img2" src="Assets/images/question.png">
+            <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
+            <div class="center-row-space-around">
+                <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
+                <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
             </div>
         </div>
         <div class="back" onclick="housing()"></div>

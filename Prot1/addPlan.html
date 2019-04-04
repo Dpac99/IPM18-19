@@ -7,53 +7,61 @@
     <link rel="stylesheet" href="../styles-component.css">
     <style type="css"></style>
     <script src="Assets/js/vue.js"></script>
-    <script src="Assets/js/helpers.js"></script>
 </head>
 
 <body>
-    <div class="frame" id="hotel">
+    <div class="frame" id="plans">
+        <div class="lock" onclick="lock()"></div>
         <div class="screen" id="screen" style="justify-content: flex-start">
-            <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black; ">
-                <span style="font-size: 20px">Add Activity</span>
-                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushHotel()">
+            <div class="top-row-space-between" style="border-radius: 15%;border-bottom: 2px solid black;padding-bottom: 0.9cm ">
+                <div class="pair" style="align-items: flex-start;margin-left: 0.5cm;">
+                    <span>Today</span>
+                    <span>{{ date }}</span>
+                </div>
+                <div>
+                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="confirmChanges()">
+                </div>
             </div>
-            <div class="screen-body">
-                <span onclick="showSpeech()" class="planLine" style="border-bottom: 2px solid black">
-                    Description: {{ newEvent.content }}
-                </span>
-                <span onclick="showHours(1)" class="planLine" style="border-bottom: 2px solid black">
-                    Time: {{ newEvent.time }}
-                </span>
+            <div class="planBox">
+                <div class="planLine" v-for="(el,i) in current" v-bind:id="'activity' + i">
+                    <div style="display: flex; flex-direction: row; justify-content: space-between">
+                        <span>{{ el.content }} |</span>
+                        <span>{{ el.time }}</span>
+                    </div>
+                    <div>
+                        <img class="plus-icon" src="Assets/images/edit-icon-6.png" v-on:click="editActivity(i)">
+                        <img class="plus-icon" src="Assets/images/cross.png" v-on:click="deleteActivity(i)">
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="back" onclick="housing()"></div>
-        <div style="display: none;margin-left: 0.2cm" id="textbox">
-            <div class="pair">
-                Simulate speech by typing here: <input v-model="newHotel.name">
-                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech()">
-            </div>
-        </div>
-        <div style="display: none;margin-left: 0.2cm" id="checkoutbox">
-            <div class="pair">
-                Checkout date: <input type="datetime-local" v-model="newHotel.pre_checkout">
-                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showHours(2)">
-            </div>
-        </div>
-        <div style="display: none;margin-left: 0.2cm" id="checkinbox">
-            <div class="pair">
-                Checkin date: <input type="datetime-local" v-model="newHotel.pre_checkin">
-                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showHours(1)">
+            <div class="bottom-row-space-around" style="align-items: center;border-radius: 15%;border-top: 2px solid black;padding-top: 0.5cm">
+                <img class="plus-icon" src="Assets/images/left.png" onclick="goBack()">
             </div>
         </div>
-        <div style="display: none;margin-left: 0.2cm" id="roombox">
+        <div class="screen confirm" id="confirm" style="display: none">
+            <img style="align-self: center;" class="img2" src="Assets/images/question.png">
+            <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
+            <div class="center-row-space-around">
+                <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
+                <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
+            </div>
+        </div>
+        <div class="back" onclick="travelPlan()"></div>
+        <div style="display: none;margin-left: 0.2cm" id="newdaybox">
             <div class="pair">
-                Room: <input type="number" min="100" max="500" v-model="newHotel.room">
-                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showRoom()">
+                <div class="pair">
+                    New Label: <input  v-model="newDate">
+                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushPlan()">
+                </div>
+                <div class="pair">
+                    New Date: <input type="date" v-model="newDate">
+                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushPlan()">
+                </div>
             </div>
         </div>
     </div>
-    <script src="Assets/js/hotels.js"></script>
+    <script src="Assets/js/helpers.js"></script>
+    <script src="Assets/js/plans.js"></script>
 </body>
-
 
 </html>

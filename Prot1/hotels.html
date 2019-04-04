@@ -10,11 +10,11 @@
 </head>
 
 <body>
-    <div class="frame">
+    <div class="frame" id="hotels">
         <img class="arrows" onclick="prevHotel()" src="Assets/images/left.png">
-        <div class="screen" id="hotel">
-            <div class="top-row-space-between">
-                <img class="plus-icon" src="Assets/images/trash.png" onclick="deleteHotel()">
+        <div class="lock" onclick="lock()"></div>
+        <div class="screen" id="screen">
+            <div class="top-row-right">
                 <img class="plus-icon" src="Assets/images/plus.png" onclick="addHotel()">
             </div>
             <div class="screen-horizontal" style="align-items: center;">
@@ -26,25 +26,36 @@
                         </div>
                     </div>
                     <div class="center-row-left">
-                        <div class="pair" style="align-items:flex-start;padding-bottom: 0.2cm">
+                        <div class="pair" style="align-items:flex-start;padding-bottom: 0.4cm">
                             <span class="subtitles">Check-in: {{ h.checkin }}</span>
                             <span class="subtitles">Check-out: {{ h.checkout }}</span>
                         </div>
                     </div>
                     <div class="center-row-space-between">
                         <div class="pair" style="align-items:flex-start;padding-left: 0.2cm;padding-bottom: 0.2cm">
-                            <span>{{ h.address }}</span>
-                            <span>{{ h.contact }}</span>
+                            <div class="pair" style="align-items: flex-start">
+                                <span>{{ h.address }}</span>
+                                <span>{{ h.contact }}</span>
+                            </div>
+                            <span>Room {{ h.room }}</span>
                         </div>
                         <img class="plus-icon" src="Assets/images/mapicon.svg">
                     </div>
-                    <div class="bottom-row-left">
-                        <span>Room {{ h.room }}</span>
+                    <div class="bottom-row-space-around">
+                        <img class="circle-icon" src="Assets/images/cross.png" onclick="deleteHotel()">
                     </div>
                 </div>
             </div>
             <div class="bottom-row-center" style="padding-top: 0.2cm;">
                 <span v-for="dot in dots" v-bind:class="dot.class"></span>
+            </div>
+        </div>
+        <div class="screen confirm" id="confirm" style="display: none">
+            <img class="img2" src="Assets/images/question.png" style="align-self: center;">
+            <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
+            <div class="center-row-space-around">
+                <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
+                <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
             </div>
         </div>
         <div class="back" onclick="myTrip()"></div>

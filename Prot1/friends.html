@@ -11,6 +11,7 @@
 
 <body>
     <div class="frame" id="friends">
+        <div class="lock" onclick="lock()"></div>
         <div class="screen" id="screen" style="justify-content: flex-start">
             <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black;padding-bottom: 0.5cm; ">
                 <span>Friends</span>
@@ -32,9 +33,9 @@
             <div class="pair">
                 Simulate speech by typing here: <input v-model="newFriend">
                 <div class="top-row-space-between">
-                <img class="plus-icon" src="Assets/images/cross.png" onclick="showSpeech()">
-                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="addFriend()">
-            </div>
+                    <img class="plus-icon" src="Assets/images/cross.png" onclick="showSpeech()">
+                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="addFriend()">
+                </div>
             </div>
         </div>
     </div>

@@ -86,4 +86,15 @@ function addTicket() {
     exp.flights = []
     exp.dots = []
     init()
-} 
+}
+
+function deleteTicketAux(){
+    flights.splice(currentFlight, 1)
+    localStorage.setItem("flights", JSON.stringify(flights))
+    prevFlight()
+    exp.flights = flights
+}
+
+function deleteTicket() {
+    confirmation(deleteTicketAux , tickets, "Delete this flight?")
+}

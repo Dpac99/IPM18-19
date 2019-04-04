@@ -9,7 +9,7 @@ var newHotelTemplate = {
 }
 
 var exp = new Vue({
-    el: "#hotel",
+    el: "#hotels",
     data: {
         hotels: [],
         dots: [],
@@ -17,7 +17,7 @@ var exp = new Vue({
     }
 })
 
-let hotels = JSON.parse(localStorage.getItem("hotels"))
+var hotels = JSON.parse(localStorage.getItem("hotels"))
 
 function init() {
     for (i = 0; i < hotels.length; i++) {
@@ -73,7 +73,7 @@ function toggleDropdown() {
     exp.dropdown = !exp.dropdown
 }
 
-function pushHotel() {
+function pushHotelAux(){
     hotels.push(
         {
             name: exp.newHotel.name,
@@ -90,6 +90,10 @@ function pushHotel() {
     housing()
 }
 
+function pushHotel() {
+    confirmation(pushHotelAux,addHotel, "Add this hotel?")
+}
+
 function showHours(type) {
     let doc
     if (type === 1) {
@@ -100,7 +104,7 @@ function showHours(type) {
     }
     if (doc.style.display === "none") {
         doc.style.display = "inline";
-        return;TreeWalker
+        return;
     }
     else {
         let date
@@ -111,14 +115,19 @@ function showHours(type) {
     }
 }
 
-function showRoom(){
+function showRoom() {
     let doc = document.getElementById("roombox")
-    doc.style.display === "none"? doc.style.display= "inline" : doc.style.display="none"
+    doc.style.display === "none" ? doc.style.display = "inline" : doc.style.display = "none"
 }
 
-function deleteHotel(){
+function deleteHotelsAux(){
     hotels.splice(currentHotel, 1)
     localStorage.setItem("hotels", JSON.stringify(hotels))
     prevHotel()
     exp.hotels = hotels
+}
+
+
+function deleteHotel() {
+    confirmation(deleteHotelsAux, housing, "Delete this hotel?")
 }

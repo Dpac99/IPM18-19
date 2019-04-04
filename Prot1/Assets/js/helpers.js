@@ -107,3 +107,27 @@ function buildDateNoHours(date){
     s+=month.toString() + "/" + year.toString()
     return s;
 }
+
+function toggleConfirmation(){
+    var screen = document.getElementById("screen")
+    var confirm_ = document.getElementById("confirm")
+
+    if(screen.style.display === "none"){
+        screen.style.display = "flex"
+        confirm_.style.display= "none"
+    }
+    else{
+        screen.style.display = "none"
+        confirm_.style.display= "flex"
+    }
+}
+
+function confirmation(func, back, message){
+    document.getElementById("confirmText").innerHTML = message
+    toggleConfirmation()
+    document.getElementById("yes").addEventListener("click", func)
+    document.getElementById("yes").addEventListener("click", toggleConfirmation)
+    document.getElementById("no").addEventListener("click", back)
+    document.getElementById("no").addEventListener("click", toggleConfirmation)
+    
+}
