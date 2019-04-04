@@ -87,3 +87,21 @@ function addTicket() {
     exp.dots = []
     init()
 } 
+
+function deleteTicket(){
+    if(currentFlight == flights.length){
+        var end = 1;
+    }
+    flights.splice(currentFlight,1)
+
+    if(end == 1){
+        currentFlight--
+    }
+    else{
+        currentFlight++
+    }
+    localStorage.setItem("flights", JSON.stringify(flights))
+    exp.flights = []
+    exp.dots = []
+    init()
+}

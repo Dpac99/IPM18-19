@@ -15,6 +15,7 @@
         <div class="screen" id="screen">
             <div class="top-row-right">
                 <img class="plus-icon" src="Assets/images/plus.png" onclick="addTicket()">
+                <img class="delete-icon" src="Assets/images/trash.png" onclick="addTicket()">
             </div>
             <div class="screen-horizontal">
                 <div v-for="(f, i) in flights" v-bind:id="'ticket' + i "class="ticket">
