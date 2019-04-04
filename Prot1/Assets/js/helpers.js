@@ -9,6 +9,14 @@ function myTrip() {
     document.location.href = "myTripScreen.html"
 }
 
+function settings() {
+    document.location.href = "settings.html"
+}
+
+function privacy() {
+    document.location.href = "privacy.html"
+}
+
 function lock() {
     document.location.href = "protFuncional1-beta.html"
 }
