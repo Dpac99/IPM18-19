@@ -10,6 +10,14 @@ var exp = new Vue({
         newEvent:{
             content: "",
             time:""
+        },
+        current: [],
+        activity: null
+    },
+    methods:{
+        deleteActivity: function(i){
+            exp.activity = i
+            confirmation(deleteActivity, editDay, "Delete this activity?")
         }
     }
 })
@@ -19,6 +27,7 @@ function init(){
         exp.events.push(globalPlans[i].plans)
         exp.date = globalPlans[currentPlan].date
     }
+    exp.current = globalPlans[currentPlan].plans
 }
 
 init()
@@ -34,6 +43,7 @@ function nextPlan(){
     })
 
     exp.date=globalPlans[currentPlan].date;
+    exp.current = globalPlans[currentPlan].plans
 }
 
 function prevPlan(){
@@ -46,6 +56,7 @@ function prevPlan(){
         behavior: "smooth"
     })
     exp.date=globalPlans[currentPlan].date;
+    exp.current = globalPlans[currentPlan].plans
 }
 
 function addNewDay(){
@@ -53,7 +64,7 @@ function addNewDay(){
     doc.style.display === 'none'? doc.style.display = "inline" : doc.style.display = "none"
 }
 
-function pushPlan(){
+function pushPlanAux(){
     let d = new Date(exp.newDate)
     let s = buildDateNoHours(d)
     exp.newDate = ""
@@ -63,4 +74,42 @@ function pushPlan(){
     })
     localStorage.setItem("plans", JSON.stringify(globalPlans))
     location.reload()
+}
+
+function pushPlan(){
+    confirmation(pushPlanAux, travelPlan, "Add this day?")
+}
+
+function deleteDayAux(){
+    globalPlans.splice(currentPlan,1)
+    localStorage.setItem("plans", JSON.stringify(globalPlans))
+    prevPlan()
+    exp.plans = globalPlans
+}
+
+function deleteDay(){
+    confirmation(deleteDayAux,travelPlan, "Delete this day?")
+}
+
+function editDay(){
+    document.location.href="addPlan.html"
+}
+
+function deleteActivity(){
+    exp.current.splice(exp.activity, 1)
+}
+
+function goBack(){
+    confirmation(travelPlan,editDay, "Go Back? Changes are not saved.")
+}
+
+function confirmChangesAux(){
+    globalPlans[currentPlan].plans = exp.current
+    localStorage.setItem("plans", JSON.stringify(globalPlans))
+    exp.plans = globalPlans
+    travelPlan()
+}
+
+function confirmChanges(){
+    confirmation(confirmChangesAux, editDay, "Confirm changes and go back?")
 }

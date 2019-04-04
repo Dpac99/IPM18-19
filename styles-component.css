@@ -85,7 +85,7 @@ a:hover{
     flex-direction: row;
     padding-right: 0.6cm;
     padding-left: 0.6cm;
-    padding-bottom:0.18cm;
+    padding-bottom:0.1cm;
     font-size: 20px;
     align-items: flex-end;
 }
@@ -147,7 +147,8 @@ a:hover{
 .bottom-row-space-around, 
 .bottom-row-space-between,
 .bottom-row-center,
-.bottom-row-left{
+.bottom-row-left,
+.bottom-row-right{
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -169,6 +170,11 @@ a:hover{
 .bottom-row-left{
     justify-content: flex-start;
     padding-left: 0.2cm;
+}
+
+.bottom-row-right{
+    justify-content: flex-end;
+    padding-right: 0.2cm
 }
 
 /* End of rows and divisions */
@@ -233,10 +239,20 @@ a:hover{
     width: 0.3cm;
     border-radius: 0 30% 30% 0;
     background-color: black;
-    position: relative;
     cursor: pointer;
     align-self: flex-start;
     margin-top: 2cm;
+}
+
+.lock{
+    height: 1.05cm;
+    width: 0.3cm;
+    border-radius: 30% 0 0 30%;
+    position: relative;
+    align-self: flex-start;
+    cursor: pointer;
+    margin-top: 2cm;
+    background-color: black
 }
 
 .arrows{
@@ -259,7 +275,7 @@ a:hover{
 }
 
 .gauge {
-    width: 4.5em; height: 4.5em;
+    width: 3.8em; height: 3.8em;
     display: inline-block;
     background: rgba(80, 77, 77, 0.05);
     position: relative;
@@ -305,21 +321,19 @@ a:hover{
 .gauge[data-fill="8"] span,
 .gauge[data-fill="9"] span,
 .gauge[data-fill="10"] span {
-clip: rect(0, 4.5em, 4.5em, 2.25em);
+clip: rect(0, 3.8em, 3.8em, 1.9em);
 }
 
 .gauge span::before,
 .gauge span::after {
 border: 0.7em solid pink;
 content: '';
-clip: rect(0, 2.25em, 4.5em, 0);
+clip: rect(0, 1.9em, 3.8em, 0);
 }
 .gauge span::before {
 transform: rotate(180deg);
 }
 
-
-/* All the values can be computed by a css pre processor loop */
 .gauge[data-fill="0"] span::before{transform: rotate(0deg)}
 .gauge[data-fill="5"] span::before{transform: rotate(18deg)}
 .gauge[data-fill="10"] span::before{transform: rotate(36deg)}
@@ -341,11 +355,8 @@ transform: rotate(180deg);
 .gauge[data-fill="90"] span::after{transform: rotate(-36deg)}
 .gauge[data-fill="95"] span::after{transform: rotate(-18deg)}
 
-
-
-
 .subtitles{
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .mytrip-icon{
@@ -398,6 +409,15 @@ transform: rotate(180deg);
     height: 35%
 }
 
+.circle-icon{
+    border: 0.1cm solid black;
+    border-radius: 50%;
+    width: 0.7cm;
+    height: 0.7cm;
+    cursor: pointer;
+    margin: 3px;
+}
+
 .full-dot, .dot{
     width: 0.2cm;
     height: 0.2cm;
@@ -441,6 +461,11 @@ transform: rotate(180deg);
 .overlay{
     background-color: rgba(0,0,0,0.7);
     background-image: url(Prot1/Assets/images/microphone.png);
+    background-size: cover;
+}
+
+.confirm{
+    background-color: black;
     background-size: cover;
 }
 
