@@ -33,6 +33,9 @@
                         <img class="plus-icon" src="Assets/images/cross.png" v-on:click="deleteActivity(i)">
                     </div>
                 </div>
+                <div class="center-row-space-around">
+                    <img class="plus-icon" src="Assets/images/plus.png" onclick="addActivity()">
+                </div>
             </div>
             <div class="bottom-row-space-around" style="align-items: center;border-radius: 15%;border-top: 2px solid black;padding-top: 0.5cm">
                 <img class="plus-icon" src="Assets/images/left.png" onclick="goBack()">
@@ -46,16 +49,16 @@
                 <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
             </div>
         </div>
-        <div class="back" onclick="travelPlan()"></div>
-        <div style="display: none;margin-left: 0.2cm" id="newdaybox">
+        <div class="back" onclick="goBack()"></div>
+        <div style="display: none;margin-left: 0.2cm" id="inputbox">
             <div class="pair">
                 <div class="pair">
-                    New Label: <input  v-model="newDate">
-                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushPlan()">
+                    New Label: <input v-model="edit.content">
                 </div>
                 <div class="pair">
-                    New Date: <input type="date" v-model="newDate">
-                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushPlan()">
+                    New Date: <input v-model="edit.time">
+                    <img id="editButton" class="plus-icon" src="Assets/images/img_370724.png" onclick = "confirmEditActivity()">
+                    <img id="addButton" class="plus-icon" src="Assets/images/img_370724.png" onclick = "confirmAddActivity()">
                 </div>
             </div>
         </div>

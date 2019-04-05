@@ -170,4 +170,6 @@ if (localStorage.getItem("hotels") === null) {
             ]
         }
     ]))
+    localStorage.setItem("currentPlan", "")
+    localStorage.setItem("currentPlanIndex", "0")
 }
