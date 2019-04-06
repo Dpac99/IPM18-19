@@ -52,6 +52,7 @@ a:hover{
     border-top: 15px solid black;
     border-bottom: 15px solid black;
     border-radius: 15%;
+    background-color :#1f2c3d;
     width: 7.5cm;
     max-width: 7.5cm;
     height: 7.5cm;
@@ -86,7 +87,9 @@ a:hover{
     padding-right: 0.6cm;
     padding-left: 0.6cm;
     padding-bottom:0.1cm;
-    font-size: 20px;
+    padding-top: 0.1cm;
+    font-size: 17px;
+    color: white;
     align-items: flex-end;
 }
 
@@ -266,8 +269,9 @@ a:hover{
 }
 
 .icon{
-    border: 0.1cm solid black;
+    border: 0.5px solid rgb(220, 230, 250);
     border-radius: 15%;
+    background-color: white;
     width: 1.2cm;
     height: 1.2cm;
     cursor: pointer;
@@ -277,16 +281,17 @@ a:hover{
 .gauge {
     width: 3.8em; height: 3.8em;
     display: inline-block;
-    background: rgba(80, 77, 77, 0.05);
+    background: rgba(181, 201, 238, 0.13);
     position: relative;
     border: 1px ;
     text-indent: -999em;
     margin: 0.2em;
-    box-shadow: 1px 1px pink ;
+    box-shadow: 1px 0.15px pink;
   }
   
 .gauge::before {
     content: attr(data-value);
+    color: white;
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
@@ -297,7 +302,7 @@ a:hover{
 .gauge span,
 .gauge span::before,
 .gauge span::after {
-    border-radius: 10em; 
+    border-radius: 8.4em; 
 }
  
 .gauge span,
@@ -326,7 +331,7 @@ clip: rect(0, 3.8em, 3.8em, 1.9em);
 
 .gauge span::before,
 .gauge span::after {
-border: 0.7em solid pink;
+border: 0.65em solid pink;
 content: '';
 clip: rect(0, 1.9em, 3.8em, 0);
 }
@@ -356,13 +361,17 @@ transform: rotate(180deg);
 .gauge[data-fill="95"] span::after{transform: rotate(-18deg)}
 
 .subtitles{
+    margin-top: 2px;
     font-size: 16px;
+    color: white;
 }
 
 .mytrip-icon{
     width: 80%;
-    border: 0.1cm solid black;
+    border: 0.08cm solid white;
     border-radius: 15%;
+    background-color: white;
+    margin-bottom: 2px;
     cursor: pointer;
 }
 
