@@ -8,7 +8,7 @@ if (localStorage.getItem("hotels") === null) {
             checkout: "12/05/2019 - 12:00",
             address: "Rotunda do Marques",
             contact: "912738126",
-            room: "312"
+            room: 312
         },
         {
             name: "Hotel Roma",
@@ -17,7 +17,7 @@ if (localStorage.getItem("hotels") === null) {
             checkout: "19/05/2019 - 12:00",
             address: "Avenida de Roma",
             contact: "912738126",
-            room: "114"
+            room: 114
         },
         {
             name: "Hotel Tivoli",
@@ -26,7 +26,7 @@ if (localStorage.getItem("hotels") === null) {
             checkout: "05/0562019 - 12:00",
             address: "Rua Castilho",
             contact: "912738126",
-            room: "420"
+            room: 420
         }
     ]))
 

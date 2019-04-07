@@ -33,6 +33,111 @@
                 </span>
             </div>
         </div>
+        <div class="screen" id="checkin" style="display:none">
+            <div class="top-row-space-around">
+                Check in
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeDay(1,1)">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeMonth(1,1)">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeYear(1,1)">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeHour(1,1)">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeMinute(1,1)">
+            </div>
+            <div class="center-row-space-around">
+                <div class="pair">
+                    Day:
+                    <div class="icon"> {{ newHotel.pre_checkinD }}</div>
+                </div>
+                <div class="pair">
+                    Month:
+                    <div class="icon"> {{ newHotel.pre_checkinM }}</div>
+                </div>
+                <div class="pair">
+                    Year:
+                    <div class="icon"> {{ newHotel.pre_checkinY }}</div>
+                </div>
+                <div class="pair">
+                    Hours:
+                    <div class="icon"> {{ newHotel.pre_checkinH }}</div>
+                </div>
+                <div class="pair">
+                    Min:
+                    <div class="icon"> {{ newHotel.pre_checkinMin }}</div>
+                </div>
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeDay(-1,1)">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeMonth(-1,1)">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeYear(-1,1)">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeHour(-1,1)">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeMinute(-1,1)">
+            </div>
+            <div class="bottom-row-space-around">
+                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showHours(1)">
+                </div>
+        </div>
+        <div class="screen" id="roombox" style="display:none">
+            <div class="top-row-space-around">
+                Room
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeRoom(1)">
+            </div>
+            <div class="center-row-space-around">
+                <input class="icon" type="number" v-model="newHotel.room">
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeRoom(-1)">
+            </div>
+            <div class="bottom-row-space-around">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showRoom()">
+            </div>
+        </div>
+        <div class="screen" id="checkout" style="display:none">
+            <div class="top-row-space-around">
+                Check out
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeDay(1,0)">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeMonth(1,0)">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeYear(1,0)">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeHour(1,0)">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeMinute(1,0)">
+            </div>
+            <div class="center-row-space-around">
+                <div class="pair">
+                    Day:
+                    <div class="icon"> {{ newHotel.pre_checkoutD }}</div>
+                </div>
+                <div class="pair">
+                    Month:
+                    <div class="icon"> {{ newHotel.pre_checkoutM }}</div>
+                </div>
+                <div class="pair">
+                    Year:
+                    <div class="icon"> {{ newHotel.pre_checkoutY }}</div>
+                </div>
+                <div class="pair">
+                    Hours:
+                    <div class="icon"> {{ newHotel.pre_checkoutH }}</div>
+                </div>
+                <div class="pair">
+                    Minutes:
+                    <div class="icon"> {{ newHotel.pre_checkoutMin }}</div>
+                </div>
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeDay(-1,0)">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeMonth(-1,0)">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeYear(-1,0)">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeHour(-1,0)">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeMinute(-1,0)">
+            </div>
+            <div class="bottom-row-space-around">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showHours(2)">
+            </div>
+        </div>
         <div class="screen confirm" id="confirm" style="display: none">
             <img style="align-self: center;" class="img2" src="Assets/images/question.png">
             <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
@@ -41,29 +146,11 @@
                 <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
             </div>
         </div>
-        <div class="back" onclick="housing()"></div>
+        <div id="back" class="back" onclick="backToHousing()"></div>
         <div style="display: none;margin-left: 0.2cm" id="textbox">
             <div class="pair">
                 Simulate speech by typing here: <input v-model="newHotel.name">
                 <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech()">
-            </div>
-        </div>
-        <div style="display: none;margin-left: 0.2cm" id="checkoutbox">
-            <div class="pair">
-                Checkout date: <input type="datetime-local" v-model="newHotel.pre_checkout">
-                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showHours(2)">
-            </div>
-        </div>
-        <div style="display: none;margin-left: 0.2cm" id="checkinbox">
-            <div class="pair">
-                Checkin date: <input type="datetime-local" v-model="newHotel.pre_checkin">
-                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showHours(1)">
-            </div>
-        </div>
-        <div style="display: none;margin-left: 0.2cm" id="roombox">
-            <div class="pair">
-                Room: <input type="number" min="100" max="500" v-model="newHotel.room">
-                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showRoom()">
             </div>
         </div>
     </div>
