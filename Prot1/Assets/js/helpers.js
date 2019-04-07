@@ -127,7 +127,7 @@ function confirmation(func, back, message){
     toggleConfirmation()
     document.getElementById("yes").addEventListener("click", func)
     document.getElementById("yes").addEventListener("click", toggleConfirmation)
-    document.getElementById("no").addEventListener("click", back)
     document.getElementById("no").addEventListener("click", toggleConfirmation)
+    document.getElementById("no").addEventListener("click", back)
     
 }

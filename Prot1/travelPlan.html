@@ -37,6 +37,30 @@
                 <img class="plus-icon" src="Assets/images/plus.png" onclick="addNewDay()">
             </div>
         </div>
+        <div class="screen" id="newdaybox" style="display:none">
+            <div class="top-row-space-around">
+                Add New Day
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeDay(1)">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeMonth(1)">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeYear(1)">
+            </div>
+            <div class="center-row-space-around">
+                <div class="icon"> {{ newDateD }}</div>
+                <div class="icon"> {{ newDateM }}</div>
+                <div class="icon"> {{ newDateY }}</div>
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeDay(-1)">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeMonth(-1)">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeYear(-1)">
+            </div>
+            <div class="bottom-row-space-around">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushPlan()">
+                <img class="plus-icon" src="Assets/images/left.png" onclick="addNewDayConf()">
+            </div>
+        </div>
         <div class="screen confirm" id="confirm" style="display: none">
             <img style="align-self: center;" class="img2" src="Assets/images/question.png">
             <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
@@ -45,14 +69,8 @@
                 <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
             </div>
         </div>
-        <div class="back" onclick="myTrip()"></div>
+        <div id="back" class="back" onclick="myTrip()"></div>
         <img class="arrows" onclick="nextPlan()" src="Assets/images/right.svg">
-        <div style="display: none;margin-left: 0.2cm" id="newdaybox">
-            <div class="pair">
-                New Date: <input type="date" v-model="newDate">
-                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushPlan()">
-            </div>
-        </div>
     </div>
     <script src="Assets/js/plans.js"></script>
 </body>
