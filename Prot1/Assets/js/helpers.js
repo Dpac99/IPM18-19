@@ -9,6 +9,10 @@ function myTrip() {
     document.location.href = "myTripScreen.html"
 }
 
+function payNow() {
+    document.location.href = "payNow.html"
+}
+
 function settings() {
     document.location.href = "settings.html"
 }

@@ -187,6 +187,12 @@ a:hover{
     cursor: pointer;
 }
 
+.payNowImg{
+    width: 4cm;
+    height: 4cm;
+    cursor: pointer;
+}
+
 .calling-img{
     width: 4cm;
     height: 4cm;
