@@ -185,8 +185,8 @@ a:hover{
 /* Icons and images */
 
 .img2{
-    width: 2.4cm;
-    height: 2.4cm;
+    width: 2cm;
+    height: 2cm;
     cursor: pointer;
 }
 
@@ -210,6 +210,7 @@ a:hover{
 .hours{
     font-size: 70px;
     padding-top: 5px;
+    color: white;
 }
 
 .pair{
@@ -220,9 +221,12 @@ a:hover{
 }
 
 .sos{
-    border-top: 4px solid black;
-    border-left: 4px solid black;
-    border-radius: 84% 0 45% 0;
+    border-top: 4px solid rgb(248, 63, 63);
+    border-left: 4px solid  rgb(248, 63, 63);
+    color:white;
+    background-color: rgb(248, 63, 63);
+    font-weight: bold;
+    border-radius: 84% 7% 45% 7%;
     height: 1.64cm;
     width:1.64cm;
     display: flex;
@@ -400,7 +404,8 @@ transform: rotate(180deg);
 }
 
 .plus-icon{
-    border: 0.1cm solid black;
+    border: 0.1cm solid white;
+    background-color: white;
     border-radius: 15%;
     width: 0.7cm;
     height: 0.7cm;
@@ -408,18 +413,42 @@ transform: rotate(180deg);
     margin: 3px;
 }
 
+.delete-icon{
+    border: 0.1cm solid rgb(248, 63, 63);
+    background-color: rgb(248, 63, 63);
+    border-radius: 40%;
+    width: 0.8cm;
+    height: 0.8cm;
+    cursor: pointer;
+    margin: 3px;
+}
+
+.sos-icon{
+    border: 0.1cm solid rgb(214, 212, 212);
+    background-color: rgb(214, 212, 212);
+    border-radius: 50%;
+    width: 0.8cm;
+    height: 0.8cm;
+    cursor: pointer;
+    margin: 3px;
+}
+
+.hidden-icon{
+    background-color: #1f2c3d;
+}
+
 .ticket{
     width: 7.3cm;
-    border: 0.1cm solid black;
-    border-radius: 15%;
+    border: 0.1cm solid white;
+    background-color: white;
+    border-radius: 13%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .scan {
-    background-color: rgba(0,0,0,0.7);
-    background-size: cover;
+    filter: brightness(80%);
   }
   
 .scan::after {
@@ -428,8 +457,8 @@ transform: rotate(180deg);
     width: 7.5cm;
     height: 11px;
     background-image: linear-gradient(to bottom,
-      rgba(170, 184, 190, 0),
-      rgba(170, 184, 190, .8));
+      rgba(255, 255, 255, 0.226),
+      rgb(202, 217, 223));
     animation: scanning 3s linear infinite;
 }
 
@@ -455,12 +484,12 @@ transform: rotate(180deg);
     width: 0.2cm;
     height: 0.2cm;
     border-radius: 50%;
-    border: 0.05cm solid black;
+    border: 0.05cm solid white;
     margin: 2px;
 }
 
 .full-dot{
-    background-color: black;
+    background-color: white;
 }
 
 .stars{
@@ -503,18 +532,21 @@ transform: rotate(180deg);
 }
 
 .sosBpm{
-    font-size: 40px;
+    font-size: 35px;
+    color: white;
 }
 
 .sosBpmNumber{
-    font-size: 30px;
+    font-size: 40px;
+    color:  rgb(248, 74, 74);
 }
 
 .sosRectangles{
     width: 6cm;
-    margin-left: 0.7cm;
-    border: 0.1cm solid black;
-    border-radius: 15px;
+    margin-left: 0.6cm;
+    border: 0.1cm solid white;
+    border-radius: 50px;
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
