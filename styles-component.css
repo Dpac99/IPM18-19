@@ -194,6 +194,7 @@ a:hover{
     width: 4cm;
     height: 4cm;
     cursor: pointer;
+    filter: invert(100%)
 }
 
 .calling-img{
@@ -572,10 +573,11 @@ transform: rotate(180deg);
 .settingsRectangles{
     width: 7.5cm;
     margin-left: 0cm;
-    border-top: 0.05cm solid black;
+    border-top: 0.05cm solid white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: white;
 }
 
 .accountRectangle{
@@ -584,11 +586,12 @@ transform: rotate(180deg);
     margin-left: 0.7cm;
     margin-bottom: 0.5cm;
     margin-top: 0.5cm;
-    border: 0.1cm solid black;
+    border: 0.1cm solid white;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    color: white;
 }
 
 .right-arrow-icon{
