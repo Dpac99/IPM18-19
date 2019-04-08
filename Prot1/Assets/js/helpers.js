@@ -75,6 +75,10 @@ function scanner() {
     }
 }
 
+function payNowScanner() {
+    scanner()
+    setTimeout(scanner, 3000)
+}
 
 function buildDate(date){
     let hours = date.getHours()
