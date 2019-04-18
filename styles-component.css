@@ -397,9 +397,9 @@ transform: rotate(180deg);
 
 .mytrip-icon{
     width: 80%;
-    border: 0.08cm solid white;
-    border-radius: 15%;
-    background-color: white;
+    border: 0.08cm solid rgba(231, 230, 252, 0.699);
+    border-radius: 50%;
+    box-shadow: 1px 1px rgba(246, 246, 255, 0.288);
     margin-bottom: 2px;
     cursor: pointer;
 }
@@ -417,6 +417,7 @@ transform: rotate(180deg);
 .delete-icon{
     border: 0.1cm solid rgb(248, 63, 63);
     background-color: rgb(248, 63, 63);
+    box-shadow: 1px 1px rgba(83, 82, 82, 0.575);
     border-radius: 40%;
     width: 0.8cm;
     height: 0.8cm;
