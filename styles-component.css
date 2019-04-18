@@ -289,106 +289,6 @@ a:hover{
     box-shadow: 1px 1px lightslategrey;
 }
 
-.gauge {
-    width: 3.8em; height: 3.8em;
-    display: inline-block;
-    background: rgba(181, 201, 238, 0.13);
-    position: relative;
-    border: 1px ;
-    text-indent: -999em;
-    margin: 0.2em;
-}
-  
-.gauge::before {
-    content: attr(data-value);
-    color: white;
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    text-indent: 0;
-}
-  
-.gauge,
-.gauge span,
-.gauge span::before,
-.gauge span::after {
-    border-radius: 8.4em; 
-}
- 
-.gauge span,
-.gauge span::before,
-.gauge span::after {
-    box-sizing: border-box;
-    position: absolute; 
-    top: 0; left: 0; width: 100%; height: 100%;
-}
-  
-  /* Container clipping handling */
-.gauge[data-fill^="6"] span,
-.gauge[data-fill^="7"] span,
-.gauge[data-fill^="8"] span,
-.gauge[data-fill^="9"] span,
-.gauge[data-fill^="10"] span{ clip: rect(auto,auto,auto,auto)}
-  
-.gauge span,
-.gauge[data-fill="6"] span,
-.gauge[data-fill="7"] span,
-.gauge[data-fill="8"] span,
-.gauge[data-fill="9"] span,
-.gauge[data-fill="10"] span {
-clip: rect(0, 3.8em, 3.8em, 1.9em);
-}
-
-#O2 span::before,
-#O2 span::after {
-border: 0.65em solid #ea044d;
-box-shadow: 1px 0.15px #ea044d;
-content: '';
-clip: rect(0, 1.9em, 3.8em, 0);
-}
-
-#BPM span::before,
-#BPM span::after {
-border: 0.65em solid #b5ef07;
-box-shadow: 1px 0.15px #b5ef07;
-content: '';
-clip: rect(0, 1.9em, 3.8em, 0);
-}
-
-#KM span::before,
-#KM span::after {
-border: 0.65em solid #0cc4f2;
-box-shadow: 1px 0.15px #0cc4f2;
-content: '';
-clip: rect(0, 1.9em, 3.8em, 0);
-}
-
-
-.gauge span::before {
-transform: rotate(180deg);
-}
-
-.gauge[data-fill="0"] span::before{transform: rotate(0deg)}
-.gauge[data-fill="5"] span::before{transform: rotate(18deg)}
-.gauge[data-fill="10"] span::before{transform: rotate(36deg)}
-.gauge[data-fill="15"] span::before{transform: rotate(54deg)}
-.gauge[data-fill="20"] span::before{transform: rotate(72deg)}
-.gauge[data-fill="25"] span::before{transform: rotate(90deg)}
-.gauge[data-fill="30"] span::before{transform: rotate(108deg)}
-.gauge[data-fill="35"] span::before{transform: rotate(126deg)}
-.gauge[data-fill="40"] span::before{transform: rotate(144deg)}
-.gauge[data-fill="45"] span::before{transform: rotate(162deg)}
-.gauge[data-fill="50"] span::before{transform: rotate(180deg)}
-.gauge[data-fill="55"] span::after{transform: rotate(-162deg)}
-.gauge[data-fill="60"] span::after{transform: rotate(-144deg)}
-.gauge[data-fill="65"] span::after{transform: rotate(-126deg)}
-.gauge[data-fill="70"] span::after{transform: rotate(-108deg)}
-.gauge[data-fill="75"] span::after{transform: rotate(-90deg)}
-.gauge[data-fill="80"] span::after{transform: rotate(-72deg)}
-.gauge[data-fill="85"] span::after{transform: rotate(-54deg)}
-.gauge[data-fill="90"] span::after{transform: rotate(-36deg)}
-.gauge[data-fill="95"] span::after{transform: rotate(-18deg)}
-
 .subtitles{
     margin-top: 2px;
     font-size: 16px;
@@ -603,6 +503,121 @@ transform: rotate(180deg);
     cursor: pointer;
     margin: 3px;
 }
+
+.healthName{
+    content: attr(data-value);
+    font-size: 25px;
+    margin-top: 15px;
+    text-align: left;
+    color: white;
+
+}
+
+.healthBday{
+    padding: 2px;
+    margin-left: 0px;
+}
+
+/* Gauges #######################################################*/
+.gauge {
+    width: 3.8em; height: 3.8em;
+    display: inline-block;
+    background: rgba(181, 201, 238, 0.13);
+    position: relative;
+    border: 1px ;
+    text-indent: -999em;
+    margin: 0.2em;
+}
+  
+.gauge::before {
+    content: attr(data-value);
+    color: white;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-indent: 0;
+}
+  
+.gauge,
+.gauge span,
+.gauge span::before,
+.gauge span::after {
+    border-radius: 8.4em; 
+}
+ 
+.gauge span,
+.gauge span::before,
+.gauge span::after {
+    box-sizing: border-box;
+    position: absolute; 
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+  
+  /* Container clipping handling */
+.gauge[data-fill^="6"] span,
+.gauge[data-fill^="7"] span,
+.gauge[data-fill^="8"] span,
+.gauge[data-fill^="9"] span,
+.gauge[data-fill^="10"] span{ clip: rect(auto,auto,auto,auto)}
+  
+.gauge span,
+.gauge[data-fill="6"] span,
+.gauge[data-fill="7"] span,
+.gauge[data-fill="8"] span,
+.gauge[data-fill="9"] span,
+.gauge[data-fill="10"] span {
+clip: rect(0, 3.8em, 3.8em, 1.9em);
+}
+
+#O2 span::before,
+#O2 span::after {
+border: 0.65em solid #ea044d;
+box-shadow: 1px 0.15px #ea044d;
+content: '';
+clip: rect(0, 1.9em, 3.8em, 0);
+}
+
+#BPM span::before,
+#BPM span::after {
+border: 0.65em solid #b5ef07;
+box-shadow: 1px 0.15px #b5ef07;
+content: '';
+clip: rect(0, 1.9em, 3.8em, 0);
+}
+
+#KM span::before,
+#KM span::after {
+border: 0.65em solid #0cc4f2;
+box-shadow: 1px 0.15px #0cc4f2;
+content: '';
+clip: rect(0, 1.9em, 3.8em, 0);
+}
+
+
+.gauge span::before {
+transform: rotate(180deg);
+}
+
+.gauge[data-fill="0"] span::before{transform: rotate(0deg)}
+.gauge[data-fill="5"] span::before{transform: rotate(18deg)}
+.gauge[data-fill="10"] span::before{transform: rotate(36deg)}
+.gauge[data-fill="15"] span::before{transform: rotate(54deg)}
+.gauge[data-fill="20"] span::before{transform: rotate(72deg)}
+.gauge[data-fill="25"] span::before{transform: rotate(90deg)}
+.gauge[data-fill="30"] span::before{transform: rotate(108deg)}
+.gauge[data-fill="35"] span::before{transform: rotate(126deg)}
+.gauge[data-fill="40"] span::before{transform: rotate(144deg)}
+.gauge[data-fill="45"] span::before{transform: rotate(162deg)}
+.gauge[data-fill="50"] span::before{transform: rotate(180deg)}
+.gauge[data-fill="55"] span::after{transform: rotate(-162deg)}
+.gauge[data-fill="60"] span::after{transform: rotate(-144deg)}
+.gauge[data-fill="65"] span::after{transform: rotate(-126deg)}
+.gauge[data-fill="70"] span::after{transform: rotate(-108deg)}
+.gauge[data-fill="75"] span::after{transform: rotate(-90deg)}
+.gauge[data-fill="80"] span::after{transform: rotate(-72deg)}
+.gauge[data-fill="85"] span::after{transform: rotate(-54deg)}
+.gauge[data-fill="90"] span::after{transform: rotate(-36deg)}
+.gauge[data-fill="95"] span::after{transform: rotate(-18deg)}
 
 
 /* Phone ringing ###################################################### */
