@@ -619,6 +619,28 @@ transform: rotate(180deg);
 .gauge[data-fill="90"] span::after{transform: rotate(-36deg)}
 .gauge[data-fill="95"] span::after{transform: rotate(-18deg)}
 
+.healthCircle {
+    width: 4em; height: 4em;
+    background: white;
+    border: 1px;
+    border-radius: 50%;
+    margin: 0.2em;
+    cursor: pointer;
+}
+
+.invisibleCircle {
+    width: 1.5em; height: 1.5em;
+    background: none;
+    border: 1px;
+    border-radius: 50%;
+    margin: 0.2em; 
+}
+
+.healthSubtitles{
+    margin-top: 0px;
+    font-size: 14px;
+    color: white;
+}
 
 /* Phone ringing ###################################################### */
 
