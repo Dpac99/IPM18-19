@@ -506,7 +506,7 @@ a:hover{
 
 .healthName{
     content: attr(data-value);
-    font-size: 25px;
+    font-size: 28px;
     margin-top: 15px;
     text-align: left;
     color: white;
@@ -629,7 +629,7 @@ transform: rotate(180deg);
 }
 
 .invisibleCircle {
-    width: 1.5em; height: 1.5em;
+    width: 1.7em; height: 1.5em;
     background: none;
     border: 1px;
     border-radius: 50%;

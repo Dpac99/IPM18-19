@@ -57,6 +57,10 @@ function sos(){
     document.location.href="sos.html"
 }
 
+function medicalSheet(){
+    document.location.href="medicalSheet.html"
+}
+
 function showSpeech(){
     let doc = document.getElementById('screen')
     if (doc.classList.length == 1){
