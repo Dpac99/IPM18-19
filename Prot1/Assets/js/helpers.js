@@ -17,8 +17,12 @@ function settings() {
     document.location.href = "settings.html"
 }
 
-function health(){
+function health() {
     document.location.href = "healthScreen.html"
+}
+
+function tips() {
+    document.location.href = "tips.html"
 }
 
 function privacy() {
