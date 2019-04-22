@@ -569,6 +569,7 @@ transform: rotate(180deg);
     margin: 3px;
     margin-left: 0.2cm;
     margin-right: 0.25cm;
+    background-color: white;
 }
 
 .settingsRectangles{
@@ -592,6 +593,19 @@ transform: rotate(180deg);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    color: white;
+}
+
+.tips{
+    font-size: 25px;
+}
+
+.tipsRectangles{
+    width: 7.5cm;
+    margin-left: 0.2cm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     color: white;
 }
 
