@@ -11,41 +11,42 @@
 <body>
     <div class="frame">
         <div class="lock" onclick="lock()"></div>
-        <div class="screen">
-            <div class="top-row">
-                <span>4G</span>
-                <span>13:00</span>
-                <img class="battery" src="Assets/images/battery.png">
-            </div>
-            <div class="screen-body">
-                <div class="top-row-space-around">
-                    <div class="pair">
-                        <img class="icon" src="Assets/images/plane.png" onclick="myTrip()">
-                        <span class="subtitles">myTrip</span>
-                    </div>
-                    <div class="pair">
-                        <div class="hidden-icon" style="border: 10px solid #1f2c3d; box-shadow: 0px 0px;">
+        <div class="border">
+            <div class="screen">
+                <div class="top-row">
+                    <span>4G</span>
+                    <span>13:00</span>
+                    <img class="battery" src="Assets/images/battery.png">
+                </div>
+                <div class="screen-body">
+                    <div class="top-row-space-around">
+                        <div class="pair">
+                            <img class="icon" src="Assets/images/plane.png" onclick="myTrip()">
+                            <span class="subtitles">myTrip</span>
+                        </div>
+                        <div class="pair">
+                            <div class="icon" style="background-color: #1f2c3d;border: 10px solid #1f2c3d; box-shadow: 0px 0px;">
+                            </div>
+                        </div>
+                        <div class="pair">
+                            <img class="icon" src="Assets/images/maps-icon-30.png">
+                            <span class="subtitles">Maps</span>
                         </div>
                     </div>
-                    <div class="pair">
-                        <img class="icon" src="Assets/images/maps-icon-30.png">
-                        <span class="subtitles">Maps</span>
+                    <div class="center-row-space-around">
+                        <div class="pair">
+                            <div class="gauge" id="O2" data-fill="75" data-value="96%"> <span /></div>
+                            <span class="subtitles">O2%</span>
+                        </div>
+                        <div class="pair">
+                            <div class="gauge" id="BPM" data-fill="60" data-value="70"> <span /></div>
+                            <span class="subtitles">BPM</span>
+                        </div>
+                        <div class="pair">
+                            <div class="gauge" id="KM" data-fill="50" data-value="10.2"> <span /></div>
+                            <span class="subtitles">Km</span>
+                        </div>
                     </div>
-                </div>
-                <div class="center-row-space-around">
-                    <div class="pair">
-                        <div class="gauge" id="O2" data-fill="75" data-value="96%"> <span /></div>
-                        <span class="subtitles">O2%</span>
-                    </div>
-                    <div class="pair">
-                        <div class="gauge" id="BPM" data-fill="60" data-value="70"> <span /></div>
-                        <span class="subtitles">BPM</span>
-                    </div>
-                    <div class="pair">
-                        <div class="gauge" id="KM" data-fill="50" data-value="10.2"> <span /></div>
-                        <span class="subtitles">Km</span>
-                    </div>
-                </div>
 
                 <div class="bottom-row-space-around">
                     <div class="pair">

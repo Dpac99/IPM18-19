@@ -46,18 +46,21 @@ a:hover{
     align-items: center;
 }
 
-.screen{
+
+.screen,
+.overlay{
     border-left: 7px solid black;
     border-right: 7px solid black;
     border-top: 15px solid black;
     border-bottom: 15px solid black;
     border-radius: 15%;
     background-color :#1f2c3d;
-    width: 7.5cm;
-    max-width: 7.5cm;
-    height: 7.5cm;
-    max-height: 7.5cm;
+    width: 7.2cm;
+    max-width: 7.2cm;
+    height: 7.2cm;
+    max-height: 7.2cm;
     box-shadow: 3px 3px 5px 6px #ccc;
+    padding: 0.17cm;
 
     display: flex;
     flex-direction: column;
@@ -340,7 +343,7 @@ a:hover{
 }
 
 .ticket{
-    width: 7.3cm;
+    width: 7.0cm;
     border: 0.1cm solid white;
     background-color: white;
     border-radius: 13%;
@@ -408,10 +411,31 @@ a:hover{
 .planBox{
     width:100%;
     overflow-y:scroll;
+    margin-right: 0.2cm;
 }
 
-.planBox::-webkit-scrollbar{
-    display: none;
+.plusPlan{
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 0.7cm;
+    height: 0.7cm;
+    background-color: white
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2c3d;
+    height: 5cm;
+}
+
+::-webkit-scrollbar-thumb{
+    background: white;
+    height: 10px;
 }
 
 .planLine{
@@ -423,9 +447,12 @@ a:hover{
 }
 
 .overlay{
-    background-color: rgba(0,0,0,0.7);
-    background-image: url(Prot1/Assets/images/microphone.png);
+    background-color: black;
     background-size: cover;
+}
+
+.overlay-img{
+    filter: invert(100%)
 }
 
 .confirm{
@@ -469,6 +496,7 @@ a:hover{
     margin: 3px;
     margin-left: 0.2cm;
     margin-right: 0.25cm;
+    background-color: white;
 }
 
 .settingsRectangles{
@@ -492,6 +520,19 @@ a:hover{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    color: white;
+}
+
+.tips{
+    font-size: 25px;
+}
+
+.tipsRectangles{
+    width: 7.5cm;
+    margin-left: 0.2cm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     color: white;
 }
 

@@ -15,26 +15,27 @@
         <div class="lock" onclick="lock()"></div>
         <div class="screen" id="screen" style="justify-content: flex-start">
             <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black; ">
-                <span style="font-size: 20px">Add Hotel</span>
+                <span style="color:white;font-size: 20px">Add Hotel</span>
                 <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushHotel()">
             </div>
             <div class="screen-body">
-                <span onclick="showSpeech()" class="planLine" style="border-bottom: 2px solid black">
-                    Name: {{ newHotel.name }}
+                <span  class="planLine" style="color:white;border-bottom: 2px solid black">
+                    <span>Name: {{ newHotel.name }}</span>
+                    <img class="plus-icon" src="Assets/images/edit-icon-6.png" onclick="showSpeech()">
                 </span>
-                <span onclick="showHours(1)" class="planLine" style="border-bottom: 2px solid black">
+                <span onclick="showHours(1)" class="planLine" style="color:white;border-bottom: 2px solid black">
                     Check-in: {{ newHotel.checkin }}
                 </span>
-                <span onclick="showHours(2)" class="planLine" style="border-bottom: 2px solid black">
+                <span onclick="showHours(2)" class="planLine" style="color:white;border-bottom: 2px solid black">
                     Check-out: {{ newHotel.checkout }}
                 </span>
-                <span onclick="showRoom()" class="planLine">
+                <span style="color:white;"  onclick="showRoom()" class="planLine">
                     Room: {{ newHotel.room}}
                 </span>
             </div>
         </div>
         <div class="screen" id="checkin" style="display:none">
-            <div class="top-row-space-around">
+            <div style="color:white; "class="top-row-space-around">
                 Check in
             </div>
             <div class="center-row-space-around">
@@ -145,6 +146,9 @@
                 <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
                 <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
             </div>
+        </div>
+        <div id="overlay" class="overlay" style="display:none">
+            <img class="overlay-img" src="Assets/images/microphone.png">
         </div>
         <div id="back" class="back" onclick="backToHousing()"></div>
         <div style="display: none;margin-left: 0.2cm" id="textbox">
