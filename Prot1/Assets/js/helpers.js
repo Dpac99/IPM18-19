@@ -61,6 +61,10 @@ function sos(){
     document.location.href="sos.html"
 }
 
+function medicalSheet(){
+    document.location.href="medicalSheet.html"
+}
+
 function showSpeech(){
     let screen = document.getElementById('screen')
     let doc = document.getElementById("overlay")
