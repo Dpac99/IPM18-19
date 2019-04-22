@@ -518,6 +518,20 @@ a:hover{
     margin-left: 0px;
 }
 
+.med-item{
+    border-bottom: dotted white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 9px;
+}
+
+.infoData{
+    text-align: left;
+    font-size:20px;
+    color: white;
+}
+
 /* Gauges #######################################################*/
 .gauge {
     width: 3.8em; height: 3.8em;
