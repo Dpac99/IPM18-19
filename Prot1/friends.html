@@ -12,16 +12,16 @@
 <body>
     <div class="frame" id="friends">
         <div class="lock" onclick="lock()"></div>
-        <div class="screen" id="screen" style="justify-content: flex-start">
+        <div class="screen" id="screen" style="justify-content: flex-start;">
             <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black;padding-bottom: 0.5cm; ">
-                <span>Friends</span>
+                <span style="color:white">Friends</span>
                 <img class="plus-icon" src="Assets/images/plus.png" onclick="showSpeech()">
             </div>
             <div class="planBox">
                 <div class="planLine" v-for="f in friends">
-                    <span>{{ f }}</span>
+                    <span style="color:white">{{ f }}</span>
                     <div>
-                        <img class="plus-icon" src="Assets/images/trash.png" v-on:click="deleteFriend(f)">
+                        <img class="plus-icon" src="Assets/images/trash_black.png" v-on:click="deleteFriend(f)">
                         <img class="plus-icon" src="Assets/images/mapicon.svg">
                     </div>
                 </div>

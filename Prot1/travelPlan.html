@@ -14,61 +14,59 @@
     <div class="frame" id="plans">
         <img class="arrows" onclick="prevPlan()" src="Assets/images/left.png">
         <div class="lock" onclick="lock()"></div>
-        <div class="screen" id="screen" style="justify-content: flex-start">
-            <div class="top-row-space-between" style="border-radius: 15%;border-bottom: 2px solid black;padding-bottom: 0.6cm ">
-                <div class="pair" style="align-items: flex-start;margin-left: 0.5cm;">
-                    <span>Today</span>
-                    <span>{{ date }}</span>
+            <div class="screen" id="screen" style="justify-content: flex-start">
+                <div class="top-row-space-between" style=" border-radius: 15%;border-bottom: 2px solid white;padding-bottom: 0.6cm ">
+                    <div class="pair" style="align-items: flex-start;margin-left: 0.5cm;">
+                        <span style="color:white">Today</span>
+                        <span style="color:white">{{ date }}</span>
+                    </div>
+                    <div>
+                        <img class="plus-icon" src="Assets/images/plus.png" onclick="addNewDay()">
+                        <img class="plus-icon" src="Assets/images/trash_black.png" onclick="deleteDay()">
+                    </div>
                 </div>
-                <div>
-                    <img class="plus-icon" src="Assets/images/edit-icon-6.png" onclick="editDay()">
-                    <img class="plus-icon" src="Assets/images/trash.png" onclick="deleteDay()">
-                </div>
-            </div>
-            <div class="screen-horizontal">
-                <div class="planBox" v-for="(p,i) in events" v-bind:id="'plan' + i">
-                    <div class="planLine" v-for="el in p">
-                        <span>{{ el.content }}</span>
-                        <span>{{ el.time }}</span>
+                <div class="screen-horizontal" style="background-color: #1f2c3d; margin-bottom: 0.2cm; ">
+                    <div class="planBox" v-for="(p,i) in events" v-bind:id="'plan' + i">
+                        <div class="planLine" v-for="el in p">
+                            <span style="color:white">{{ el.content }}</span>
+                            <span style="color:white">{{ el.time }}</span>
+                        </div>
+                        <img class="plus-icon" src="Assets/images/edit-icon-6.png" onclick="editDay()">
                     </div>
                 </div>
             </div>
-            <div class="bottom-row-space-around" style="align-items: center;border-radius: 15%;border-top: 2px solid black;padding-top: 0.3cm">
-                <img class="plus-icon" src="Assets/images/plus.png" onclick="addNewDay()">
+            <div class="screen" id="newdaybox" style="display:none">
+                <div class="top-row-space-around" style="color:white">
+                    Add New Day
+                </div>
+                <div class="center-row-space-around">
+                    <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeDay(1)">
+                    <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeMonth(1)">
+                    <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeYear(1)">
+                </div>
+                <div class="center-row-space-around">
+                    <div class="icon"> {{ newDateD }}</div>
+                    <div class="icon"> {{ newDateM }}</div>
+                    <div class="icon"> {{ newDateY }}</div>
+                </div>
+                <div class="center-row-space-around">
+                    <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeDay(-1)">
+                    <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeMonth(-1)">
+                    <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeYear(-1)">
+                </div>
+                <div class="bottom-row-space-around">
+                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushPlan()">
+                    <img class="plus-icon" src="Assets/images/left.png" onclick="addNewDayConf()">
+                </div>
             </div>
-        </div>
-        <div class="screen" id="newdaybox" style="display:none">
-            <div class="top-row-space-around">
-                Add New Day
+            <div class="screen confirm" id="confirm" style="display: none">
+                <img style="align-self: center;" class="img2" src="Assets/images/question.png">
+                <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
+                <div class="center-row-space-around">
+                    <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
+                    <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
+                </div>
             </div>
-            <div class="center-row-space-around">
-                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeDay(1)">
-                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeMonth(1)">
-                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeYear(1)">
-            </div>
-            <div class="center-row-space-around">
-                <div class="icon"> {{ newDateD }}</div>
-                <div class="icon"> {{ newDateM }}</div>
-                <div class="icon"> {{ newDateY }}</div>
-            </div>
-            <div class="center-row-space-around">
-                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeDay(-1)">
-                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeMonth(-1)">
-                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeYear(-1)">
-            </div>
-            <div class="bottom-row-space-around">
-                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushPlan()">
-                <img class="plus-icon" src="Assets/images/left.png" onclick="addNewDayConf()">
-            </div>
-        </div>
-        <div class="screen confirm" id="confirm" style="display: none">
-            <img style="align-self: center;" class="img2" src="Assets/images/question.png">
-            <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
-            <div class="center-row-space-around">
-                <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
-                <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
-            </div>
-        </div>
         <div id="back" class="back" onclick="myTrip()"></div>
         <img class="arrows" onclick="nextPlan()" src="Assets/images/right.svg">
     </div>
