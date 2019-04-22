@@ -197,6 +197,7 @@ a:hover{
     width: 4cm;
     height: 4cm;
     cursor: pointer;
+    filter: invert(100%)
 }
 
 .calling-img{
@@ -398,10 +399,10 @@ transform: rotate(180deg);
 }
 
 .mytrip-icon{
-    width: 75%;
-    border: 0.08cm solid white;
-    border-radius: 15%;
-    background-color: white;
+    width: 80%;
+    border: 0.08cm solid rgba(231, 230, 252, 0.699);
+    border-radius: 50%;
+    box-shadow: 1px 1px rgba(246, 246, 255, 0.288);
     margin-bottom: 2px;
     cursor: pointer;
 }
@@ -419,6 +420,7 @@ transform: rotate(180deg);
 .delete-icon{
     border: 0.1cm solid rgb(248, 63, 63);
     background-color: rgb(248, 63, 63);
+    box-shadow: 1px 1px rgba(83, 82, 82, 0.575);
     border-radius: 40%;
     width: 0.8cm;
     height: 0.8cm;
@@ -594,15 +596,17 @@ transform: rotate(180deg);
     margin: 3px;
     margin-left: 0.2cm;
     margin-right: 0.25cm;
+    background-color: white;
 }
 
 .settingsRectangles{
     width: 7.5cm;
     margin-left: 0cm;
-    border-top: 0.05cm solid black;
+    border-top: 0.05cm solid white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: white;
 }
 
 .accountRectangle{
@@ -611,11 +615,25 @@ transform: rotate(180deg);
     margin-left: 0.7cm;
     margin-bottom: 0.5cm;
     margin-top: 0.5cm;
-    border: 0.1cm solid black;
+    border: 0.1cm solid white;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    color: white;
+}
+
+.tips{
+    font-size: 25px;
+}
+
+.tipsRectangles{
+    width: 7.5cm;
+    margin-left: 0.2cm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
 }
 
 .right-arrow-icon{
@@ -627,6 +645,28 @@ transform: rotate(180deg);
     margin: 3px;
 }
 
+.healthCircle {
+    width: 4em; height: 4em;
+    background: white;
+    border: 1px;
+    border-radius: 50%;
+    margin: 0.2em;
+    cursor: pointer;
+}
+
+.invisibleCircle {
+    width: 1.5em; height: 1.5em;
+    background: none;
+    border: 1px;
+    border-radius: 50%;
+    margin: 0.2em; 
+}
+
+.healthSubtitles{
+    margin-top: 0px;
+    font-size: 14px;
+    color: white;
+}
 
 /* Phone ringing ###################################################### */
 

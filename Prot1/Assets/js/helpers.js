@@ -17,6 +17,14 @@ function settings() {
     document.location.href = "settings.html"
 }
 
+function health() {
+    document.location.href = "healthScreen.html"
+}
+
+function tips() {
+    document.location.href = "tips.html"
+}
+
 function privacy() {
     document.location.href = "privacy.html"
 }
@@ -79,6 +87,10 @@ function scanner() {
     }
 }
 
+function payNowScanner() {
+    scanner()
+    setTimeout(scanner, 3000)
+}
 
 function buildDate(date){
     let hours = date.getHours()

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Health</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+    <script src="Assets/js/helpers.js"></script>
+</head>
+
+<body>
+    <div class="frame">
+        <div class="lock" onclick="lock()"></div>
+        <div class="screen">
+            <div class="top-row-space-around">
+                <div class="pair">
+                    <img class="healthCircle" src="Assets/images/heartbeat.png">
+                    <span class="healthSubtitles">Heart rate</span>
+                </div>
+            </div>
+            <div class="center-row-space-around" style="margin-left: 0.35cm; margin-right: 0.35cm">
+                <div class="pair">
+                    <img class="healthCircle" src="Assets/images/running.png">
+                    <span class="healthSubtitles">Distance</span>
+                </div>
+                <img class="invisibleCircle" src="Assets/images/no-background.png">
+                <div class="pair">
+                    <img class="healthCircle" src="Assets/images/lung.png">
+                    <span class="healthSubtitles">O2 level</span>
+                </div>
+            </div>
+            <div class="bottom-row-space-around" style="margin-bottom: 1cm; margin-top: 0.1cm">
+                <img class="invisibleCircle" src="Assets/images/no-background.png">
+                <div class="pair">
+                    <img class="healthCircle" src="Assets/images/healthSheet.png">
+                    <span class="healthSubtitles">Medical sheet</span>
+                </div>
+                <div class="pair">
+                    <img class="healthCircle" src="Assets/images/stethoscope.png" onclick="tips()">
+                    <span class="healthSubtitles">Tips</span>
+                </div>
+                <img class="invisibleCircle" src="Assets/images/no-background.png">
+            </div>
+        </div>
+        <div class="back" onclick="mainMenu()"></div>
+    </div>
+</body>
+
+</html>
