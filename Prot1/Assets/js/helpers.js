@@ -62,14 +62,18 @@ function sos(){
 }
 
 function showSpeech(){
-    let doc = document.getElementById('screen')
-    if (doc.classList.length == 1){
-        doc.className +=" overlay"
-        document.getElementById("textbox").style.display="inline"
+    let screen = document.getElementById('screen')
+    let doc = document.getElementById("overlay")
+    let box = document.getElementById("textbox")
+    if (doc.style.display == "none"){
+        doc.style.display = "flex"
+        screen.style.display= "none"
+        box.style.display = "inline"
     }
     else{
-        doc.className="screen"
-        document.getElementById("textbox").style.display="none"
+        doc.style.display = "none"
+        screen.style.display= "flex"
+        box.style.display = "none"
     }
 }
 

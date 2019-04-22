@@ -15,8 +15,8 @@
         <div class="screen" id="screen" >
             <div class="top-row-space-between" style="border-radius: 15%;border-bottom: 2px solid black;padding-bottom: 0.9cm ">
                 <div class="pair" style="align-items: flex-start;margin-left: 0.5cm;">
-                    <span>Today</span>
-                    <span>{{ date }}</span>
+                    <span style="color:white">Today</span>
+                    <span style="color:white">{{ date }}</span>
                 </div>
                 <div>
                     <img class="plus-icon" src="Assets/images/img_370724.png" onclick="confirmChanges()">
@@ -25,8 +25,8 @@
             <div class="planBox">
                 <div class="planLine" v-for="(el,i) in current" v-bind:id="'activity' + i">
                     <div style="display: flex; flex-direction: row; justify-content: space-between">
-                        <span>{{ el.content }} |</span>
-                        <span>{{ el.time }}</span>
+                        <span style="color:white">{{ el.content }} |</span>
+                        <span style="color:white">{{ el.time }}</span>
                     </div>
                     <div>
                         <img class="plus-icon" src="Assets/images/edit-icon-6.png" v-on:click="editActivity(i)">
