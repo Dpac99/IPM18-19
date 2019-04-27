@@ -13,6 +13,10 @@ function payNow() {
     document.location.href = "payNow.html"
 }
 
+function payNowConfirmation() {
+    document.location.href = "payNowConfirmation.html"
+}
+
 function settings() {
     document.location.href = "settings.html"
 }
@@ -23,6 +27,10 @@ function health() {
 
 function tips() {
     document.location.href = "tips.html"
+}
+
+function profiles() {
+    document.location.href = "profiles.html"
 }
 
 function privacy() {
@@ -94,6 +102,7 @@ function scanner() {
 function payNowScanner() {
     scanner()
     setTimeout(scanner, 3000)
+    setTimeout(payNowConfirmation, 2995)
 }
 
 function buildDate(date){
