@@ -18,15 +18,20 @@
             <div class="screen-body" style="justify-content: space-around; margin-block-end: 0.5cm">
                 <div class="top-row-space-around">
                     <div class="pair">
-                        <div class="phone">
-                            <img src="Assets/images/calling.png" class="calling-img" style="filter: invert(100%)">
+                        <div class="pair">
+                            <div class="phone">
+                                <img src="Assets/images/calling.png" class="calling-img">
+                            </div>
+                            <span style="font-size:18px ; color:white">Calling emergency line...</span>
                         </div>
-                        <span style="font-size:20px ; color:white;">Calling emergency line...</span>
+                        <div class="fingerprint"  style="margin-top: 0.4cm">
+                            <img src="Assets/images/end_call.png" class="end-call-img" onclick="sos()">
+                        </div> 
                     </div>
                 </div>
             </div>
         </div>
-        <div class="back" onclick="sos()"></div>
+        <div class="back"></div>
     </div>
 </body>
 

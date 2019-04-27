@@ -201,8 +201,14 @@ a:hover{
 }
 
 .calling-img{
-    width: 4cm;
-    height: 4cm;
+    width: 3.7cm;
+    height: 3.7cm;
+    filter: invert(100%)
+}
+
+.end-call-img{
+    height: 60px;
+    width:  60px;
     cursor: pointer;
 }
 
@@ -693,16 +699,23 @@ transform: rotate(180deg);
 
 .healthSubtitles{
     margin-top: 0px;
-    font-size: 14px;
+    font-size: 13px;
     color: white;
+}
+
+.profilesInstructions{
+    font-size: 27px;
+    /* font-weight: bold; */
+    color: white;
+    margin-top: 0.2cm;
 }
 
 /* Phone ringing ###################################################### */
 
 .phone {
-    width: 4cm;
-    height: 4cm;
-    margin-bottom: 0.5cm;
+    width: 3.7cm;
+    height: 3.7cm;
+    margin-bottom: 0.3cm;
     -webkit-animation: NAME-YOUR-ANIMATION 2s infinite;
     -webkit-animation-iteration-count:infinite;
 }
