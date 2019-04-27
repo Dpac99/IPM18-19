@@ -282,6 +282,21 @@ a:hover{
     margin-right: 0.5cm;
 }
 
+.health-icon{
+    width: 2.7cm;
+    height: 2.7cm;
+    margin-right: 0.1cm;
+    margin-left: 0.1cm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: x-large;
+    border-radius:100%;
+    cursor: pointer;
+    border: 0.5px solid rgb(220, 230, 250);
+    color: white
+}
+
 .icon{
     border: 0.5px solid rgb(220, 230, 250);
     border-radius: 15%;

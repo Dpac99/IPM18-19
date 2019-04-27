@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>BPM</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div class="frame" id="wrapper">
+        <div class="lock" onclick="lock()"></div>
+        <div class="screen">
+            <div class="top-row-space-between">
+                <div class="health-icon">
+                    {{ bpm }}
+                </div>
+                <div class="health-icon" >
+                    SCAN NOW
+                </div>
+            </div>
+            <img class="ticket" src="Assets/images/bpmGraph.png">
+        </div>
+        <div class="back" onclick="health()"></div>
+    </div>
+    <script src="Assets/js/helpers.js"></script>
+    <script src="Assets/js/health.js"></script>
+</body>
+
+</html>
