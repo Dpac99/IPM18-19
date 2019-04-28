@@ -4,6 +4,7 @@ var km = JSON.parse(localStorage.getItem("km"))
 var lowBpm = localStorage.getItem("low-bpm")
 var topBpm = localStorage.getItem("top-bpm")
 var gauge = localStorage.getItem("bpmGauge")
+var BPMcounter = parseInt(localStorage.getItem("BPMCounter"))
 
 var exp = new Vue({
     el: "#wrapper",
@@ -16,9 +17,14 @@ var exp = new Vue({
 })
 
 var chart = new CanvasJS.Chart("chartContainer", {
+    backgroundColor: "#1f2c3d",
     theme: "dark2",
+    axisY:{
+        includeZero: false,
+    },
     data:[
         {
+            lineColor:"#ffffff",
             type: "line",
             dataPoints: []
         }
@@ -26,7 +32,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 })
 
 function initBPM(){
-    initDataPoints(bpmArr)
+    initDataPoints(bpmArr, BPMcounter)
     chart.render()
 }
 
@@ -40,18 +46,30 @@ function initKm(){
     chart.render()
 }
 
-function initDataPoints(data){
-    chart.options.data[0].dataPoints     = []
+function initDataPoints(data, counter){
+    chart.options.data[0].dataPoints= []
     for(i=0; i<data.length; i++){
-        chart.options.data[0].dataPoints.push({x: i+1, y: parseInt(data[i]) })
+        let x = counter - 5 + i
+        if(x < 0){
+            x+=24
+        }
+        chart.options.data[0].dataPoints.push({label: x.toString(), y: parseInt(data[i]) })
     }
 }
 
 function scanBPM(){
-    var newBPM =Math.floor(Math.random() * 61 + 75) 
+    var newBPM =Math.floor(Math.random() * 61 + 75)
+    BPMcounter++
+    if(BPMcounter > 23){
+        BPMcounter = 0
+    }
+    localStorage.setItem("BPMCounter", BPMcounter )
     bpmArr.push(newBPM)
     exp.bpm = newBPM
     localStorage.setItem("bpm", bpmArr)
+    if(bpmArr.length >= 6){
+        bpmArr.splice(0,1)
+    }
     initBPM()
     exp.bpmGauge =Math.floor((((newBPM-lowBpm)/(topBpm - lowBpm))*100)/5)*5
     localStorage.setItem("bpmGauge", exp.bpmGauge)
