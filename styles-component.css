@@ -542,6 +542,11 @@ a:hover{
     color: white;
 }
 
+.tipsArea{
+    border: 0.1cm solid white;
+    border-radius:10px;
+}
+
 .right-arrow-icon{
     border: 0cm solid black;
     border-radius: 15%;
