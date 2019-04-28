@@ -1,6 +1,3 @@
-let speechImage= '<img class="screen" src="Assets/images/fingerprint.png"'
-let prevHtml = ""
-
 function mainMenu() {
     document.location.href = "mainScreen1.html"
 }
