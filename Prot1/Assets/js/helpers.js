@@ -30,7 +30,7 @@ function tips() {
 }
 
 function profiles() {
-    document.location.href = "profiles.html"
+    document.location.href = "Profiles.html"
 }
 
 function privacy() {
