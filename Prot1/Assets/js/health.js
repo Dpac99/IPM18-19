@@ -12,39 +12,43 @@ var exp = new Vue({
 })
 
 var chart = new CanvasJS.Chart("chartContainer", {
+    theme: "dark2",
     data:[
         {
-            type: "column",
+            type: "line",
             dataPoints: []
         }
     ]
 })
 
 function initBPM(){
-    addDataPoints(bpmArr)
+    initDataPoints(bpmArr)
     chart.render()
 }
 
 function initO2(){
-    addDataPoints(o2Arr)
+    initDataPoints(o2Arr)
     chart.render()
 }
 
 function initKm(){
-    addDataPoints(km.values)
+    initDataPoints(km.values)
     chart.render()
 }
 
-function addDataPoints(data){
+function initDataPoints(data){
+    chart.options.data[0].dataPoints     = []
     for(i=0; i<data.length; i++){
         chart.options.data[0].dataPoints.push({x: i+1, y: parseInt(data[i]) })
     }
 }
 
 function scanBPM(){
-    var newBpm = Math.random() * 50 + 60
-    exp.bpm = newBpm
-    localStorage.setItem("bpm", newBpm)
+    var newBPM =Math.floor(Math.random() * 50 + 60) 
+    bpmArr.push(newBPM)
+    exp.bpm = newBPM
+    localStorage.setItem("bpm", bpmArr)
+    initBPM()
 }
 
 function scanO2(){
