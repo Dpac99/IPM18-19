@@ -1,13 +1,17 @@
 var bpmArr = localStorage.getItem("bpm").split(",")
 var o2Arr = localStorage.getItem("o2").split(",")
 var km = JSON.parse(localStorage.getItem("km"))
+var lowBpm = localStorage.getItem("low-bpm")
+var topBpm = localStorage.getItem("top-bpm")
+var gauge = localStorage.getItem("bpmGauge")
 
 var exp = new Vue({
     el: "#wrapper",
     data:{
         bpm: bpmArr[bpmArr.length - 1],
         o2: o2Arr[o2Arr.length - 1],
-        km: km.dayTotal
+        km: km.dayTotal,
+        bpmGauge: gauge
     }
 })
 
@@ -44,11 +48,14 @@ function initDataPoints(data){
 }
 
 function scanBPM(){
-    var newBPM =Math.floor(Math.random() * 50 + 60) 
+    var newBPM =Math.floor(Math.random() * 61 + 75) 
     bpmArr.push(newBPM)
     exp.bpm = newBPM
     localStorage.setItem("bpm", bpmArr)
     initBPM()
+    exp.bpmGauge =Math.floor((((newBPM-lowBpm)/(topBpm - lowBpm))*100)/5)*5
+    localStorage.setItem("bpmGauge", exp.bpmGauge)
+
 }
 
 function scanO2(){
