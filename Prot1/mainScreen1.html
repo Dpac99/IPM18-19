@@ -35,16 +35,16 @@
                         </div>
                     </div>
                     <div class="center-row-space-around">
-                        <div class="pair">
-                            <div class="gauge" id="O2" data-fill="75" data-value="96%"> <span /></div>
+                        <div class="pair" style="margin-bottom: 0.1cm">
+                            <div style="margin-bottom: 0"class="gauge" id="O2" v-bind:data-fill="o2Gauge" v-bind:data-value="o2"> <span /></div>
                             <span class="subtitles">O2%</span>
                         </div>
-                        <div class="pair">
-                            <div class="gauge" id="BPM" v-bind:data-fill="bpmGauge" v-bind:data-value="bpm"> <span /></div>
+                        <div class="pair" style="margin-bottom: 0.1cm">
+                            <div style="margin-bottom:0"class="gauge" id="BPM" v-bind:data-fill="bpmGauge" v-bind:data-value="bpm"> <span /></div>
                             <span class="subtitles">BPM</span>
                         </div>
-                        <div class="pair">
-                            <div class="gauge" id="KM" data-fill="50" data-value="10.2"> <span /></div>
+                        <div class="pair" style="margin-bottom: 0.1cm">
+                            <div style="margin-bottom: 0"class="gauge" id="KM" v-bind:data-fill="kmGauge" v-bind:data-value="km"> <span /></div>
                             <span class="subtitles">Km</span>
                         </div>
                     </div>
@@ -66,8 +66,8 @@
                 </div>
             </div>
         </div>
+        <div class="back"></div>
     </div>
-    <div class="back"></div>
     <script src="Assets/js/helpers.js"></script>
     <script src="Assets/js/health.js"></script>
 

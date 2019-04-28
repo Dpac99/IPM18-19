@@ -174,15 +174,27 @@ if (sessionStorage.getItem("hotels") === null) {
     sessionStorage.setItem("currentPlanIndex", "0")
     sessionStorage.setItem("bpm", [81,76,84,80, 86, 82] )
     sessionStorage.setItem("BPMCounter", 5)
-    sessionStorage.setItem("o2", [95, 95, 93])
+    sessionStorage.setItem("o2", [95, 95, 93, 91, 93, 92])
+    sessionStorage.setItem("O2Counter", 5)
     sessionStorage.setItem("km", JSON.stringify({
-        dayTotal: 4.5,
-        values: [1.2, 1.3, 2]
+        dayTotal: 2.6,
+        values: [0.2, 0.4, 0.1, 0.3, 0.4, 1.2]
     }))
     sessionStorage.setItem("top-bpm", 135)
     sessionStorage.setItem("low-bpm", 75)
-    sessionStorage.setItem("bpmGauge", 65)
-}
-
-if (sessionStorage.getItem("profileId") === null)
+    sessionStorage.setItem("bpmGauge", 20)
+    sessionStorage.setItem("o2Gauge", 10)
+    sessionStorage.setItem("kmGauge", 15)
     sessionStorage.setItem("profileId", 'Walking')
+
+    sessionStorage.setItem("name", "Mr. Eduardo Morgado")
+    sessionStorage.setItem("bloodType", "A+")
+    sessionStorage.setItem("healthProblems", ["Asthma"])
+    sessionStorage.setItem("medicines", [])
+    sessionStorage.setItem("emergencyContacts", JSON.stringify([{
+        name: "Mom",
+        contact: "+351 917986622"
+    }]))
+    sessionStorage.setItem("birthday", "02/10/1998")
+    sessionStorage.setItem("medicalBack", "/healthScreen.html")
+}

@@ -1,6 +1,8 @@
-var bpm = new Vue({
+var bpm = sessionStorage.getItem("bpm").split(",")
+
+var exp = new Vue({
     el: "#bpm", 
     data: {
-        currentBpm: sessionStorage.getItem("bpm")
+        bpm: bpm[bpm.length - 1]
     }
 })

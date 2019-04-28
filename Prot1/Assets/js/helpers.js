@@ -67,11 +67,20 @@ function sos(){
 }
 
 function medicalSheet(){
+    sessionStorage.setItem("medicalBack", document.location.href)
     document.location.href="medicalSheet.html"
 }
 
 function bpm(){
     document.location.href="bpm.html"
+}
+
+function o2(){
+    document.location.href = "o2.html"
+}
+
+function km(){
+    document.location.href="km.html"
 }
 
 function showSpeech(){

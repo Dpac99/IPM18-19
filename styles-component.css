@@ -618,6 +618,10 @@ a:hover{
     transform: translate(-50%, -50%);
     text-indent: 0;
 }
+
+#O2 span::before {
+    content: attr(data-value) + "%"
+}
   
 .gauge,
 .gauge span,
