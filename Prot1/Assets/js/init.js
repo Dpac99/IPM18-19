@@ -172,4 +172,7 @@ if (localStorage.getItem("hotels") === null) {
     ]))
     localStorage.setItem("currentPlan", "")
     localStorage.setItem("currentPlanIndex", "0")
+    localStorage.setItem("bpm", 80 )
+    localStorage.setItem("o2", 95)
+    localStorage.setItem("km", 3.6)
 }
