@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="../styles-component.css">
     <style type="css"></style>
     <script src="Assets/js/helpers.js"></script>
+    <script src="Assets/js/vue.js"></script>
 </head>
 
 <body>
     <div class="frame">
         <div class="lock" onclick="lock()"></div>
-        <div class="screen">
+        <div class="screen" id="bpm">
             <div class="top-row">
                 <span>4G</span>
                 <span>13:00</span>
@@ -22,7 +23,7 @@
                 <div class="center-row-space-around">
                     <div class="pair" style="align-items: flex-start; margin-left: 0.30cm">
                         <span class="sosBpm">Current BPM</span>
-                        <span class="sosBpmNumber">200</span>
+                        <span class="sosBpmNumber">{{ currentBpm }}</span>
                     </div>
                     <div class="pair">
                     </div>
@@ -45,6 +46,7 @@
         </div>
         <div class="back" onclick="lock()"></div>
     </div>
+    <script src="Assets/js/bpm.js"></script>
 </body>
 
 </html>
