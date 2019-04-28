@@ -27,7 +27,7 @@ function tips() {
 }
 
 function profiles() {
-    document.location.href = "profiles.html"
+    document.location.href = "Profiles.html"
 }
 
 function privacy() {
@@ -68,6 +68,10 @@ function sos(){
 
 function medicalSheet(){
     document.location.href="medicalSheet.html"
+}
+
+function bpm(){
+    document.location.href="bpm.html"
 }
 
 function showSpeech(){

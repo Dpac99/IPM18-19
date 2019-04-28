@@ -172,10 +172,16 @@ if (localStorage.getItem("hotels") === null) {
     ]))
     localStorage.setItem("currentPlan", "")
     localStorage.setItem("currentPlanIndex", "0")
-    localStorage.setItem("bpm", 80 )
-    localStorage.setItem("o2", 95)
-    localStorage.setItem("km", 3.6)
-
+    localStorage.setItem("bpm", [81,76,84,80, 86, 82] )
+    localStorage.setItem("BPMCounter", 5)
+    localStorage.setItem("o2", [95, 95, 93])
+    localStorage.setItem("km", JSON.stringify({
+        dayTotal: 4.5,
+        values: [1.2, 1.3, 2]
+    }))
+    localStorage.setItem("top-bpm", 135)
+    localStorage.setItem("low-bpm", 75)
+    localStorage.setItem("bpmGauge", 65)
 }
 
 if (localStorage.getItem("profileId") === null)

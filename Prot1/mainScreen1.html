@@ -6,10 +6,11 @@
     <title>Main Menu</title>
     <link rel="stylesheet" href="../styles-component.css">
     <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
 </head>
 
 <body>
-    <div class="frame">
+    <div class="frame" id="wrapper">
         <div class="lock" onclick="lock()"></div>
         <div class="border">
             <div class="screen">
@@ -39,7 +40,7 @@
                             <span class="subtitles">O2%</span>
                         </div>
                         <div class="pair">
-                            <div class="gauge" id="BPM" data-fill="60" data-value="70"> <span /></div>
+                            <div class="gauge" id="BPM" v-bind:data-fill="bpmGauge" v-bind:data-value="bpm"> <span /></div>
                             <span class="subtitles">BPM</span>
                         </div>
                         <div class="pair">
@@ -48,18 +49,19 @@
                         </div>
                     </div>
 
-                <div class="bottom-row-space-around">
-                    <div class="pair">
-                        <img class=icon src="Assets/images/settings-512.png" onclick="settings()">
-                        <span class="subtitles">Settings</span>
-                    </div>
-                    <div class="pair">
-                        <img class="icon" src="Assets/images/contactless_ind_pos.png" onclick="payNow()">
-                        <span class="subtitles">Pay Now</span>
-                    </div>
-                    <div class="pair">
-                        <img class="icon" src="Assets/images/hearth.svg" onclick="health()">
-                        <span class="subtitles">Health</span>
+                    <div class="bottom-row-space-around">
+                        <div class="pair">
+                            <img class=icon src="Assets/images/settings-512.png" onclick="settings()">
+                            <span class="subtitles">Settings</span>
+                        </div>
+                        <div class="pair">
+                            <img class="icon" src="Assets/images/contactless_ind_pos.png" onclick="payNow()">
+                            <span class="subtitles">Pay Now</span>
+                        </div>
+                        <div class="pair">
+                            <img class="icon" src="Assets/images/hearth.svg" onclick="health()">
+                            <span class="subtitles">Health</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,6 +69,8 @@
     </div>
     <div class="back"></div>
     <script src="Assets/js/helpers.js"></script>
+    <script src="Assets/js/health.js"></script>
+
 </body>
 
 </html>

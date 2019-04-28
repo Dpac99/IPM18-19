@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>BPM</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
+    <script src="Assets/js/canvasjs.min.js"></script>
+</head>
+
+<body onload="initBPM()">
+    <div class="frame" id="wrapper">
+        <div class="lock" onclick="lock()"></div>
+        <div class="screen" style="justify-content: flex-start">
+            <div class="top-row-space-between">
+                <div class="health-icon">
+                    {{ bpm }}
+                </div>
+                <div class="health-icon" onclick="scanBPM()" >
+                    SCAN NOW
+                </div>
+            </div>
+            <div style="margin:0.2cm; height:4cm;" id="chartContainer"></div>
+        </div>
+        <div class="back" onclick="health()"></div>
+    </div>
+    <script src="Assets/js/helpers.js"></script>
+    <script src="Assets/js/health.js"></script>
+</body>
+
+</html>
