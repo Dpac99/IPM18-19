@@ -10,19 +10,19 @@
     <script src="Assets/js/canvasjs.min.js"></script>
 </head>
 
-<body>
+<body onload="initBPM()">
     <div class="frame" id="wrapper">
         <div class="lock" onclick="lock()"></div>
-        <div class="screen">
+        <div class="screen" style="justify-content: flex-start">
             <div class="top-row-space-between">
                 <div class="health-icon">
                     {{ bpm }}
                 </div>
-                <div class="health-icon" onclick="scanBPM()">
+                <div class="health-icon" onclick="scanBPM()" >
                     SCAN NOW
                 </div>
             </div>
-            <img class="ticket" src="Assets/images/bpmGraph.png">
+            <div style="margin:0.2cm; height:4cm;" id="chartContainer"></div>
         </div>
         <div class="back" onclick="health()"></div>
     </div>
