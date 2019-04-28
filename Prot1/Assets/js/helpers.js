@@ -73,6 +73,10 @@ function medicalSheet(){
     document.location.href="medicalSheet.html"
 }
 
+function bpm(){
+    document.location.href="bpm.html"
+}
+
 function showSpeech(){
     let screen = document.getElementById('screen')
     let doc = document.getElementById("overlay")
