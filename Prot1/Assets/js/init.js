@@ -180,3 +180,6 @@ if (localStorage.getItem("hotels") === null) {
         values: [1.2, 1.3, 2]
     }))
 }
+
+if (localStorage.getItem("profileId") === null)
+    localStorage.setItem("profileId", 'Walking')
