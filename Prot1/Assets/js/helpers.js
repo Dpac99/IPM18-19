@@ -67,11 +67,20 @@ function sos(){
 }
 
 function medicalSheet(){
+    sessionStorage.setItem("medicalBack", document.location.href)
     document.location.href="medicalSheet.html"
 }
 
 function bpm(){
     document.location.href="bpm.html"
+}
+
+function o2(){
+    document.location.href = "o2.html"
+}
+
+function km(){
+    document.location.href="km.html"
 }
 
 function showSpeech(){
@@ -167,7 +176,7 @@ function confirmation(func, back, message){
 }
 
 function selectProfile(id) {
-    localStorage.setItem("profileId", id)
+    sessionStorage.setItem("profileId", id)
     if (id != 'Running') {
         document.getElementById('Running').style.border = '0.1cm #1f2c3d solid'
     }
@@ -185,5 +194,5 @@ function selectProfile(id) {
 }
 
 function initProfiles(){
-    selectProfile(localStorage.getItem("profileId"))
+    selectProfile(sessionStorage.getItem("profileId"))
 }

@@ -1,10 +1,11 @@
-var bpmArr = localStorage.getItem("bpm").split(",")
-var o2Arr = localStorage.getItem("o2").split(",")
-var km = JSON.parse(localStorage.getItem("km"))
-var lowBpm = localStorage.getItem("low-bpm")
-var topBpm = localStorage.getItem("top-bpm")
-var gauge = localStorage.getItem("bpmGauge")
-var BPMcounter = parseInt(localStorage.getItem("BPMCounter"))
+var bpmArr = sessionStorage.getItem("bpm").split(",")
+var o2Arr = sessionStorage.getItem("o2").split(",")
+var km = JSON.parse(sessionStorage.getItem("km"))
+var lowBpm = sessionStorage.getItem("low-bpm")
+var topBpm = sessionStorage.getItem("top-bpm")
+var bpmGauge = sessionStorage.getItem("bpmGauge")
+var o2Gauge = sessionStorage.getItem("o2Gauge")
+var kmGauge = sessionStorage.getItem("kmGauge")
 
 var exp = new Vue({
     el: "#wrapper",
@@ -12,7 +13,10 @@ var exp = new Vue({
         bpm: bpmArr[bpmArr.length - 1],
         o2: o2Arr[o2Arr.length - 1],
         km: km.dayTotal,
-        bpmGauge: gauge
+        lastKm: km.values[km.values.length - 1],
+        bpmGauge: bpmGauge,
+        o2Gauge: o2Gauge,
+        kmGauge: kmGauge
     }
 })
 
@@ -32,52 +36,75 @@ var chart = new CanvasJS.Chart("chartContainer", {
 })
 
 function initBPM(){
-    initDataPoints(bpmArr, BPMcounter)
+    initDataPoints(bpmArr, 0)
     chart.render()
 }
 
 function initO2(){
-    initDataPoints(o2Arr)
+    initDataPoints(o2Arr, 1)
     chart.render()
 }
 
 function initKm(){
-    initDataPoints(km.values)
+    initDataPoints(km.values, -1)
     chart.render()
 }
 
-function initDataPoints(data, counter){
+function initDataPoints(data, type){
+    switch(type){
+        case -1:
+            chart.axisY.minimum = 0
+            chart.axisY.maximum = 2
+            break
+        case 0:
+            chart.axisY.minimum = 90
+            chart.axisY.maximum = 100
+            break
+        case 1:
+            chart.axisY.minimum = 75
+            chart.axisY.maximum = 135
+            break
+    }
     chart.options.data[0].dataPoints= []
-    for(i=0; i<data.length; i++){
-        let x = counter - 5 + i
-        if(x < 0){
-            x+=24
-        }
-        chart.options.data[0].dataPoints.push({label: x.toString(), y: parseInt(data[i]) })
+    for(i=data.length - 6 ; i<data.length ;i++){
+        let x = i % 24
+        chart.options.data[0].dataPoints.push({label: x.toString(), y: type >= 0? parseInt(data[i]) : parseFloat(data[i]) })
     }
 }
 
 function scanBPM(){
     var newBPM =Math.floor(Math.random() * 61 + 75)
-    BPMcounter++
-    if(BPMcounter > 23){
-        BPMcounter = 0
-    }
-    localStorage.setItem("BPMCounter", BPMcounter )
     bpmArr.push(newBPM)
     exp.bpm = newBPM
-    localStorage.setItem("bpm", bpmArr)
-    if(bpmArr.length >= 6){
-        bpmArr.splice(0,1)
-    }
+    sessionStorage.setItem("bpm", bpmArr)
     initBPM()
     exp.bpmGauge =Math.floor((((newBPM-lowBpm)/(topBpm - lowBpm))*100)/5)*5
-    localStorage.setItem("bpmGauge", exp.bpmGauge)
+    sessionStorage.setItem("bpmGauge", exp.bpmGauge)
 
 }
 
 function scanO2(){
-    var newO2 = Math.random() * 10 + 90
+    var newO2 =Math.floor(Math.random() * 11 + 90)
+    o2Arr.push(newO2)
     exp.o2 = newO2
-    localStorage.setItem("o2", newO2)
+    sessionStorage.setItem("o2", o2Arr)
+    initO2()
+    exp.o2Gauge = (newO2 - 90) * 10
+    sessionStorage.setItem("o2Gauge", exp.o2Gauge)
+}
+
+function walk(){
+    var newKm = (Math.random() * 2).toFixed(2)
+    exp.lastKm = newKm
+    km.values.push(parseFloat(newKm))
+    km.dayTotal = (parseFloat(km.dayTotal) + parseFloat(newKm)).toFixed(2)
+    exp.km = km.dayTotal
+    sessionStorage.setItem("km", JSON.stringify(km))
+    initKm()
+    var g = Math.round(parseFloat(km.dayTotal) * 5)
+    if( g > 100){
+        g=100
+    }
+    exp.kmGauge = g
+    sessionStorage.setItem("kmGauge", exp.kmGauge)
 }
