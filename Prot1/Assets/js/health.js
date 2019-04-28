@@ -1,16 +1,17 @@
 var bpm = localStorage.getItem("bpm")
 var o2 = localStorage.getItem("o2")
-var km = localStorage.getItem("km")
+var km = JSON.parse(localStorage.getItem("km"))
 
 var exp = new Vue({
     el: "#wrapper",
     data:{
-        bpm: bpm,
-        o2: o2,
-        km: km
+        bpm: bpm[bpm.length - 1],
+        o2: o2[02.length - 1],
+        km: km.dayTotal
     }
 })
-console.log(exp.bpm)
+
+var bpmGraph = new CanvasJS.Chart()
 
 function scanBPM(){
     var newBpm = Math.random() * 50 + 60
