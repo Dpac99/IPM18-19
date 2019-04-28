@@ -1,10 +1,10 @@
-var bpmArr = localStorage.getItem("bpm").split(",")
-var o2Arr = localStorage.getItem("o2").split(",")
-var km = JSON.parse(localStorage.getItem("km"))
-var lowBpm = localStorage.getItem("low-bpm")
-var topBpm = localStorage.getItem("top-bpm")
-var gauge = localStorage.getItem("bpmGauge")
-var BPMcounter = parseInt(localStorage.getItem("BPMCounter"))
+var bpmArr = sessionStorage.getItem("bpm").split(",")
+var o2Arr = sessionStorage.getItem("o2").split(",")
+var km = JSON.parse(sessionStorage.getItem("km"))
+var lowBpm = sessionStorage.getItem("low-bpm")
+var topBpm = sessionStorage.getItem("top-bpm")
+var gauge = sessionStorage.getItem("bpmGauge")
+var BPMcounter = parseInt(sessionStorage.getItem("BPMCounter"))
 
 var exp = new Vue({
     el: "#wrapper",
@@ -63,21 +63,21 @@ function scanBPM(){
     if(BPMcounter > 23){
         BPMcounter = 0
     }
-    localStorage.setItem("BPMCounter", BPMcounter )
+    sessionStorage.setItem("BPMCounter", BPMcounter )
     bpmArr.push(newBPM)
     exp.bpm = newBPM
-    localStorage.setItem("bpm", bpmArr)
+    sessionStorage.setItem("bpm", bpmArr)
     if(bpmArr.length >= 6){
         bpmArr.splice(0,1)
     }
     initBPM()
     exp.bpmGauge =Math.floor((((newBPM-lowBpm)/(topBpm - lowBpm))*100)/5)*5
-    localStorage.setItem("bpmGauge", exp.bpmGauge)
+    sessionStorage.setItem("bpmGauge", exp.bpmGauge)
 
 }
 
 function scanO2(){
     var newO2 = Math.random() * 10 + 90
     exp.o2 = newO2
-    localStorage.setItem("o2", newO2)
+    sessionStorage.setItem("o2", newO2)
 }

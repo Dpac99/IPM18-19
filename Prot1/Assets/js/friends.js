@@ -11,13 +11,13 @@ var exp = new Vue({
             }
             let i = friends.findIndex(findName)
             friends.splice(i,1)
-            localStorage.setItem("friends", JSON.stringify(friends))
+            sessionStorage.setItem("friends", JSON.stringify(friends))
             location.reload()
         }
     }
 })
 
-let friends = JSON.parse(localStorage.getItem("friends"))
+let friends = JSON.parse(sessionStorage.getItem("friends"))
 
 function init(){
     for (let i=0; i<friends.length; i++){
@@ -30,7 +30,7 @@ init()
 function addFriend(){
     friends.push(exp.newFriend)
     exp.newFriend=""
-    localStorage.setItem("friends", JSON.stringify(friends))
+    sessionStorage.setItem("friends", JSON.stringify(friends))
     showSpeech()
     location.reload()
 }

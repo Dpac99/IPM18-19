@@ -25,7 +25,7 @@ var exp = new Vue({
     }
 })
 
-var hotels = JSON.parse(localStorage.getItem("hotels"))
+var hotels = JSON.parse(sessionStorage.getItem("hotels"))
 
 function init() {
     for (i = 0; i < hotels.length; i++) {
@@ -93,7 +93,7 @@ function pushHotelAux(){
             room: exp.newHotel.room
         }
     )
-    localStorage.setItem("hotels", JSON.stringify(hotels))
+    sessionStorage.setItem("hotels", JSON.stringify(hotels))
     exp.newHotel = newHotelTemplate
     housing()
 }
@@ -167,7 +167,7 @@ function backToHousing(){
 
 function deleteHotelsAux(){
     hotels.splice(currentHotel, 1)
-    localStorage.setItem("hotels", JSON.stringify(hotels))
+    sessionStorage.setItem("hotels", JSON.stringify(hotels))
     prevHotel()
     exp.hotels = hotels
 }

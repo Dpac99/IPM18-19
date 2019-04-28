@@ -1,4 +1,4 @@
-var flights = JSON.parse(localStorage.getItem("flights"))
+var flights = JSON.parse(sessionStorage.getItem("flights"))
 
 
 
@@ -82,7 +82,7 @@ function addTicket() {
         date: "25/06/2019",
         time: "11:25",
     })
-    localStorage.setItem("flights", JSON.stringify(flights))
+    sessionStorage.setItem("flights", JSON.stringify(flights))
     exp.flights = []
     exp.dots = []
     init()
@@ -90,7 +90,7 @@ function addTicket() {
 
 function deleteTicketAux(){
     flights.splice(currentFlight, 1)
-    localStorage.setItem("flights", JSON.stringify(flights))
+    sessionStorage.setItem("flights", JSON.stringify(flights))
     prevFlight()
     exp.flights = flights
 }

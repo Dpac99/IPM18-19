@@ -1,5 +1,5 @@
-let globalPlans = JSON.parse(localStorage.getItem("plans"))
-let currentPlan = parseInt(localStorage.getItem("currentPlanIndex"))
+let globalPlans = JSON.parse(sessionStorage.getItem("plans"))
+let currentPlan = parseInt(sessionStorage.getItem("currentPlanIndex"))
 
 exp = new Vue({
     el: "#plans",
@@ -99,8 +99,8 @@ function addNewDay() {
 
 
 function setData() {
-    localStorage.setItem("currentPlan", JSON.stringify(exp.current))
-    localStorage.setItem("currentPlanIndex", currentPlan.toString())
+    sessionStorage.setItem("currentPlan", JSON.stringify(exp.current))
+    sessionStorage.setItem("currentPlanIndex", currentPlan.toString())
 }
 
 function pushPlanAux() {
@@ -112,7 +112,7 @@ function pushPlanAux() {
         date: s,
         plans: []
     })
-    localStorage.setItem("plans", JSON.stringify(globalPlans))
+    sessionStorage.setItem("plans", JSON.stringify(globalPlans))
 }
 
 function pushPlan() {
@@ -122,7 +122,7 @@ function pushPlan() {
 
 function deleteDayAux() {
     globalPlans.splice(currentPlan, 1)
-    localStorage.setItem("plans", JSON.stringify(globalPlans))
+    sessionStorage.setItem("plans", JSON.stringify(globalPlans))
     prevPlan()
     exp.plans = globalPlans
 }
@@ -146,8 +146,8 @@ function goBack() {
 
 function confirmChangesAux() {
     globalPlans[currentPlan].plans = exp.current
-    localStorage.setItem("plans", JSON.stringify(globalPlans))
-    localStorage.setItem("currentPlanIndex", "0")
+    sessionStorage.setItem("plans", JSON.stringify(globalPlans))
+    sessionStorage.setItem("currentPlanIndex", "0")
     exp.plans = globalPlans
     travelPlan()
 }

@@ -1,6 +1,6 @@
-if (localStorage.getItem("hotels") === null) {
+if (sessionStorage.getItem("hotels") === null) {
 
-    localStorage.setItem("hotels", JSON.stringify([
+    sessionStorage.setItem("hotels", JSON.stringify([
         {
             name: "Hotel Ritz",
             stars: 5,
@@ -30,7 +30,7 @@ if (localStorage.getItem("hotels") === null) {
         }
     ]))
 
-    localStorage.setItem("friends", JSON.stringify([
+    sessionStorage.setItem("friends", JSON.stringify([
         "Tiago Le",
         "Diogo Pacheco",
         "Andreia Pereira",
@@ -38,7 +38,7 @@ if (localStorage.getItem("hotels") === null) {
         "Joao Silva",
     ]))
 
-    localStorage.setItem("flights", JSON.stringify([
+    sessionStorage.setItem("flights", JSON.stringify([
         {
             company: "Ryanair",
             itinerary: "LIS-OPO",
@@ -73,7 +73,7 @@ if (localStorage.getItem("hotels") === null) {
         }
     ]))
 
-    localStorage.setItem("plans", JSON.stringify([
+    sessionStorage.setItem("plans", JSON.stringify([
         {
             date: "05/03/2019",
             plans: [
@@ -170,19 +170,19 @@ if (localStorage.getItem("hotels") === null) {
             ]
         }
     ]))
-    localStorage.setItem("currentPlan", "")
-    localStorage.setItem("currentPlanIndex", "0")
-    localStorage.setItem("bpm", [81,76,84,80, 86, 82] )
-    localStorage.setItem("BPMCounter", 5)
-    localStorage.setItem("o2", [95, 95, 93])
-    localStorage.setItem("km", JSON.stringify({
+    sessionStorage.setItem("currentPlan", "")
+    sessionStorage.setItem("currentPlanIndex", "0")
+    sessionStorage.setItem("bpm", [81,76,84,80, 86, 82] )
+    sessionStorage.setItem("BPMCounter", 5)
+    sessionStorage.setItem("o2", [95, 95, 93])
+    sessionStorage.setItem("km", JSON.stringify({
         dayTotal: 4.5,
         values: [1.2, 1.3, 2]
     }))
-    localStorage.setItem("top-bpm", 135)
-    localStorage.setItem("low-bpm", 75)
-    localStorage.setItem("bpmGauge", 65)
+    sessionStorage.setItem("top-bpm", 135)
+    sessionStorage.setItem("low-bpm", 75)
+    sessionStorage.setItem("bpmGauge", 65)
 }
 
-if (localStorage.getItem("profileId") === null)
-    localStorage.setItem("profileId", 'Walking')
+if (sessionStorage.getItem("profileId") === null)
+    sessionStorage.setItem("profileId", 'Walking')

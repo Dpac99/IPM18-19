@@ -167,7 +167,7 @@ function confirmation(func, back, message){
 }
 
 function selectProfile(id) {
-    localStorage.setItem("profileId", id)
+    sessionStorage.setItem("profileId", id)
     if (id != 'Running') {
         document.getElementById('Running').style.border = '0.1cm #1f2c3d solid'
     }
@@ -185,5 +185,5 @@ function selectProfile(id) {
 }
 
 function initProfiles(){
-    selectProfile(localStorage.getItem("profileId"))
+    selectProfile(sessionStorage.getItem("profileId"))
 }
