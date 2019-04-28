@@ -9,40 +9,39 @@
     <script src="Assets/js/helpers.js"></script>
 </head>
 
-<!-- Running, Walking, Resting, Sleeping  -->
-<body>
+<body onload="initProfiles()">
     <div class="frame">
         <div class="lock" onclick="lock()"></div>
         <div class="screen">
             <div class="top-row-space-around">
                 <span class="profilesInstructions">Choose a mode</span>
             </div>
-            <div class="center-row-space-around" style="margin-left: 0.35cm; margin-right: 0.35cm; margin-top: 0.25cm">
+            <div class="center-row-space-around" style="margin-left: 0.35cm; margin-right: 0.35cm; margin-top: 0.05cm">
                 <div class="pair">
-                    <img class="healthCircle" src="Assets/images/running2.png">
+                    <img class="profilesCircle"  id="Running" src="Assets/images/running2.png" onclick="selectProfile('Running')">
                     <div class="pair">
                         <span class="healthSubtitles">Running</span>
                         <span class="healthSubtitles" style="font-size: 10px">[100-170 BPM]</span>
                     </div>
                 </div>
                 <div class="pair">
-                    <img class="healthCircle" src="Assets/images/walking.png">
+                    <img class="profilesCircle" id="Walking" src="Assets/images/walking.png" onclick="selectProfile('Walking')">
                     <div class="pair">
                         <span class="healthSubtitles">Walking</span>
                         <span class="healthSubtitles" style="font-size: 10px">[75-135 BPM]</span>
                     </div>
                 </div>
             </div>
-            <div class="bottom-row-space-around" style="margin-left: 0.35cm; margin-right: 0.35cm; margin-top: 0.2cm; margin-bottom: 0.15cm">
+            <div class="bottom-row-space-around" style="margin-left: 0.35cm; margin-right: 0.35cm; margin-top: 0.2cm; margin-bottom: 0.30cm">
                     <div class="pair">
-                        <img class="healthCircle" src="Assets/images/resting.png">
+                        <img class="profilesCircle" id="Resting" src="Assets/images/resting.png" onclick="selectProfile('Resting')">
                         <div class="pair">
                             <span class="healthSubtitles">Resting</span>
                             <span class="healthSubtitles" style="font-size: 10px">[60-110 BPM]</span>
                         </div>
                     </div>
                     <div class="pair">
-                        <img class="healthCircle" src="Assets/images/sleeping.png">
+                        <img class="profilesCircle" id="Sleeping" src="Assets/images/sleeping.png" onclick="selectProfile('Sleeping')">
                         <div class="pair">
                             <span class="healthSubtitles">Sleeping</span>
                             <span class="healthSubtitles" style="font-size: 10px">[40-80 BPM]</span>

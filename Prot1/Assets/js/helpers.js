@@ -165,3 +165,25 @@ function confirmation(func, back, message){
     document.getElementById("no").addEventListener("click", back)
     
 }
+
+function selectProfile(id) {
+    localStorage.setItem("profileId", id)
+    if (id != 'Running') {
+        document.getElementById('Running').style.border = '0.1cm #1f2c3d solid'
+    }
+    if (id != 'Walking') {
+        document.getElementById('Walking').style.border = '0.1cm #1f2c3d solid'
+    }
+    if (id != 'Resting') {
+        document.getElementById('Resting').style.border = '0.1cm #1f2c3d solid'
+    }
+    if (id != 'Sleeping') {
+        document.getElementById('Sleeping').style.border = '0.1cm #1f2c3d solid'
+    }
+
+    document.getElementById(id).style.border = '0.1cm #00cc00 solid'
+}
+
+function initProfiles(){
+    selectProfile(localStorage.getItem("profileId"))
+}
