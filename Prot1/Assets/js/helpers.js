@@ -72,14 +72,17 @@ function medicalSheet(){
 }
 
 function bpm(){
+    sessionStorage.setItem("healthBack", document.location.href)
     document.location.href="bpm.html"
 }
 
 function o2(){
+    sessionStorage.setItem("healthBack", document.location.href)
     document.location.href = "o2.html"
 }
 
 function km(){
+    sessionStorage.setItem("healthBack", document.location.href)
     document.location.href="km.html"
 }
 
@@ -173,26 +176,4 @@ function confirmation(func, back, message){
     document.getElementById("no").addEventListener("click", toggleConfirmation)
     document.getElementById("no").addEventListener("click", back)
     
-}
-
-function selectProfile(id) {
-    sessionStorage.setItem("profileId", id)
-    if (id != 'Running') {
-        document.getElementById('Running').style.border = '0.1cm #1f2c3d solid'
-    }
-    if (id != 'Walking') {
-        document.getElementById('Walking').style.border = '0.1cm #1f2c3d solid'
-    }
-    if (id != 'Resting') {
-        document.getElementById('Resting').style.border = '0.1cm #1f2c3d solid'
-    }
-    if (id != 'Sleeping') {
-        document.getElementById('Sleeping').style.border = '0.1cm #1f2c3d solid'
-    }
-
-    document.getElementById(id).style.border = '0.1cm #00cc00 solid'
-}
-
-function initProfiles(){
-    selectProfile(sessionStorage.getItem("profileId"))
 }

@@ -714,7 +714,7 @@ transform: rotate(180deg);
 }
 
 .profilesCircle {
-    width: 4em; height: 4em;
+    width: 1.5cm; height: 1.5cm;
     background: white;
     border: 0.1cm #1f2c3d solid;
     border-radius: 50%;

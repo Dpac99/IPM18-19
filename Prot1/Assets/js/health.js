@@ -1,11 +1,12 @@
 var bpmArr = sessionStorage.getItem("bpm").split(",")
 var o2Arr = sessionStorage.getItem("o2").split(",")
 var km = JSON.parse(sessionStorage.getItem("km"))
-var lowBpm = sessionStorage.getItem("low-bpm")
-var topBpm = sessionStorage.getItem("top-bpm")
-var bpmGauge = sessionStorage.getItem("bpmGauge")
-var o2Gauge = sessionStorage.getItem("o2Gauge")
-var kmGauge = sessionStorage.getItem("kmGauge")
+var lowBpm = parseInt(sessionStorage.getItem("low-bpm"))
+var topBpm = parseInt(sessionStorage.getItem("top-bpm"))
+var bpmGauge = parseInt(sessionStorage.getItem("bpmGauge"))
+var o2Gauge = parseInt(sessionStorage.getItem("o2Gauge"))
+var kmGauge = parseInt(sessionStorage.getItem("kmGauge"))
+var back = sessionStorage.getItem("healthBack")
 
 var exp = new Vue({
     el: "#wrapper",
@@ -17,6 +18,11 @@ var exp = new Vue({
         bpmGauge: bpmGauge,
         o2Gauge: o2Gauge,
         kmGauge: kmGauge
+    },
+    methods:{
+        back: function(){
+            document.location.href = back.substring(back.lastIndexOf("/") + 1)
+        }
     }
 })
 
@@ -57,12 +63,12 @@ function initDataPoints(data, type){
             chart.axisY.maximum = 2
             break
         case 0:
-            chart.axisY.minimum = 90
-            chart.axisY.maximum = 100
+            chart.axisY.minimum = lowBpm
+            chart.axisY.maximum = topBpm
             break
         case 1:
-            chart.axisY.minimum = 75
-            chart.axisY.maximum = 135
+            chart.axisY.minimum = 90
+            chart.axisY.maximum = 100
             break
     }
     chart.options.data[0].dataPoints= []
@@ -73,7 +79,7 @@ function initDataPoints(data, type){
 }
 
 function scanBPM(){
-    var newBPM =Math.floor(Math.random() * 61 + 75)
+    var newBPM =Math.floor((Math.random() * (topBpm - lowBpm)) + lowBpm)
     bpmArr.push(newBPM)
     exp.bpm = newBPM
     sessionStorage.setItem("bpm", bpmArr)

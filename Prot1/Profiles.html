@@ -13,10 +13,10 @@
     <div class="frame">
         <div class="lock" onclick="lock()"></div>
         <div class="screen">
-            <div class="top-row-space-around">
+            <div class="top-row-space-around" style="margin-bottom: 0.1cm">
                 <span class="profilesInstructions">Choose a mode</span>
             </div>
-            <div class="center-row-space-around" style="margin-left: 0.35cm; margin-right: 0.35cm; margin-top: 0.05cm">
+            <div class="center-row-space-around" style="margin-bottom: 0.05cm; margin-top: 0.1cm">
                 <div class="pair">
                     <img class="profilesCircle"  id="Running" src="Assets/images/running2.png" onclick="selectProfile('Running')">
                     <div class="pair">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bottom-row-space-around" style="margin-left: 0.35cm; margin-right: 0.35cm; margin-top: 0.2cm; margin-bottom: 0.30cm">
+            <div class="bottom-row-space-around" style="margin-top: 0.1cm;">
                     <div class="pair">
                         <img class="profilesCircle" id="Resting" src="Assets/images/resting.png" onclick="selectProfile('Resting')">
                         <div class="pair">
@@ -51,6 +51,7 @@
         </div>
         <div class="back" onclick="health()"></div>
     </div>
+    <script src="Assets/js/profiles.js"></script>
 </body>
 
 </html>
