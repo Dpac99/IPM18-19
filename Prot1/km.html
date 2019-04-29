@@ -15,22 +15,21 @@
         <div class="lock" onclick="lock()"></div>
         <div class="screen" style="justify-content: flex-start">
             <div class="top-row-space-between">
-                <div class="pair">
-                    <div class="health-icon">
-                        {{ km }}
-                    </div>
-                    <div>
-                        Distance today
-                    </div>
+                <div class="med-item" style="border-bottom: transparent; padding-top: 11px; padding-left: 5px">
+                    <span class="infoData" style ="font-size: 43px"> 
+                        {{ km }} 
+                        <span class="subtitles" style="margin-left: -0.25cm">km</span>
+                    </span>
+                    <span class="subtitles" style="font-size: 20px; text-align: left;">Today</span>
                 </div>
-                <div class="pair">
-                        <div class="health-icon">
-                            {{ lastKm }}
-                        </div>
-                        <div>
-                            Last Distance
-                        </div>
-                    </div>
+
+                <div class="med-item" style="border-bottom: transparent; padding-top: 11px; padding-left: 5px">
+                    <span class="infoData" style ="font-size: 43px"> 
+                        {{ lastKm }}
+                        <span class="subtitles" style="margin-left: -0.25cm">km</span>
+                    </span>
+                    <span class="subtitles" style="font-size: 20px; text-align: left;">Last hour</span>
+                </div>
             </div>
             <div style="margin:0.2cm; height:4cm;" id="chartContainer"></div>
         </div>
