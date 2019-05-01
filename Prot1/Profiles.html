@@ -6,51 +6,50 @@
     <title>Profiles</title>
     <link rel="stylesheet" href="../styles-component.css">
     <style type="css"></style>
-    <script src="Assets/js/helpers.js"></script>
+    <script src="Assets/js/vue.js"></script>
 </head>
 
-<body onload="initProfiles()">
-    <div class="frame">
+<body>
+    <div class="frame" id="wrapper">
         <div class="lock" onclick="lock()"></div>
-        <div class="screen">
-            <div class="top-row-space-around" style="margin-bottom: 0.1cm">
-                <span class="profilesInstructions">Choose a mode</span>
+        <div class="screen" id="screen" style="justify-content: flex-start">
+            <div class="top-row-space-between" style="margin-bottom: 0.7cm">
+                <span style="color: white; font-size: 32px">Profiles</span>
+                <img class="plus-icon" src="Assets/images/plus.png" onclick="addProfile()">
             </div>
-            <div class="center-row-space-around" style="margin-bottom: 0.05cm; margin-top: 0.1cm">
-                <div class="pair">
-                    <img class="profilesCircle"  id="Running" src="Assets/images/running2.png" onclick="selectProfile('Running')">
+            <div class="planBox">
+                <div class="planLine" v-for="p in expProfiles" v-bind:id="p.name" v-on:click="selectProfile(p.name)"
+                    style="border-bottom: 1px solid white">
                     <div class="pair">
-                        <span class="healthSubtitles">Running</span>
-                        <span class="healthSubtitles" style="font-size: 10px">[100-170 BPM]</span>
+                        <span style="color:white; font-size: 18px" v-bind:id="p.name + 'name'">
+                            {{p.name}}
+                        </span>
+                        <img class="plus-icon" style="align-self: flex-start;z-index: 100;" src="Assets/images/cross.png"
+                            v-on:click="deleteProfile(p.name)">
                     </div>
-                </div>
-                <div class="pair">
-                    <img class="profilesCircle" id="Walking" src="Assets/images/walking.png" onclick="selectProfile('Walking')">
                     <div class="pair">
-                        <span class="healthSubtitles">Walking</span>
-                        <span class="healthSubtitles" style="font-size: 10px">[75-135 BPM]</span>
+                        <span style="color: white; font-size: 18px" v-bind:id="p.name + 'range'">
+                            [{{ p.low_bpm }} - {{ p.top_bpm }}] bpm
+                        </span>
+                        <img class="plus-icon" style="align-self: flex-end;z-index: 100" src="Assets/images/edit.svg"
+                            v-on:click="editCurrProfile(p.name)">
                     </div>
                 </div>
             </div>
-            <div class="bottom-row-space-around" style="margin-top: 0.1cm;">
-                    <div class="pair">
-                        <img class="profilesCircle" id="Resting" src="Assets/images/resting.png" onclick="selectProfile('Resting')">
-                        <div class="pair">
-                            <span class="healthSubtitles">Resting</span>
-                            <span class="healthSubtitles" style="font-size: 10px">[60-110 BPM]</span>
-                        </div>
-                    </div>
-                    <div class="pair">
-                        <img class="profilesCircle" id="Sleeping" src="Assets/images/sleeping.png" onclick="selectProfile('Sleeping')">
-                        <div class="pair">
-                            <span class="healthSubtitles">Sleeping</span>
-                            <span class="healthSubtitles" style="font-size: 10px">[40-80 BPM]</span>
-                        </div>
-                    </div>
-                </div>
         </div>
+
+        <div class="screen confirm" id="confirm" style="display: none">
+            <img style="align-self: center;" class="img2" src="Assets/images/question.png">
+            <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
+            <div class="center-row-space-around">
+                <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
+                <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
+            </div>
+        </div>
+
         <div class="back" onclick="health()"></div>
     </div>
+    <script src="Assets/js/helpers.js"></script>
     <script src="Assets/js/profiles.js"></script>
 </body>
 

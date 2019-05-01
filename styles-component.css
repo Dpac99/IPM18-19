@@ -300,7 +300,8 @@ a:hover{
     border-radius:100%;
     cursor: pointer;
     border: 0.5px solid rgb(220, 230, 250);
-    color: white
+    color: white;
+    background-size: cover;
 }
 
 .icon{
@@ -435,6 +436,17 @@ a:hover{
     margin-right: 0.2cm;
 }
 
+.notifLine{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius:500px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
 .plusPlan{
     position: sticky;
     top: 0;
@@ -473,7 +485,7 @@ a:hover{
 }
 
 .overlay-img{
-    filter: invert(100%)
+    filter: invert(100%),
 }
 
 .confirm{

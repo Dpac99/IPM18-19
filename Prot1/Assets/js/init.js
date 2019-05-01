@@ -185,7 +185,32 @@ if (sessionStorage.getItem("hotels") === null) {
     sessionStorage.setItem("bpmGauge", 20)
     sessionStorage.setItem("o2Gauge", 10)
     sessionStorage.setItem("kmGauge", 15)
-    sessionStorage.setItem("profileId", 'Walking')
+    sessionStorage.setItem("profiles", JSON.stringify([
+        {
+            name: "Walking",
+            top_bpm: 135,
+            low_bpm: 75,
+            current: true
+        },
+        {
+            name: "Running",
+            top_bpm: 170,
+            low_bpm:100,
+            current: false
+        },
+        {
+            name: "Resting",
+            top_bpm: 110,
+            low_bpm: 60,
+            current: false
+        },
+        {
+            name:"Sleeping",
+            top_bpm:80,
+            low_bpm:40,
+            current: false
+        }
+    ]))
 
     sessionStorage.setItem("name", "Mr. Eduardo Morgado")
     sessionStorage.setItem("bloodType", "A+")
@@ -197,4 +222,11 @@ if (sessionStorage.getItem("hotels") === null) {
     }]))
     sessionStorage.setItem("birthday", "02/10/1998")
     sessionStorage.setItem("medicalBack", "/healthScreen.html")
+
+    sessionStorage.setItem("notifs", JSON.stringify([{
+        img: "Assets/images/sun.png",
+        text: "Its a sunny day today!",
+        id:0,
+        href:"protFuncional1-beta.html"
+    }]))
 }

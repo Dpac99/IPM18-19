@@ -30,6 +30,14 @@ function profiles() {
     document.location.href = "Profiles.html"
 }
 
+function addProfile(){
+    document.location.href = "addProfile.html"
+}
+
+function editProfile(){
+    document.location.href = "editProfile.html"
+}
+
 function privacy() {
     document.location.href = "privacy.html"
 }
@@ -81,7 +89,7 @@ function o2(){
     document.location.href = "o2.html"
 }
 
-function km(){
+function distance(){
     sessionStorage.setItem("healthBack", document.location.href)
     document.location.href="km.html"
 }
@@ -175,5 +183,27 @@ function confirmation(func, back, message){
     document.getElementById("yes").addEventListener("click", toggleConfirmation)
     document.getElementById("no").addEventListener("click", toggleConfirmation)
     document.getElementById("no").addEventListener("click", back)
-    
+}
+
+function unlock(href){
+    document.getElementById("screen").style.display="none"
+    document.getElementById("overlay").style.display = "flex"
+    document.getElementById("overlay").addEventListener("click", function(){
+        document.location.href = href
+    })
+}
+
+function loading(){
+    document.getElementById("scanButton").style.backgroundImage = "url('Assets/images/Rolling-1s-200px-blue2.gif')"
+    document.getElementById("scanButton").innerText=" "
+    document.getElementById("bpm1").style.display = "none"
+    document.getElementById("bpm2").style.display = "inline"
+    setTimeout(unload, 1500)
+}
+
+function unload(){
+    document.getElementById("scanButton").style.backgroundImage = ""
+    document.getElementById("scanButton").innerText="SCAN NOW"
+    document.getElementById("bpm2").style.display = "none"
+    document.getElementById("bpm1").style.display = "inline"
 }
