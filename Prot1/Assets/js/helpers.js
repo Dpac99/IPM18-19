@@ -94,6 +94,10 @@ function distance(){
     document.location.href="km.html"
 }
 
+function maps(){
+    document.location.href = "maps.html"
+}
+
 function showSpeech(){
     let screen = document.getElementById('screen')
     let doc = document.getElementById("overlay")

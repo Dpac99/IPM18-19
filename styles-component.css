@@ -46,6 +46,33 @@ a:hover{
     align-items: center;
 }
 
+.mapItems{
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 1cm;
+    height: 7.2cm;
+    margin-right: 0.6cm;
+}
+
+.search{
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 7.2cm;
+    height: 1cm;
+    margin-bottom: 0.6cm;
+}
+
+
 
 .screen,
 .overlay{
@@ -61,7 +88,14 @@ a:hover{
     max-height: 7.2cm;
     box-shadow: 3px 3px 5px 6px #ccc;
     padding: 0.17cm;
+}
 
+.mapScreen{
+    overflow: scroll;
+}
+
+.screen,
+.overlay{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -459,16 +493,20 @@ a:hover{
 
 ::-webkit-scrollbar{
     width: 5px;
+    height: 5px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #1f2c3d;
-    height: 5cm;
+    overflow-y: hidden
 }
 
 ::-webkit-scrollbar-thumb{
     background: white;
     height: 10px;
+}
+
+::-webkit-scrollbar-corner{
+    background: #1f2c3d
 }
 
 .planLine{
@@ -940,3 +978,21 @@ transform: rotate(180deg);
 .iconDate:active{
     background-color: rgba(0,0,0,0.3);
 }
+
+.map{
+    overflow: scroll;
+    border-radius:15%
+}
+
+.map:hover::-webkit-scrollbar{
+    display: initial
+}
+
+.map::-webkit-scrollbar{
+    display: none
+}
+
+.map::-webkit-scrollbar-button,
+.map::-webkit-scrollbar-track-piece,
+.map::-webkit-scrollbar-corner,
+.map::-webkit-resizer { display: none; }
