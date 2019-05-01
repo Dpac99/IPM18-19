@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>myTrip Menu</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div class="frame" id="wrapper">
+        <div class="lock" onclick="lock()"></div>
+        <div class="screen" id="screen">
+            <div class="top-row-space-between" style="padding-bottom: 0.9cm ">
+                <div class="pair" style="align-items: flex-start;margin-left: 0.1cm;">
+                    <span style="color:white;font-size: 32px">Add Profile</span>
+                </div>
+                <div>
+                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="confirmChangesAdd()">
+                </div>
+            </div>
+            <div class="planLine" onclick="showSpeech()">
+                <span style="color:white">Name:</span>
+                <span style="color:white">{{newProfile.name}}</span>
+            </div>
+            <div class="planLine" onclick="changeBPM('low')">
+                <span style="color:white">Lowest BPM:</span>
+                <span style="color:white">{{newProfile.low_bpm}}</span>
+            </div>
+            <div class="planLine" onclick="changeBPM('high')">
+                <span style="color:white">Highest BPM</span>
+                <span style="color:white">{{newProfile.top_bpm}}</span>
+            </div>
+            <div class="bottom-row-space-around" style="padding-top: 0.5cm">
+                <img class="plus-icon" src="Assets/images/left.png" onclick="goBack()">
+            </div>
+        </div>
+
+
+        <div class="screen confirm" id="confirm" style="display: none">
+            <img style="align-self: center;" class="img2" src="Assets/images/question.png">
+            <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
+            <div class="center-row-space-around">
+                <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
+                <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
+            </div>
+        </div>
+
+
+        <div id="overlay" class="overlay" style="display:none">
+            <img class="overlay-img" src="Assets/images/microphone.png">
+        </div>
+
+        <div class="back" onclick="goBackAdd()"></div>
+
+        <div style="display: none;margin-left: 0.2cm" id="textbox">
+            <div class="pair">
+                <div class="pair">
+                    Name: <input v-model="newProfile.name">
+                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech()">
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="lowBPM" style="display:none">
+            <div class="top-row-space-around">
+                <span style="color:white; font-size: 32px">Lowest BPM</span>
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="incrementBPM('low', 1)">
+            </div>
+            <div class="center-row-space-around">
+                <div class="icon"> {{ newProfile.low_bpm }}</div>
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="incrementBPM('low',-1)">
+            </div>
+            <div class="bottom-row-space-around">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="changeBPM('low')">
+            </div>
+        </div>
+
+
+        <div class="screen" id="topBPM" style="display:none">
+            <div class="top-row-space-around">
+                <span  style="color:white; font-size: 32px">Highest BPM</span>
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="incrementBPM('high', 1)">
+            </div>
+            <div class="center-row-space-around">
+                <div class="icon"> {{ newProfile.top_bpm }}</div>
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="incrementBPM('high',-1)">
+            </div>
+            <div class="bottom-row-space-around">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="changeBPM('high')">
+            </div>
+        </div>
+
+
+        <div class="screen confirm" id="confirm" style="display: none">
+            <img style="align-self: center;" class="img2" src="Assets/images/question.png">
+            <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
+            <div class="center-row-space-around">
+                <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
+                <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
+            </div>
+        </div>
+
+
+    </div>
+    <script src="Assets/js/helpers.js"></script>
+    <script src="Assets/js/profiles.js"></script>
+</body>
+
+</html>

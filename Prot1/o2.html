@@ -15,16 +15,18 @@
         <div class="lock" onclick="lock()"></div>
         <div class="screen" style="justify-content: flex-start">
             <div class="top-row-space-between">
-                <div class="health-icon">
-                    {{ o2 }}%
+                <div class="med-item" style="border-bottom: transparent; padding-top: 11px; padding-left: 5px">
+                    <span id="bpm1" class="infoData" style ="font-size: 45px"> {{ o2 }}% </span>
+                    <span id="bpm2" class="infoData" style ="font-size: 45px;display:none"> ... </span>
+                    <span class="subtitles" style="font-size: 22px; text-align: center;">Oxygen</span>
                 </div>
-                <div class="health-icon" onclick="scanO2()" >
+                <div id="scanButton" class="health-icon" style="background-color: rgba(102,204,51,0.4)" onclick="scanBPM()" >
                     SCAN NOW
                 </div>
             </div>
             <div style="margin:0.2cm; height:4cm;" id="chartContainer"></div>
         </div>
-        <div class="back" onclick="health()"></div>
+        <div class="back" v-on:click="back"></div>
     </div>
     <script src="Assets/js/helpers.js"></script>
     <script src="Assets/js/health.js"></script>
