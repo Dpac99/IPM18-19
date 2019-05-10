@@ -72,6 +72,22 @@ a:hover{
     margin-bottom: 0.6cm;
 }
 
+.mapPopup {
+    position: absolute;
+    z-index: -100;
+    left: 0;
+    border: 2px solid black;
+    border-radius: 20%;
+    margin-left: 0.95cm;
+    margin-top: 1cm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 5.5cm;
+    height: 5cm;
+    margin-right: 0.6cm;
+    background-color: white;
+}
 
 
 .screen,

@@ -11,3 +11,15 @@ sessionStorage.setItem("map", map)
 
 document.getElementById("target").style.left = map[0][300]
 document.getElementById("target").style.top = map[300][0]
+
+function popUp(id) {
+    if (id === "Friends" && sessionStorage.getItem("friendsOn") === "true") {
+        document.getElementById("FriendsIcon").style.backgroundColor = "white"
+        document.getElementById("friends").style.zIndex = "-100"
+        sessionStorage.setItem("friendsOn", "false")
+    } else if (id === "Friends" && sessionStorage.getItem("friendsOn") === "false") {
+        document.getElementById("FriendsIcon").style.backgroundColor = "#00cc00"
+        document.getElementById("friends").style.zIndex = "100"
+        sessionStorage.setItem("friendsOn", "true")
+    }
+}

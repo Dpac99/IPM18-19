@@ -6,6 +6,7 @@
     <title>Maps</title>
     <link rel="stylesheet" href="../styles-component.css">
     <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
 </head>
 
 <body>
@@ -17,18 +18,33 @@
             </div>
             <div class="mapItems">
                 <img class="plus-icon" src="Assets/images/pin.jpg" style="border: 1px solid black">
-                <img class="plus-icon" src="Assets/images/friends.png" style="border: 1px solid black">
+                <img class="plus-icon" id="FriendsIcon" src="Assets/images/friends.png" style="border: 1px solid black" onclick="popUp('Friends')">
                 <img class="plus-icon" src="Assets/images/binoculars.png" style="border: 1px solid black">
+            </div>
+            <div class="mapPopup" id="friends">
+                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
+                    <span style="color:black; font-size:20px">Friends</span>
+                </div>
+                <div class="planBox" style="margin-bottom: 0.5cm">
+                    <div class="planLine" v-for="f in friends">
+                        <span style="color:black">{{ f }}</span>
+                        <div>
+                            <img class="plus-icon" src="Assets/images/trash_black.png" v-on:click="deleteFriend(f)" style="width:0.4cm; height:0.4cm">
+                            <img class="plus-icon" src="Assets/images/mapicon.svg" style="width:0.4cm; height:0.4cm">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="search">
                 <img class="plus-icon" src="Assets/images/magnifying-glass.png" style="border: 1px solid black">
             </div>
         <div class="back" onclick="mainMenu()"></div>
         <div id="target" style="width: 2px; height: 2px; background: red">
-            </div>
+        </div>
     </img>
     <script src="Assets/js/map.js"></script>
     <script src="Assets/js/helpers.js"></script>
+    <script src="Assets/js/friends.js"></script>
 </body>
 
 </html>
