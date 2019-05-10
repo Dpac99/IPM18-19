@@ -17,9 +17,23 @@
                 <img src="Assets/images/map.png">
             </div>
             <div class="mapItems">
-                <img class="plus-icon" src="Assets/images/pin.jpg" style="border: 1px solid black">
+                <img class="plus-icon" id="MeetingIcon" src="Assets/images/pin.jpg" style="border: 1px solid black" onclick="popUp('Meeting')">
                 <img class="plus-icon" id="FriendsIcon" src="Assets/images/friends.png" style="border: 1px solid black" onclick="popUp('Friends')">
-                <img class="plus-icon" src="Assets/images/binoculars.png" style="border: 1px solid black">
+                <img class="plus-icon" id="InterestsIcon" src="Assets/images/binoculars.png" style="border: 1px solid black" onclick="popUp('Interests')">
+            </div>
+            <div class="mapPopup" id="plans">
+                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
+                    <span style="color:black; font-size:20px">Pontos de encontro</span>
+                </div>
+                <div class="planBox" style="margin-bottom: 0.5cm">
+                    <div class="planBox" v-for="(p,i) in events" v-bind:id="'plan' + i">
+                        <div class="planLine" v-for="el in p">
+                            <span style="color:black">{{ el.content }}</span>
+                            <span style="color:black">{{ el.time }}</span>
+                        </div>
+                        <img class="plus-icon" src="Assets/images/edit-icon-6.png" onclick="editDay()">
+                    </div>
+                </div>
             </div>
             <div class="mapPopup" id="friends">
                 <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
@@ -35,6 +49,11 @@
                     </div>
                 </div>
             </div>
+            <div class="mapPopup" id="interests">
+                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
+                    <span style="color:black; font-size:20px">Interests</span>
+                </div>
+            </div>
             <div class="search">
                 <img class="plus-icon" src="Assets/images/magnifying-glass.png" style="border: 1px solid black">
             </div>
@@ -45,6 +64,7 @@
     <script src="Assets/js/map.js"></script>
     <script src="Assets/js/helpers.js"></script>
     <script src="Assets/js/friends.js"></script>
+    <script src="Assets/js/plans.js"></script>
 </body>
 
 </html>

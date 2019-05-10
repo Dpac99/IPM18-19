@@ -232,3 +232,5 @@ if (sessionStorage.getItem("hotels") === null) {
 }
 
 sessionStorage.setItem("friendsOn", "false")
+sessionStorage.setItem("meetingOn", "false")
+sessionStorage.setItem("interestsOn", "false")
