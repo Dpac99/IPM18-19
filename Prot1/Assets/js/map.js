@@ -23,3 +23,7 @@ function popUp(id) {
         sessionStorage.setItem("friendsOn", "true")
     }
 }
+
+function closePopups() {
+    sessionStorage.setItem("friendsOn", "false")
+}
