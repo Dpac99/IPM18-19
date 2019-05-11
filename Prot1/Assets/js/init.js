@@ -230,3 +230,7 @@ if (sessionStorage.getItem("hotels") === null) {
         href:"protFuncional1-beta.html"
     }]))
 }
+
+sessionStorage.setItem("friendsOn", "false")
+sessionStorage.setItem("meetingOn", "false")
+sessionStorage.setItem("interestsOn", "false")

@@ -21,13 +21,47 @@
                 <img class="plus-icon" src="Assets/images/friends.png" style="border: 1px solid black; width: 1cm; height: 1cm">
                 <img class="plus-icon" src="Assets/images/binoculars.png" style="border: 1px solid black; width: 1cm; height: 1cm">
             </div>
+            <div class="mapPopup" id="plans">
+                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
+                    <span style="color:black; font-size:20px">Pontos de encontro</span>
+                </div>
+                <div class="planBox" style="margin-bottom: 0.5cm">
+                    <div class="planBox" v-for="(p,i) in events" v-bind:id="'plan' + i">
+                        <div class="planLine" v-for="el in p">
+                            <span style="color:black">{{ el.content }}</span>
+                            <span style="color:black">{{ el.time }}</span>
+                        </div>
+                        <img class="plus-icon" src="Assets/images/edit-icon-6.png" onclick="editDay()">
+                    </div>
+                </div>
+            </div>
+            <div class="mapPopup" id="friends">
+                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
+                    <span style="color:black; font-size:20px">Friends</span>
+                </div>
+                <div class="planBox" style="margin-bottom: 0.5cm">
+                    <div class="planLine" v-for="f in friends">
+                        <span style="color:black">{{ f }}</span>
+                        <div>
+                            <img class="plus-icon" src="Assets/images/trash_black.png" v-on:click="deleteFriend(f)"
+                                style="width:0.4cm; height:0.4cm">
+                            <img class="plus-icon" src="Assets/images/mapicon.svg" style="width:0.4cm; height:0.4cm">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mapPopup" id="interests">
+                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
+                    <span style="color:black; font-size:20px">Interests</span>
+                </div>
+            </div>
             <div class="search">
                 <img class="plus-icon" src="Assets/images/magnifying-glass.png" onclick="showSpeech()" style="border: 1px solid black; width: 1cm; height: 1cm">
             </div>
         </div>
-        <div id="overlay" class="overlay" style="display:none">
-            <span class=back-button onclick="showSpeech()" > < cancel</span>
+        <div id="overlay" class="overlay" style="display:none; align-items: center;">
             <img class="overlay-img" src="Assets/images/microphone.png">
+            <img class="plus-icon" onclick="showSpeech()" src="Assets/images/cross.png">
         </div>
         <div class="back" onclick="mainMenu()"></div>
         <div style="display: none;margin-left: 0.2cm" id="textbox">
@@ -35,9 +69,11 @@
                 Simulate speech by typing here: <input>
                 <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech()">
             </div>
-    </div>
-    <script src="Assets/js/map.js"></script>
-    <script src="Assets/js/helpers.js"></script>
+        </div>
+        <script src="Assets/js/map.js"></script>
+        <script src="Assets/js/helpers.js"></script>
+        <script src="Assets/js/friends.js"></script>
+        <script src="Assets/js/plans.js"></script>
 </body>
 
 </html>
