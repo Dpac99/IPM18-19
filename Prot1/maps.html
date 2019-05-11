@@ -7,28 +7,35 @@
     <link rel="stylesheet" href="../styles-component.css">
     <style type="css"></style>
     <script src="Assets/js/vue.js"></script>
-    <script src="Assets/js/hammer.js"></script>
 </head>
 
 <body>
     <div class="frame" id="wrapper">
         <div class="lock" onclick="lock()"></div>
-        <div class="screen" style="flex-direction: row">
+        <div class="screen" style="flex-direction: row" id="screen">
             <div class="map" id="map">
                 <img src="Assets/images/map.png">
             </div>
             <div class="mapItems">
-                <img class="plus-icon" src="Assets/images/pin.jpg" style="border: 1px solid black">
-                <img class="plus-icon" src="Assets/images/friends.png" style="border: 1px solid black">
-                <img class="plus-icon" src="Assets/images/binoculars.png" style="border: 1px solid black">
+                <img class="plus-icon" src="Assets/images/pin.jpg" style="border: 1px solid black; width: 1cm; height: 1cm">
+                <img class="plus-icon" src="Assets/images/friends.png" style="border: 1px solid black; width: 1cm; height: 1cm">
+                <img class="plus-icon" src="Assets/images/binoculars.png" style="border: 1px solid black; width: 1cm; height: 1cm">
             </div>
             <div class="search">
-                <img class="plus-icon" src="Assets/images/magnifying-glass.png" style="border: 1px solid black">
+                <img class="plus-icon" src="Assets/images/magnifying-glass.png" onclick="showSpeech()" style="border: 1px solid black; width: 1cm; height: 1cm">
             </div>
+        </div>
+        <div id="overlay" class="overlay" style="display:none">
+            <span class=back-button onclick="showSpeech()" > < cancel</span>
+            <img class="overlay-img" src="Assets/images/microphone.png">
+        </div>
         <div class="back" onclick="mainMenu()"></div>
-        <div id="target" style="width: 2px; height: 2px; background: red">
+        <div style="display: none;margin-left: 0.2cm" id="textbox">
+            <div class="pair">
+                Simulate speech by typing here: <input>
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech()">
             </div>
-    </img>
+    </div>
     <script src="Assets/js/map.js"></script>
     <script src="Assets/js/helpers.js"></script>
 </body>
