@@ -4,6 +4,9 @@ var InterestOn = false
 var meetingPoints = JSON.parse(sessionStorage.getItem("meetings"))
 var interestPoints = JSON.parse(sessionStorage.getItem("interests"))
 var fr = JSON.parse(sessionStorage.getItem("friends"))
+var dist = Math.floor((Math.random() * 20) + 1)
+var friend = "Diogo Pacheco"
+var inFindFriend    // To check if we are in "maps.html" or "friendsLocation.html"
 
 var meetingTemplate = {
     location: "",
@@ -13,16 +16,18 @@ var meetingTemplate = {
 
 var exp = new Vue({
     el: "#wrapper",
-    data:{
+    data: {
         meetings: meetingPoints,
         friends: fr,
         interests: interestPoints,
-        conds:{
+        conds: {
             meetings: meetingPoints.length != 0,
             friends: fr.length != 0,
             interests: interestPoints.length != 0
         },
-        newMeeting: meetingTemplate
+        newMeeting: meetingTemplate,
+        distance: dist,
+        name: friend
     }
 })
 
@@ -33,8 +38,10 @@ function popUp(id) {
                 meetingOn = false;
                 document.getElementById("MeetingIcon").style.backgroundColor = "#ffffff"
                 document.getElementById("plans").style.display = 'none'
+                if (inFindFriend)
+                    document.getElementById("findFriend").style.display = "flex"
             }
-            else{
+            else {
                 closePopups()
                 meetingOn = true
                 document.getElementById("plans").style.display = "flex"
@@ -42,12 +49,14 @@ function popUp(id) {
             }
             return
         case 1:
-            if(friendsOn){
+            if (friendsOn) {
                 friendsOn = false
-                document.getElementById("FriendsIcon").style.backgroundColor="#ffffff"
+                document.getElementById("FriendsIcon").style.backgroundColor = "#ffffff"
                 document.getElementById("friends").style.display = "none"
+                if (inFindFriend)
+                    document.getElementById("findFriend").style.display = "flex"
             }
-            else{
+            else {
                 closePopups()
                 friendsOn = true
                 document.getElementById("friends").style.display = "flex"
@@ -55,12 +64,14 @@ function popUp(id) {
             }
             return
         case 2:
-            if(InterestOn){
+            if (InterestOn) {
                 InterestOn = false
                 document.getElementById("InterestsIcon").style.backgroundColor = "#ffffff"
                 document.getElementById("interests").style.display = "none"
+                if (inFindFriend)
+                    document.getElementById("findFriend").style.display = "flex"
             }
-            else{
+            else {
                 closePopups()
                 InterestOn = true
                 document.getElementById("interests").style.display = "flex"
@@ -70,15 +81,35 @@ function popUp(id) {
     }
 }
 
-
 function closePopups() {
     meetingOn = false
     friendsOn = false
     InterestOn = false
-    document.getElementById("MeetingIcon").style.backgroundColor="#ffffff"
-    document.getElementById("FriendsIcon").style.backgroundColor="#ffffff"
-    document.getElementById("InterestsIcon").style.backgroundColor="#ffffff"
+    document.getElementById("MeetingIcon").style.backgroundColor = "#ffffff"
+    document.getElementById("FriendsIcon").style.backgroundColor = "#ffffff"
+    document.getElementById("InterestsIcon").style.backgroundColor = "#ffffff"
     document.getElementById("plans").style.display = "none"
     document.getElementById("friends").style.display = "none"
     document.getElementById("interests").style.display = "none"
+    if (inFindFriend)
+        document.getElementById("findFriend").style.display = "none"
+}
+
+function randImg() {
+    var r = Math.floor((Math.random() * 3) + 1)
+    switch (r) {
+        case (1):
+            document.getElementById('imageBox').src = 'Assets/images/map_friend_cg.jpg';
+            return
+        case (2):
+            document.getElementById('imageBox').src = 'Assets/images/map_friend_castelo.jpg'
+            return
+        case (3):
+            document.getElementById('imageBox').src = 'Assets/images/map_friend_lxfactory.jpg'
+            return
+    }
+}
+
+function inFindFriend(val) {
+    inFindFriend = val
 }
