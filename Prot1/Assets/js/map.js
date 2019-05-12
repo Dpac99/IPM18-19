@@ -110,6 +110,27 @@ function randImg() {
     }
 }
 
+function randImg2() {
+    var r = Math.floor((Math.random() * 5) + 1)
+    switch (r) {
+        case (1):
+            document.getElementById('imageBox').src = 'Assets/images/map_path_arco.jpg';
+            return
+        case (2):
+            document.getElementById('imageBox').src = 'Assets/images/map_path_cinemacp.jpg'
+            return
+        case (3):
+            document.getElementById('imageBox').src = 'Assets/images/map_path_gulbenkian.jpg'
+            return
+        case (4):
+            document.getElementById('imageBox').src = 'Assets/images/map_path_mercado_arroios.jpg'
+            return
+        case (5):
+            document.getElementById('imageBox').src = 'Assets/images/map_path_portugalia.jpg'
+            return
+    }
+}
+
 function inFindFriend(val) {
     inFindFriend = val
 }
