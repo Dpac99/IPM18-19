@@ -10,7 +10,12 @@ var exp = new Vue({
     data:{
         meetings: meetingPoints,
         friends: fr,
-        interests: interestPoints
+        interests: interestPoints,
+        conds:{
+            meetings: meetingPoints.length != 0,
+            friends: fr.length != 0,
+            interests: interestPoints.length != 0
+        }
     }
 })
 

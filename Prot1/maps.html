@@ -27,15 +27,16 @@
 
             <div class="mapPopup" id="plans" style="display: none">
                 <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
-                    <span style="color:black; font-size:20px">Pontos de encontro</span>
+                    <span style="color:black; font-size:20px">Meeting Points</span>
                 </div>
                 <div class="planBox" style="margin-bottom: 0.5cm">
-                    <div class="planBox" v-for="(p,i) in meetings" v-bind:id="'meetPoint' + i">
-                        <div class="planLine" v-for="el in p">
-                            <span style="color:black">{{ el.content }}</span>
-                            <span style="color:black">{{ el.time }}</span>
-                        </div>
-                        <img class="plus-icon" src="Assets/images/edit-icon-6.png" onclick="editDay()">
+                    <div class="planLine" v-if="conds.meetings" v-for="(p,i) in meetings" v-bind:id="'meetPoint' + i">
+                        <span style="color:black">{{ el.content }}</span>
+                        <span style="color:black">{{ el.time }}</span>
+                    </div>
+                    <div v-if="conds.meetings == false" class="planLine">No Meeting Points yet</div>
+                    <div class="planLine" style="justify-content: center">
+                        <img class="plus-icon" src="Assets/images/plus.png" style="border: 2px solid black">
                     </div>
                 </div>
             </div>
@@ -45,7 +46,7 @@
                     <span style="color:black; font-size:20px">Friends</span>
                 </div>
                 <div class="planBox" style="margin-bottom: 0.5cm">
-                    <div class="planLine" v-for="f in friends">
+                    <div class="planLine" v-for="f in friends" v-if="conds.friends">
                         <span style="color:black">{{ f }}</span>
                         <div>
                             <img class="plus-icon" src="Assets/images/trash_black.png" v-on:click="deleteFriend(f)"
@@ -53,16 +54,23 @@
                             <img class="plus-icon" src="Assets/images/mapicon.svg" style="width:0.4cm; height:0.4cm">
                         </div>
                     </div>
+                    <span v-else>No Friends selected yet</span>
+                    <div class="planLine" style="justify-content: center">
+                        <img class="plus-icon" src="Assets/images/plus.png" style="border: 2px solid black">
+                    </div>
                 </div>
             </div>
 
             <div class="mapPopup" id="interests" style="display: none">
                 <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
                     <span style="color:black; font-size:20px">Interests</span>
-                    <div class="planBox" style="margin-bottom: 0.5cm">
-                        <div class="planLine" v-for="i in interests">
-
-                        </div>
+                </div>
+                <div class="planBox" style="margin-bottom: 0.5cm">
+                    <div class="planLine" v-for="i in interests" v-if="conds.interests">
+                    </div>
+                    <span v-if="conds.interests == false">No interest points yet </span>
+                    <div class="planLine" style="justify-content: center">
+                        <img class="plus-icon" src="Assets/images/plus.png" style="border: 2px solid black">
                     </div>
                 </div>
             </div>
@@ -88,8 +96,6 @@
     </div>
     <script src="Assets/js/map.js"></script>
     <script src="Assets/js/helpers.js"></script>
-    <script src="Assets/js/friends.js"></script>
-    <script src="Assets/js/plans.js"></script>
 </body>
 
 </html>
