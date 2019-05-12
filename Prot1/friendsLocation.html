@@ -16,90 +16,21 @@
             <div class="map" id="map">
                 <img class="friendsMap" src="" id="imageBox">
             </div>
-            <div class="mapItems">
-                <img class="plus-icon" id="MeetingIcon" src="Assets/images/map-pin.png"
-                    style="border: 1px solid black; width: 1cm; height: 1cm" onclick="popUp(0)">
-                <img class="plus-icon" id="FriendsIcon" src="Assets/images/friends.png"
-                    style="border: 1px solid black; width: 1cm; height: 1cm" onclick="popUp(1)">
-                <img class="plus-icon" id="InterestsIcon" src="Assets/images/binoculars.png"
-                    style="border: 1px solid black; width: 1cm; height: 1cm" onclick="popUp(2)">
-            </div>
-
-            <div class="mapPopup" id="plans" style="display: none">
-                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
-                    <span style="color:black; font-size:20px">Meeting Points</span>
-                </div>
-                <div class="planBox" style="margin-bottom: 0.5cm">
-                    <div class="planLine" v-if="conds.meetings" v-for="(p,i) in meetings" v-bind:id="'meetPoint' + i">
-                        <span style="color:black">{{ el.content }}</span>
-                        <span style="color:black">{{ el.time }}</span>
-                    </div>
-                    <div v-if="conds.meetings == false" class="planLine">No Meeting Points yet</div>
-                    <div class="planLine" style="justify-content: center">
-                        <img class="plus-icon" src="Assets/images/plus.png" style="border: 2px solid black"
-                            onclick="addMeetingPoint()">
-                    </div>
-                </div>
-            </div>
-
-            <div class="mapPopup" id="friends" style="display: none">
-                <div class="top-row-space-around"
-                    style="border-radius: 15%;border-bottom: 2px solid black; padding-bottom:0.5cm">
-                    <span style="color:black; font-size:20px">Friends</span>
-                </div>
-                <div class="planBox" style="margin-bottom: 0.5cm">
-                    <div class="planLine" v-for="f in friends" v-if="conds.friends">
-                        <span style="color:black">{{ f }}</span>
-                        <div>
-                            <img class="plus-icon" src="Assets/images/trash_black.png" v-on:click="deleteFriend(f)"
-                                style="width:0.4cm; height:0.4cm">
-                            <img class="plus-icon" src="Assets/images/mapicon.svg" style="width:0.4cm; height:0.4cm"
-                                v-on:click="currentFriend(f)" onclick="friendsLocation()">
-                        </div>
-                    </div>
-                    <span v-else>No Friends selected yet</span>
-                    <div class="planLine" style="justify-content: center">
-                        <img class="plus-icon" src="Assets/images/plus.png" style="border: 2px solid black">
-                    </div>
-                </div>
-            </div>
-
-            <div class="mapPopup" id="interests" style="display: none">
-                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
-                    <span style="color:black; font-size:20px">Interests</span>
-                </div>
-                <div class="planBox" style="margin-bottom: 0.5cm">
-                    <div class="planLine" v-for="i in interests" v-if="conds.interests">
-                    </div>
-                    <span v-if="conds.interests == false">No interest points yet </span>
-                    <div class="planLine" style="justify-content: center">
-                        <img class="plus-icon" src="Assets/images/plus.png" style="border: 2px solid black">
-                    </div>
-                </div>
-            </div>
-
             <div class="friendPopup" id="findFriend" style="display: flex">
-                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
+                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 1.5px solid grey; padding-bottom:8px;">
                     <span style="color:black; font-size:18px; margin-bottom: 3px">{{ name }}</span>
                 </div>
-                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
+                <div class="top-row-space-around" style="border-radius: 15%;">
                     <span style="color:black; font-size:18px; margin-left: 0.1cm; margin-bottom: 3px">Distance: {{ distance }} km</span>
                 </div>
-                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
-                    <span style="color:black; font-size:18px">Find:</span>
-                    <img class="plus-icon" src="Assets/images/confirmation.png" 
-                        style="width: 0.5cm; height: 0.5cm; margin-right: 0.65cm">
-                </div>
-                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px black">
-                    <span style="color:black; font: size 20px; margin-left: 0.1cm">Cancel:</span>
-                    <img class="plus-icon" src="Assets/images/cancel.png" 
-                        style="width: 0.5cm; height: 0.5cm; margin-right: 0.8cm" onclick="maps()">
-                </div>
             </div>
-
-            <div class="search">
-                <img class="plus-icon" src="Assets/images/magnifying-glass.png" onclick="showSpeech()"
-                    style="border: 1px solid black; width: 1cm; height: 1cm">
+            <div class="bottom-row-space-around" style="position:absolute; bottom: 0; margin-bottom: 20px; margin-left: 20px; width: 73%">
+                <div class="health-icon" style="background-color: rgba(216, 80, 38, 0.89); width: 2cm; height: 2cm;" onclick="maps()">
+                    Back
+                </div>
+                <div class="health-icon" style="background-color:rgba(102, 204, 51, 0.897); width: 2cm; height: 2cm;">
+                    GO
+                </div>
             </div>
         </div>
 
