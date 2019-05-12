@@ -89,6 +89,22 @@ a:hover{
     background-color: white;
 }
 
+.friendPopup {
+    position: absolute;
+    left: 0;
+    border: 2px solid black;
+    border-radius: 20%;
+    margin-left: 2.45cm;
+    margin-top: 1.2cm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 4cm;
+    height: 4.3cm;
+    margin-right: 0.8cm;
+    background-color: white;
+}
+
 
 .screen,
 .overlay{
@@ -1043,3 +1059,11 @@ transform: rotate(180deg);
 .map::-webkit-scrollbar-track-piece,
 .map::-webkit-scrollbar-corner,
 .map::-webkit-resizer { display: none; }
+
+.friendsMap {
+        max-width: 7.2cm;
+        width: 7.2cm;
+        max-height: 7.2cm;
+        height: 7.2cm;
+        object-fit: cover;
+}

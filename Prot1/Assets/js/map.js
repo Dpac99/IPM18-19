@@ -39,6 +39,9 @@ var interestDB = [
         radius: 5
     }
 ]
+var dist = Math.floor((Math.random() * 20) + 1)
+var friend = "Diogo Pacheco"
+var inFindFriend    // To check if we are in "maps.html" or "friendsLocation.html"
 
 var meetingTemplate = {
     location: "",
@@ -49,6 +52,8 @@ var meetingTemplate = {
 var exp = new Vue({
     el: "#wrapper",
     data: {
+        distance: dist,
+        name: friend,
         meetings: meetingPoints,
         friends: fr,
         interests: interestPoints,
@@ -160,6 +165,8 @@ function popUp(id) {
                 meetingOn = false;
                 document.getElementById("MeetingIcon").style.backgroundColor = "#ffffff"
                 document.getElementById("plans").style.display = 'none'
+                if (inFindFriend)
+                    document.getElementById("findFriend").style.display = "flex"
             }
             else {
                 closePopups()
@@ -173,6 +180,8 @@ function popUp(id) {
                 friendsOn = false
                 document.getElementById("FriendsIcon").style.backgroundColor = "#ffffff"
                 document.getElementById("friends").style.display = "none"
+                if (inFindFriend)
+                    document.getElementById("findFriend").style.display = "flex"
             }
             else {
                 closePopups()
@@ -186,6 +195,8 @@ function popUp(id) {
                 InterestOn = false
                 document.getElementById("InterestsIcon").style.backgroundColor = "#ffffff"
                 document.getElementById("interests").style.display = "none"
+                if (inFindFriend)
+                    document.getElementById("findFriend").style.display = "flex"
             }
             else {
                 closePopups()
@@ -197,7 +208,6 @@ function popUp(id) {
     }
 }
 
-
 function closePopups() {
     meetingOn = false
     friendsOn = false
@@ -208,6 +218,23 @@ function closePopups() {
     document.getElementById("plans").style.display = "none"
     document.getElementById("friends").style.display = "none"
     document.getElementById("interests").style.display = "none"
+    if (inFindFriend)
+        document.getElementById("findFriend").style.display = "none"
+}
+
+function randImg() {
+    var r = Math.floor((Math.random() * 3) + 1)
+    switch (r) {
+        case (1):
+            document.getElementById('imageBox').src = 'Assets/images/map_friend_cg.jpg';
+            return
+        case (2):
+            document.getElementById('imageBox').src = 'Assets/images/map_friend_castelo.jpg'
+            return
+        case (3):
+            document.getElementById('imageBox').src = 'Assets/images/map_friend_lxfactory.jpg'
+            return
+    }
 }
 
 function changeDate(amount, field) {
@@ -273,4 +300,7 @@ function pushMeetingPoint() {
 
 function confirmBack(){
     confirmation(maps, function(){}, "Go Back? Changes are not saved")
+}
+function inFindFriend(val) {
+    inFindFriend = val
 }
