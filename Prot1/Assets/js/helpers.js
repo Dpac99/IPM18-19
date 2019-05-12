@@ -98,10 +98,18 @@ function maps(){
     document.location.href = "maps.html"
 }
 
-function showSpeech(){
+function addMeetingPoint(){
+    document.location.href = "addMeeting.html"
+}
+
+function showSpeech(el){
     let screen = document.getElementById('screen')
     let doc = document.getElementById("overlay")
-    let box = document.getElementById("textbox")
+    if(el == undefined){
+        var box = document.getElementById("textbox")
+    }else{
+        var box = document.getElementById(el)
+    }
     if (doc.style.display == "none"){
         doc.style.display = "flex"
         screen.style.display= "none"

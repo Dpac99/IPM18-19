@@ -5,6 +5,12 @@ var meetingPoints = JSON.parse(sessionStorage.getItem("meetings"))
 var interestPoints = JSON.parse(sessionStorage.getItem("interests"))
 var fr = JSON.parse(sessionStorage.getItem("friends"))
 
+var meetingTemplate = {
+    location: "",
+    description: "",
+    date: ""
+}
+
 var exp = new Vue({
     el: "#wrapper",
     data:{
@@ -15,7 +21,8 @@ var exp = new Vue({
             meetings: meetingPoints.length != 0,
             friends: fr.length != 0,
             interests: interestPoints.length != 0
-        }
+        },
+        newMeeting: meetingTemplate
     }
 })
 
