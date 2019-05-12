@@ -1,68 +1,72 @@
-<<<<<<< HEAD
-=======
-var map = []
-for(i=0; i < 1058; i+=2){
-    var line = []
-    for(j=0; j<1676; j+=2){
-        line.push(j)
+var friendsOn = false
+var meetingOn = false
+var InterestOn = false
+var meetingPoints = JSON.parse(sessionStorage.getItem("meetings"))
+var interestPoints = JSON.parse(sessionStorage.getItem("interests"))
+var fr = JSON.parse(sessionStorage.getItem("friends"))
+
+var exp = new Vue({
+    el: "#wrapper",
+    data:{
+        meetings: meetingPoints,
+        friends: fr,
+        interests: interestPoints
     }
-    map.push(line)
-}
-
-sessionStorage.setItem("map", map)
-
-document.getElementById("target").style.left = map[0][300]
-document.getElementById("target").style.top = map[300][0]
+})
 
 function popUp(id) {
-    if (id === "Friends" && sessionStorage.getItem("friendsOn") === "true") {
-        document.getElementById("FriendsIcon").style.backgroundColor = "white"
-        document.getElementById("friends").style.zIndex = "-100"
-        sessionStorage.setItem("friendsOn", "false")
-    } else if (id === "Friends" && sessionStorage.getItem("friendsOn") === "false") {
-        document.getElementById("FriendsIcon").style.backgroundColor = "#00cc00"
-        document.getElementById("friends").style.zIndex = "100"
-        sessionStorage.setItem("friendsOn", "true")
-        sessionStorage.setItem("meetingOn", "false")
-        document.getElementById("InterestsIcon").style.backgroundColor = "white"
-        document.getElementById("plans").style.zIndex = "-100"
-        sessionStorage.setItem("interestsOn", "false")
-        document.getElementById("MeetingIcon").style.backgroundColor = "white"
-        document.getElementById("interests").style.zIndex = "-100"
-    } else if (id === "Meeting" && sessionStorage.getItem("meetingOn") === "true") {
-        document.getElementById("MeetingIcon").style.backgroundColor = "white"
-        document.getElementById("plans").style.zIndex = "-100"
-        sessionStorage.setItem("meetingOn", "false")
-    } else if (id === "Meeting" && sessionStorage.getItem("meetingOn") === "false") {
-        document.getElementById("MeetingIcon").style.backgroundColor = "#00cc00"
-        document.getElementById("plans").style.zIndex = "100"
-        sessionStorage.setItem("meetingOn", "true")
-        sessionStorage.setItem("friendsOn", "false")
-        document.getElementById("FriendsIcon").style.backgroundColor = "white"
-        document.getElementById("friends").style.zIndex = "-100"
-        sessionStorage.setItem("interestsOn", "false")
-        document.getElementById("MeetingIcon").style.backgroundColor = "white"
-        document.getElementById("interests").style.zIndex = "-100"
-    } else if (id === "Interests" && sessionStorage.getItem("interestsOn") === "true") {
-        document.getElementById("InterestsIcon").style.backgroundColor = "white"
-        document.getElementById("interests").style.zIndex = "-100"
-        sessionStorage.setItem("interestsOn", "false")
-    } else if (id === "Interests" && sessionStorage.getItem("interestsOn") === "false") {
-        document.getElementById("InterestsIcon").style.backgroundColor = "#00cc00"
-        document.getElementById("interests").style.zIndex = "100"
-        sessionStorage.setItem("interestsOn", "true")
-        sessionStorage.setItem("friendsOn", "false")
-        document.getElementById("FriendsIcon").style.backgroundColor = "white"
-        document.getElementById("friends").style.zIndex = "-100"
-        sessionStorage.setItem("meetingOn", "false")
-        document.getElementById("InterestsIcon").style.backgroundColor = "white"
-        document.getElementById("plans").style.zIndex = "-100"
+    switch (id) {
+        case 0:
+            if (meetingOn) {
+                meetingOn = false;
+                document.getElementById("MeetingIcon").style.backgroundColor = "#ffffff"
+                document.getElementById("plans").style.display = 'none'
+            }
+            else{
+                closePopups()
+                meetingOn = true
+                document.getElementById("plans").style.display = "flex"
+                document.getElementById("MeetingIcon").style.backgroundColor = "#00cc00"
+            }
+            return
+        case 1:
+            if(friendsOn){
+                friendsOn = false
+                document.getElementById("FriendsIcon").style.backgroundColor="#ffffff"
+                document.getElementById("friends").style.display = "none"
+            }
+            else{
+                closePopups()
+                friendsOn = true
+                document.getElementById("friends").style.display = "flex"
+                document.getElementById("FriendsIcon").style.backgroundColor = "#00cc00"
+            }
+            return
+        case 2:
+            if(InterestOn){
+                InterestOn = false
+                document.getElementById("InterestsIcon").style.backgroundColor = "#ffffff"
+                document.getElementById("interests").style.display = "none"
+            }
+            else{
+                closePopups()
+                InterestOn = true
+                document.getElementById("interests").style.display = "flex"
+                document.getElementById("InterestsIcon").style.backgroundColor = "#00cc00"
+            }
+            return
     }
 }
 
+
 function closePopups() {
-    sessionStorage.setItem("friendsOn", "false")
-    sessionStorage.setItem("meetingOn", "false")
-    sessionStorage.setItem("interestsOn", "false")
+    meetingOn = false
+    friendsOn = false
+    InterestOn = false
+    document.getElementById("MeetingIcon").style.backgroundColor="#ffffff"
+    document.getElementById("FriendsIcon").style.backgroundColor="#ffffff"
+    document.getElementById("InterestsIcon").style.backgroundColor="#ffffff"
+    document.getElementById("plans").style.display = "none"
+    document.getElementById("friends").style.display = "none"
+    document.getElementById("interests").style.display = "none"
 }
->>>>>>> ad179e07a7fdd78024489c0732c3d222bde1d79c

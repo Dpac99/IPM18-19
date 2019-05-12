@@ -48,7 +48,7 @@ a:hover{
 
 .mapItems{
     position: absolute;
-    z-index: 100;
+    z-index: 200;
     right: 0;
     display: flex;
     flex-direction: column;
@@ -75,18 +75,17 @@ a:hover{
 
 .mapPopup {
     position: absolute;
-    z-index: -100;
     left: 0;
     border: 2px solid black;
     border-radius: 20%;
     margin-left: 0.95cm;
-    margin-top: 1cm;
+    margin-top: 0.2cm;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 5.5cm;
-    height: 5cm;
-    margin-right: 0.6cm;
+    height: 5.3cm;
+    margin-right: 0.8cm;
     background-color: white;
 }
 
