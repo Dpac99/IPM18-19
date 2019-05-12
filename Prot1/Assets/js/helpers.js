@@ -102,6 +102,10 @@ function addMeetingPoint(){
     document.location.href = "addMeeting.html"
 }
 
+function editInterestPoints(){
+    document.location.href = "editInterestPoints.html"
+}
+
 function showSpeech(el){
     let screen = document.getElementById('screen')
     let doc = document.getElementById("overlay")

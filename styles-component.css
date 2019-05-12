@@ -469,6 +469,18 @@ a:hover{
     margin: 2px;
 }
 
+.greenDot, 
+.emptyDot{
+    width: 0.4cm;
+    height: 0.4cm;
+    border-radius: 100%;
+    border: 0.05cm solid white
+}
+
+.greenDot{
+    background-color: green;
+}
+
 .full-dot{
     background-color: white;
 }

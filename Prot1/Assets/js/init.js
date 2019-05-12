@@ -232,4 +232,10 @@ if (sessionStorage.getItem("hotels") === null) {
 
     sessionStorage.setItem("meetings", JSON.stringify([]))
     sessionStorage.setItem("interests", JSON.stringify([]))
+    sessionStorage.setItem("interestSettings", JSON.stringify({
+        Restaurants: false,
+        Culture: false,
+        Gardens: false,
+        Radius: 10
+    }))
 }

@@ -31,8 +31,9 @@
                 </div>
                 <div class="planBox" style="margin-bottom: 0.5cm">
                     <div class="planLine" v-if="conds.meetings" v-for="(p,i) in meetings" v-bind:id="'meetPoint' + i">
-                        <span style="color:black">{{ el.content }}</span>
-                        <span style="color:black">{{ el.time }}</span>
+                        <span style="color:black">{{ p.description }}</span>
+                        <span style="color:black">{{ p.date }}</span>
+                        <img class="plus-icon" src="Assets/images/cross.png" v-on:click="deleteMeetingPoint(i)">
                     </div>
                     <div v-if="conds.meetings == false" class="planLine">No Meeting Points yet</div>
                     <div class="planLine" style="justify-content: center">
@@ -62,13 +63,16 @@
             </div>
 
             <div class="mapPopup" id="interests" style="display: none">
-                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 2px solid black">
+                <div class="top-row-space-between" style="border-radius: 15%;border-bottom: 2px solid black; padding-bottom: 0.5cm">
                     <span style="color:black; font-size:20px">Interests</span>
+                    <img src="Assets/images/edit-icon-6.png" class="plus-icon" onclick="editInterestPoints()">
                 </div>
                 <div class="planBox" style="margin-bottom: 0.5cm">
                     <div class="planLine" v-for="i in interests" v-if="conds.interests">
+                        <span >{{ i.name }}</span>
+                        <span >{{i.radius}}km</span>
                     </div>
-                    <span v-if="conds.interests == false">No interest points yet </span>
+                    <span v-if="conds.interests == false">No interest points found </span>
                     <div class="planLine" style="justify-content: center">
                         <img class="plus-icon" src="Assets/images/plus.png" style="border: 2px solid black">
                     </div>
@@ -77,6 +81,15 @@
 
             <div class="search">
                 <img class="plus-icon" src="Assets/images/magnifying-glass.png" onclick="showSpeech()" style="border: 1px solid black; width: 1cm; height: 1cm">
+            </div>
+        </div>
+
+        <div class="screen confirm" id="confirm" style="display: none">
+            <img style="align-self: center;" class="img2" src="Assets/images/question.png">
+            <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
+            <div class="center-row-space-around">
+                <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
+                <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
             </div>
         </div>
 
