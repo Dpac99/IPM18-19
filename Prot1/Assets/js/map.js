@@ -89,6 +89,12 @@ var exp = new Vue({
             } else {
                 showRadius()
             }
+        },
+        friendsLocation:  function (name){
+            document.getElementById("screen").style.display = "none"
+            document.getElementById("friendLocation").style.display = "flex"
+            randImg()
+            this.name = name
         }
     }
 })

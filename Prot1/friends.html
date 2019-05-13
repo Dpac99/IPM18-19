@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>myTrip Menu</title>
+    <title>Friends</title>
     <link rel="stylesheet" href="../styles-component.css">
     <style type="css"></style>
     <script src="Assets/js/vue.js"></script>
@@ -11,24 +11,62 @@
 
 <body>
     <div class="frame" id="friends">
+        <img class="arrows" onclick="prevGroup()" src="Assets/images/left.png">
         <div class="lock" onclick="lock()"></div>
         <div class="screen" id="screen" style="justify-content: flex-start;">
             <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black;padding-bottom: 0.5cm; ">
-                <span style="color:white; font-size:25px">Friends</span>
-                <img class="plus-icon" src="Assets/images/plus.png" onclick="showSpeech()">
+                <span style="color:white; font-size:25px">{{currFriends.name}}</span>
+                <img class="plus-icon" src="Assets/images/plus.png" onclick="addGroup()">
             </div>
-            <div class="planBox">
-                <div class="planLine" v-for="f in friends">
-                    <span style="color:white">{{ f }}</span>
-                    <div>
-                        <img class="plus-icon" src="Assets/images/trash_black.png" v-on:click="deleteFriend(f)">
-                        <img class="plus-icon" src="Assets/images/mapicon.svg">
+            <div class='screen-horizontal'>
+                <div class="planBox" v-for="(g,j) in friendsArr" v-bind:id="'group'+j">
+                    <div class="planLine" v-for="(f,i) in g.friends">
+                        <span style="color:white">{{ f }}</span>
+                        <div>
+                            <img class="plus-icon" src="Assets/images/trash_black.png" v-on:click="deleteFriend(i, f)">
+                            <img class="plus-icon" src="Assets/images/mapicon.svg">
+                        </div>
+                    </div>
+                    <div class="planLine" style="justify-content: center;">
+                        <img v-if="currFriends.name == 'All Friends'" class="plus-icon" src="Assets/images/plus.png"
+                            onclick="showSpeech()">
+                        <img v-else class="plus-icon" src="Assets/images/plus.png" onclick="addFriendToGroup()">
                     </div>
                 </div>
             </div>
         </div>
 
+        <div class="screen" style="justify-content: flex-start; display: none" id="addToGroup">
+            <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black;padding-bottom: 0.5cm; ">
+                <span style="color:white; font-size:25px"> {{currFriends.name}}</span>
+                <img class="plus-icon" src="Assets/images/check.png" onclick="confirmEdit()">
+            </div>
+            <div class="planBox">
+                <div class="planLine" v-for="(f,i) in friendsToAdd" v-on:click="addToGroup(i)">
+                    <span style="color: white">{{f.name}}</span>
+                    <div class="greenDot" v-if="f.in == true"></div>
+                    <div class="emptyDot" v-else-if="f.in == false"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="overlay" class="overlay" style="display:none">
+            <img class="overlay-img" src="Assets/images/microphone.png">
+        </div>
+
+        <div class="screen confirm" id="confirm" style="display: none">
+            <img style="align-self: center;" class="img2" src="Assets/images/question.png">
+            <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
+            <div class="center-row-space-around">
+                <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
+                <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
+            </div>
+        </div>
+
         <div class="back" onclick="myTrip()"></div>
+
+        <img class="arrows" onclick="nextGroup()" src="Assets/images/right.svg">
+
         <div style="display: none;margin-left: 0.2cm" id="textbox">
             <div class="pair">
                 Simulate speech by typing here: <input v-model="newFriend">
@@ -38,6 +76,7 @@
                 </div>
             </div>
         </div>
+
     </div>
     <script src="Assets/js/helpers.js"></script>
     <script src="Assets/js/friends.js"></script>

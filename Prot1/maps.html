@@ -50,9 +50,7 @@
                     <div class="planLine" v-for="f in friends" v-if="conds.friends">
                         <span style="color:black">{{ f }}</span>
                         <div>
-                            <img class="plus-icon" src="Assets/images/trash_black.png" v-on:click="deleteFriend(f)"
-                                style="width:0.4cm; height:0.4cm">
-                            <img class="plus-icon" src="Assets/images/mapicon.svg" style="width:0.4cm; height:0.4cm" onclick="friendsLocation()">
+                            <img class="plus-icon" src="Assets/images/mapicon.svg" style="width:0.4cm; height:0.4cm" v-on:click="friendsLocation(f)">
                         </div>
                     </div>
                     <span v-else>No Friends selected yet</span>
@@ -81,6 +79,28 @@
 
             <div class="search">
                 <img class="plus-icon" src="Assets/images/magnifying-glass.png" onclick="showSpeech()" style="border: 1px solid black; width: 1cm; height: 1cm">
+            </div>
+        </div>
+
+        <div class="screen" style="flex-direction: row; border-radius: 15%; display:none" id="friendLocation">
+            <div class="map" id="map">
+                <img class="friendsMap" src="" id="imageBox">
+            </div>
+            <div class="friendPopup" id="findFriend" style="display: flex">
+                <div class="top-row-space-around" style="border-radius: 15%;border-bottom: 1.5px solid grey; padding-bottom:8px;">
+                    <span style="color:black; font-size:18px; margin-bottom: 3px">{{ name }}</span>
+                </div>
+                <div class="top-row-space-around" style="border-radius: 15%;">
+                    <span style="color:black; font-size:18px; margin-left: 0.1cm; margin-bottom: 3px">Distance: {{ distance }} km</span>
+                </div>
+            </div>
+            <div class="bottom-row-space-around" style="position:absolute; bottom: 0; margin-bottom: 20px; margin-left: 20px; width: 73%">
+                <div class="health-icon" style="background-color: rgba(216, 80, 38, 0.89); width: 2cm; height: 2cm;" onclick="maps()">
+                    Back
+                </div>
+                <div class="health-icon" style="background-color:rgba(102, 204, 51, 0.897); width: 2cm; height: 2cm;">
+                    GO
+                </div>
             </div>
         </div>
 

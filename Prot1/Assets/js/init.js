@@ -36,6 +36,7 @@ if (sessionStorage.getItem("hotels") === null) {
         "Andreia Pereira",
         "Pedro Lamego",
         "Joao Silva",
+        "Joao Pedro"
     ]))
 
     sessionStorage.setItem("flights", JSON.stringify([
@@ -172,7 +173,7 @@ if (sessionStorage.getItem("hotels") === null) {
     ]))
     sessionStorage.setItem("currentPlan", "")
     sessionStorage.setItem("currentPlanIndex", "0")
-    sessionStorage.setItem("bpm", [81,76,84,80, 86, 82] )
+    sessionStorage.setItem("bpm", [81, 76, 84, 80, 86, 82])
     sessionStorage.setItem("BPMCounter", 5)
     sessionStorage.setItem("o2", [95, 95, 93, 91, 93, 92])
     sessionStorage.setItem("O2Counter", 5)
@@ -195,7 +196,7 @@ if (sessionStorage.getItem("hotels") === null) {
         {
             name: "Running",
             top_bpm: 170,
-            low_bpm:100,
+            low_bpm: 100,
             current: false
         },
         {
@@ -205,9 +206,9 @@ if (sessionStorage.getItem("hotels") === null) {
             current: false
         },
         {
-            name:"Sleeping",
-            top_bpm:80,
-            low_bpm:40,
+            name: "Sleeping",
+            top_bpm: 80,
+            low_bpm: 40,
             current: false
         }
     ]))
@@ -226,8 +227,8 @@ if (sessionStorage.getItem("hotels") === null) {
     sessionStorage.setItem("notifs", JSON.stringify([{
         img: "Assets/images/sun.png",
         text: "Its a sunny day today!",
-        id:0,
-        href:"protFuncional1-beta.html"
+        id: 0,
+        href: "protFuncional1-beta.html"
     }]))
 
     sessionStorage.setItem("meetings", JSON.stringify([]))
@@ -238,4 +239,26 @@ if (sessionStorage.getItem("hotels") === null) {
         Gardens: false,
         Radius: 10
     }))
+
+    sessionStorage.setItem("friendGroups", JSON.stringify([{
+        name: "All Friends",
+        friends: [
+            "Tiago Le",
+            "Diogo Pacheco",
+            "Andreia Pereira",
+            "Pedro Lamego",
+            "Joao Silva",
+            "Joao Pedro"
+        ]
+    },
+    {
+        friends: [
+            "Tiago Le",
+            "Diogo Pacheco",
+            "Andreia Pereira",
+            "Pedro Lamego",
+            "Joao Silva",
+        ],
+        name: "Close Friends"
+    }]))
 }

@@ -98,10 +98,6 @@ function maps(){
     document.location.href = "maps.html"
 }
 
-function friendsLocation() {
-    document.location.href = "friendsLocation.html"
-}
-
 function addMeetingPoint(){
     document.location.href = "addMeeting.html"
 }
