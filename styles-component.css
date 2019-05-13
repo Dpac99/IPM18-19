@@ -105,6 +105,19 @@ a:hover{
     background-color:white;
 }
 
+.routePopup {
+    position: absolute;
+    border-radius: 20%;
+    margin-left: 0cm;
+    margin-top: -0.05cm;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 7.2cm;
+    height: 1.5cm;
+    /* margin-right: 0.8cm; */
+    background-color:#1f2c3d;
+}
 
 .screen,
 .overlay{

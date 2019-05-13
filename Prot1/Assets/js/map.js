@@ -5,6 +5,7 @@ var meetingPoints = JSON.parse(sessionStorage.getItem("meetings"))
 var interestPoints = JSON.parse(sessionStorage.getItem("interests"))
 var fr = JSON.parse(sessionStorage.getItem("friends"))
 var dist = Math.floor((Math.random() * 20) + 1)
+var time = Math.floor((Math.random()*30)+8)
 var friend = "Diogo Pacheco"
 var inFindFriend    // To check if we are in "maps.html" or "friendsLocation.html"
 
@@ -150,18 +151,6 @@ function changeDirection() {
             document.getElementById("map3").style.display = "flex"
             return
     }
-
-    // switch (r) {
-    //     case (1):
-    //         document.getElementById('imageBox').src = 'Assets/images/map-front.jpg';
-    //         return
-    //     case (2):
-    //         document.getElementById('imageBox').src = 'Assets/images/map-left.jpg'
-    //         return
-    //     case (3):
-    //         document.getElementById('imageBox').src = 'Assets/images/map-right.jpg'
-    //         return
-    // }
 }
 
 function closeImgs() {
