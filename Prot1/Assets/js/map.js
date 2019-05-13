@@ -54,6 +54,7 @@ var exp = new Vue({
     el: "#wrapper",
     data: {
         distance: dist,
+        travelTime: time,
         name: friend,
         meetings: meetingPoints,
         friends: fr,
