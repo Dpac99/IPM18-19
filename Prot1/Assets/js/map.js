@@ -131,6 +131,22 @@ function randImg2() {
     }
 }
 
+function randDirections() {
+    var r = Math.floor((Math.random() * 3) + 1)
+    switch (r) {
+        case (1):
+            document.getElementById('imageBox').src = 'Assets/images/map-front.jpg';
+            return
+        case (2):
+            document.getElementById('imageBox').src = 'Assets/images/map-left.jpg'
+            return
+        case (3):
+            document.getElementById('imageBox').src = 'Assets/images/map-right.jpg'
+            return
+    }
+
+}
+
 function inFindFriend(val) {
     inFindFriend = val
 }

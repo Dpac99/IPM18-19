@@ -110,6 +110,10 @@ function route() {
     document.location.href = "route.html"
 }
 
+function directions() {
+    document.location.href = "directions.html"
+}
+
 function showSpeech(el){
     let screen = document.getElementById('screen')
     let doc = document.getElementById("overlay")
