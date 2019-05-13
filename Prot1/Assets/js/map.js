@@ -131,20 +131,51 @@ function randImg2() {
     }
 }
 
-function randDirections() {
+function changeDirection() {
     var r = Math.floor((Math.random() * 3) + 1)
+
+    closeImgs()
+    console.log(r)
     switch (r) {
         case (1):
-            document.getElementById('imageBox').src = 'Assets/images/map-front.jpg';
+            closeImgs()
+            document.getElementById("map1").style.display = "flex"
             return
         case (2):
-            document.getElementById('imageBox').src = 'Assets/images/map-left.jpg'
+            closeImgs()
+            document.getElementById("map2").style.display = "flex"
             return
         case (3):
-            document.getElementById('imageBox').src = 'Assets/images/map-right.jpg'
+            closeImgs()
+            document.getElementById("map3").style.display = "flex"
             return
     }
 
+    // switch (r) {
+    //     case (1):
+    //         document.getElementById('imageBox').src = 'Assets/images/map-front.jpg';
+    //         return
+    //     case (2):
+    //         document.getElementById('imageBox').src = 'Assets/images/map-left.jpg'
+    //         return
+    //     case (3):
+    //         document.getElementById('imageBox').src = 'Assets/images/map-right.jpg'
+    //         return
+    // }
+}
+
+function closeImgs() {
+    document.getElementById("map1").style.display = "none"
+    document.getElementById("map2").style.display = "none"
+    document.getElementById("map3").style.display = "none"
+}
+
+function randDirections() {
+    var current = 1;
+    var r = Math.floor((Math.random() * 5) + 5)
+    for (var i = 1; i <= r; i++) {
+        setTimeout(changeDirection, i*2000)
+    }
 }
 
 function inFindFriend(val) {
