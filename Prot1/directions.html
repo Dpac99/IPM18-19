@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Directions</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
+</head>
+
+<body onload="randDirections()">
+    <div class="frame" id="wrapper">
+        <div class="lock" onclick="lock()"></div>
+        <div class="screen" style="flex-direction: row; border-radius: 15%" id="screen">
+            <div class="map" id="map1" style="display: flex">
+                <img class="friendsMap" src="Assets/images/map-front.jpg">
+            </div>
+            <div class="map" id="map2" style="display: none">
+                <img class="friendsMap" src="Assets/images/map-left.jpg">
+            </div>
+            <div class="map" id="map3" style="display: none">
+                <img class="friendsMap" src="Assets/images/map-right.jpg">
+            </div>
+
+            <!-- <div class="top-row-space-between" style="position:absolute; width: 76%; background-color: #1f2c3d; padding-bottom: 10px; border-radius: 20%"> -->
+            <div class="routePopup">
+                <div class="health-icon" style="background-color: rgba(216, 80, 38, 0.89); width: 1.7cm; height: 1.2cm; border-radius: 15%" onclick="maps()">
+                    End
+                </div>
+                <div class="pair">
+                    <span style="color: white">{{ time }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="overlay" class="overlay" style="display:none; align-items: center;">
+            <img class="overlay-img" src="Assets/images/microphone.png">
+            <img class="plus-icon" onclick="showSpeech()" src="Assets/images/cross.png">
+        </div>
+
+        <div class="back" onclick="mainMenu()"></div>
+
+        <div style="display: none;margin-left: 0.2cm" id="textbox">
+            <div class="pair">
+                Simulate speech by typing here: <input>
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech()">
+            </div>
+        </div>
+    </div>
+    <script src="Assets/js/map.js"></script>
+    <script src="Assets/js/helpers.js"></script>
+</body>
+
+</html>

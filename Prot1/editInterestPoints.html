@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Edit Preferences</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div class="frame" id="wrapper">
+        <div class="lock" onclick="lock()"></div>
+        <div class="screen" id="screen">
+            <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid white; ">
+                <span style="color:white;font-size: 20px">Preferences</span>
+            </div>
+            <div class="planBox">
+                <div class="planLine" v-for="(val, key) in settings" v-on:click="selectSetting(key)">
+                    <span style="color: white">{{key}}</span>
+                    <div class="greenDot" v-if="val == true"></div>
+                    <div class="emptyDot" v-else-if="val == false"></div>
+                    <span v-else style="color: white">{{val}}km</span>
+                </div>
+            </div>
+            <div class="bottom-row-space-around">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="confirmSettings()">
+            </div>
+        </div>
+
+
+        <div class="screen confirm" id="confirm" style="display: none">
+            <img style="align-self: center;" class="img2" src="Assets/images/question.png">
+            <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
+            <div class="center-row-space-around">
+                <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
+                <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
+            </div>
+        </div>
+
+        <div class="screen" id="radius" style="display:none">
+            <div style="color:white; " class="top-row-space-around">
+                Radius
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeRadius(1, 1)">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeRadius(1, 0)">
+            </div>
+            <div class="center-row-space-around">
+                <span style="color: white; font-size: 24px">{{newRadius.km}},{{newRadius.m}}km</span>
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeRadius(-1, 1)">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeRadius(-1, 0)">
+            </div>
+            <div class="bottom-row-space-around">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushRadius()">
+                <img class="plus-icon" src="Assets/images/cross.png" onclick="showRadius()">
+            </div>
+        </div>
+
+        <div class="back" onclick="confirmBack()"></div>
+
+    </div>
+    <script src="Assets/js/helpers.js"></script>
+    <script src="Assets/js/map.js"></script>
+</body>
+
+</html>

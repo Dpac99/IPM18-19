@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Add Meeting Point</title>
+    <link rel="stylesheet" href="../styles-component.css">
+    <style type="css"></style>
+    <script src="Assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div class="frame" id="wrapper">
+        <div class="lock" onclick="lock()"></div>
+        <div class="screen" id="screen">
+            <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid white; ">
+                <span style="color:white;font-size: 20px">Add Meeting Point</span>
+            </div>
+            <div class="center-row-space-between" onclick="showSpeech()">
+                <span style="color: white">Location</span>
+                <span style="color: white">{{ newMeeting.location }}</span>
+            </div>
+            <div class="center-row-space-between" onclick="showSpeech('textbox1')">
+                <span style="color: white">Description</span>
+                <span style="color: white">{{ newMeeting.description }}</span>
+            </div>
+            <div class="center-row-space-between" onclick="showHours()">
+                <span style="color: white">Date</span>
+                <span style="color: white">{{ newMeeting.date }}</spa>
+            </div>
+            <div class="bottom-row-space-around">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushMeetingPoint()">
+            </div>
+        </div>
+
+
+        <div class="screen confirm" id="confirm" style="display: none">
+            <img style="align-self: center;" class="img2" src="Assets/images/question.png">
+            <span id="confirmText" style="color: white; font-size: 30px">Are you sure?</span>
+            <div class="center-row-space-around">
+                <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
+                <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
+            </div>
+        </div>
+
+
+        <div id="overlay" class="overlay" style="display:none">
+            <img class="overlay-img" src="Assets/images/microphone.png">
+        </div>
+
+        <div class="screen" id="hours" style="display:none">
+            <div style="color:white; " class="top-row-space-around">
+                Date
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeDate(1, 'D')">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeDate(1, 'M')">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeDate(1, 'Y')">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeDate(1, 'H')">
+                <img class="iconDate" style="border:none" src="Assets/images/up.png" onclick="changeDate(1, 'MIN')">
+            </div>
+            <div class="center-row-space-around">
+                <div class="pair">
+                    Day:
+                    <div class="icon"> {{ dateTemplate.day }}</div>
+                </div>
+                <div class="pair">
+                    Month:
+                    <div class="icon"> {{ dateTemplate.month }}</div>
+                </div>
+                <div class="pair">
+                    Year:
+                    <div class="icon"> {{ dateTemplate.year }}</div>
+                </div>
+                <div class="pair">
+                    Hours:
+                    <div class="icon"> {{ dateTemplate.hours }}</div>
+                </div>
+                <div class="pair">
+                    Min:
+                    <div class="icon"> {{ dateTemplate.minutes }}</div>
+                </div>
+            </div>
+            <div class="center-row-space-around">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeDate(-1,'D')">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeDate(-1,'M')">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeDate(-1,'Y')">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeDate(-1,'H')">
+                <img class="iconDate" style="border:none" src="Assets/images/down.png" onclick="changeDate(-1,'MIN')">
+            </div>
+            <div class="bottom-row-space-around">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushHours()">
+                <img class="plus-icon" src="Assets/images/cross.png" onclick="showHours()">
+            </div>
+        </div>
+
+        <div style="display: none;margin-left: 0.2cm" id="textbox">
+            <div class="pair">
+                <div class="pair">
+                    Location: <input v-model="newMeeting.location">
+                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech()">
+                </div>
+            </div>
+        </div>
+
+        <div style="display: none;margin-left: 0.2cm" id="textbox1">
+            <div class="pair">
+                <div class="pair">
+                    Description: <input v-model="newMeeting.description">
+                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech('textbox1')">
+                </div>
+            </div>
+        </div>
+
+        <div class="back" onclick="confirmBack()"></div>
+
+    </div>
+    <script src="Assets/js/helpers.js"></script>
+    <script src="Assets/js/map.js"></script>
+</body>
+
+</html>
