@@ -41,8 +41,6 @@ var interestDB = [
 ]
 var dist = Math.floor((Math.random() * 20) + 1)
 var time = Math.floor((Math.random()*30)+8)
-var friend = "Diogo Pacheco"
-var inFindFriend    // To check if we are in "maps.html" or "friendsLocation.html"
 
 var meetingTemplate = {
     location: "",
@@ -55,7 +53,7 @@ var exp = new Vue({
     data: {
         distance: dist,
         travelTime: time,
-        name: friend,
+        name: "",
         meetings: meetingPoints,
         friends: fr,
         interests: interestPoints,
@@ -95,8 +93,12 @@ var exp = new Vue({
         friendsLocation:  function (name){
             document.getElementById("screen").style.display = "none"
             document.getElementById("friendLocation").style.display = "flex"
+            document.getElementById("back").onclick = function(){
+                maps()
+            }
             randImg()
             this.name = name
+            sessionStorage.setItem("routeDistance", dist)
         }
     }
 })
@@ -351,6 +353,11 @@ function changeDirection() {
     }
 }
 
+function arrived() {
+    document.getElementById("travelling").style.display = "none"
+    document.getElementById("arrived").style.display = "flex"
+}
+
 function closeImgs() {
     document.getElementById("map1").style.display = "none"
     document.getElementById("map2").style.display = "none"
@@ -358,11 +365,13 @@ function closeImgs() {
 }
 
 function randDirections() {
-    var current = 1;
+    var i;
     var r = Math.floor((Math.random() * 5) + 5)
-    for (var i = 1; i <= r; i++) {
+    exp.distance = sessionStorage.getItem("routeDistance")
+    for (i = 1; i <= r; i++) {
         setTimeout(changeDirection, i*2000)
     }
+    setTimeout(arrived, (i+1)*2000)
 }
 
 function inFindFriend(val) {

@@ -231,6 +231,8 @@ if (sessionStorage.getItem("hotels") === null) {
         href: "protFuncional1-beta.html"
     }]))
 
+    sessionStorage.setItem("routeDistance", "")
+
     sessionStorage.setItem("meetings", JSON.stringify([]))
     sessionStorage.setItem("interests", JSON.stringify([]))
     sessionStorage.setItem("interestSettings", JSON.stringify({

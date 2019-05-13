@@ -108,15 +108,15 @@ a:hover{
 .routePopup {
     position: absolute;
     border-radius: 20%;
+    /* border-top-left-radius: 35%;
+    border-top-right-radius: 32%; */
     margin-left: 0cm;
-    margin-top: -0.05cm;
+    margin-top: -0.1cm;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: 7.2cm;
     height: 1.5cm;
-    /* margin-right: 0.8cm; */
-    background-color:#1f2c3d;
 }
 
 .screen,
