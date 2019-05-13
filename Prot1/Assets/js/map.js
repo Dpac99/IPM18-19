@@ -40,6 +40,7 @@ var interestDB = [
     }
 ]
 var dist = Math.floor((Math.random() * 20) + 1)
+var time = Math.floor((Math.random()*30)+8)
 var friend = "Diogo Pacheco"
 var inFindFriend    // To check if we are in "maps.html" or "friendsLocation.html"
 
@@ -307,6 +308,62 @@ function pushMeetingPoint() {
 function confirmBack(){
     confirmation(maps, function(){}, "Go Back? Changes are not saved")
 }
+function randImg2() {
+    var r = Math.floor((Math.random() * 5) + 1)
+    switch (r) {
+        case (1):
+            document.getElementById('imageBox').src = 'Assets/images/map_path_arco.jpg';
+            return
+        case (2):
+            document.getElementById('imageBox').src = 'Assets/images/map_path_cinemacp.jpg'
+            return
+        case (3):
+            document.getElementById('imageBox').src = 'Assets/images/map_path_gulbenkian.jpg'
+            return
+        case (4):
+            document.getElementById('imageBox').src = 'Assets/images/map_path_mercado_arroios.jpg'
+            return
+        case (5):
+            document.getElementById('imageBox').src = 'Assets/images/map_path_portugalia.jpg'
+            return
+    }
+}
+
+function changeDirection() {
+    var r = Math.floor((Math.random() * 3) + 1)
+
+    closeImgs()
+    console.log(r)
+    switch (r) {
+        case (1):
+            closeImgs()
+            document.getElementById("map1").style.display = "flex"
+            return
+        case (2):
+            closeImgs()
+            document.getElementById("map2").style.display = "flex"
+            return
+        case (3):
+            closeImgs()
+            document.getElementById("map3").style.display = "flex"
+            return
+    }
+}
+
+function closeImgs() {
+    document.getElementById("map1").style.display = "none"
+    document.getElementById("map2").style.display = "none"
+    document.getElementById("map3").style.display = "none"
+}
+
+function randDirections() {
+    var current = 1;
+    var r = Math.floor((Math.random() * 5) + 5)
+    for (var i = 1; i <= r; i++) {
+        setTimeout(changeDirection, i*2000)
+    }
+}
+
 function inFindFriend(val) {
     inFindFriend = val
 }

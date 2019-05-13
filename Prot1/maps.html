@@ -50,7 +50,8 @@
                     <div class="planLine" v-for="f in friends" v-if="conds.friends">
                         <span style="color:black">{{ f }}</span>
                         <div>
-                            <img class="plus-icon" src="Assets/images/mapicon.svg" style="width:0.4cm; height:0.4cm" v-on:click="friendsLocation(f)">
+                            <img class="plus-icon" src="Assets/images/mapicon.svg" style="width:0.4cm; height:0.4cm"
+                                v-on:click="friendsLocation(f)">
                         </div>
                     </div>
                     <span v-else>No Friends selected yet</span>
@@ -67,8 +68,8 @@
                 </div>
                 <div class="planBox" style="margin-bottom: 0.5cm">
                     <div class="planLine" v-for="i in interests" v-if="conds.interests">
-                        <span >{{ i.name }}</span>
-                        <span >{{i.radius}}km</span>
+                        <span>{{ i.name }}</span>
+                        <span>{{i.radius}}km</span>
                     </div>
                     <span v-if="conds.interests == false">No interest points found </span>
                     <div class="planLine" style="justify-content: center">
@@ -91,15 +92,18 @@
                     <span style="color:black; font-size:18px; margin-bottom: 3px">{{ name }}</span>
                 </div>
                 <div class="top-row-space-around" style="border-radius: 15%;">
-                    <span style="color:black; font-size:18px; margin-left: 0.1cm; margin-bottom: 3px">Distance: {{ distance }} km</span>
+                    <span style="color:black; font-size:18px; margin-left: 0.1cm; margin-bottom: 3px">Distance: {{
+                        distance }} km</span>
                 </div>
             </div>
             <div class="bottom-row-space-around" style="position:absolute; bottom: 0; margin-bottom: 20px; margin-left: 20px; width: 73%">
-                <div class="health-icon" style="background-color: rgba(216, 80, 38, 0.89); width: 2cm; height: 2cm;" onclick="maps()">
+                <div class="health-icon" style="background-color: rgba(131, 187, 224, 0.89); width: 2.8cm; height: 1.2cm; border-radius: 15%; font-size: 22px;"
+                    onclick="maps()">
                     Back
                 </div>
-                <div class="health-icon" style="background-color:rgba(102, 204, 51, 0.897); width: 2cm; height: 2cm;">
-                    GO
+                <div class="health-icon" style="background-color :rgba(131, 187, 224, 0.89); width: 2.8cm; height: 1.2cm; border-radius: 15%; font-size: 22px;"
+                    onclick="route()">
+                    Show Route
                 </div>
             </div>
         </div>
@@ -123,7 +127,7 @@
         <div style="display: none;margin-left: 0.2cm" id="textbox">
             <div class="pair">
                 Simulate speech by typing here: <input>
-                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech()">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="showSpeech(); route()">
             </div>
         </div>
     </div>
