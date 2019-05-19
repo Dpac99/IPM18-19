@@ -404,12 +404,13 @@ a:hover{
 }
 
 .mytrip-icon{
-    width: 80%;
+    width: 70%;
     border: 0.08cm solid rgba(231, 230, 252, 0.699);
-    border-radius: 50%;
+    border-radius: 15%;
     box-shadow: 1px 1px rgba(246, 246, 255, 0.288);
     margin-bottom: 2px;
     cursor: pointer;
+    background-color: white;
 }
 
 .plus-icon{
@@ -831,10 +832,11 @@ transform: rotate(180deg);
 .gauge[data-fill="95"] span::after{transform: rotate(-18deg)}
 
 .healthCircle {
-    width: 4em; height: 4em;
+    width: 3.5em; height: 3.5em;
     background: white;
-    border: 1px;
-    border-radius: 50%;
+    border: 0.08cm solid rgba(231, 230, 252, 0.699);
+    border-radius: 15%;
+    box-shadow: 1px 1px rgba(246, 246, 255, 0.288);
     margin: 0.2em;
     cursor: pointer;
 }
