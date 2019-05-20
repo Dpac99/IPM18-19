@@ -193,6 +193,12 @@ function toggleConfirmation(){
     if(screen.style.display === "none"){
         screen.style.display = "flex"
         confirm_.style.display= "none"
+        let el = document.getElementById("yes")
+        let clone = el.cloneNode(true)
+        el.parentNode.replaceChild(clone, el)
+        el = document.getElementById('no')
+        clone = el.cloneNode(true)
+        el.parentNode.replaceChild(clone, el)
     }
     else{
         screen.style.display = "none"

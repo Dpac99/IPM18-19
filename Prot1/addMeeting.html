@@ -20,13 +20,17 @@
                 <span style="color: white">Location</span>
                 <span style="color: white">{{ newMeeting.location }}</span>
             </div>
-            <div class="center-row-space-between" onclick="showSpeech('textbox1')">
+            <div class="center-row-space-between" onclick="showDescription()">
                 <span style="color: white">Description</span>
-                <span style="color: white">{{ newMeeting.description }}</span>
+                <span id="label" style="color: white">{{ newMeeting.description }}</span>
             </div>
             <div class="center-row-space-between" onclick="showHours()">
                 <span style="color: white">Date</span>
-                <span style="color: white">{{ newMeeting.date }}</spa>
+                <span id="date" style="color: white">{{ newMeeting.date }}</spa>
+            </div>
+            <div class="center-row-space-between" onclick="showGroups()">
+                <span style="color: white">Group</span>
+                <span style="color: white">{{ newMeeting.groupName }}</span>
             </div>
             <div class="bottom-row-space-around">
                 <img class="plus-icon" src="Assets/images/img_370724.png" onclick="pushMeetingPoint()">
@@ -40,6 +44,20 @@
             <div class="center-row-space-around">
                 <img id="yes" src="Assets/images/img_370724.png" class="icon" style="background-color: white">
                 <img id="no" src="Assets/images/cross.png" class="icon" style="background-color: white">
+            </div>
+        </div>
+
+        <div class="screen" style="display: none;" id="groups">
+            <div class="top-row-space-around"  style="align-items:center;border-radius: 15%;border-bottom: 2px solid white;">
+                <span style="color:white; font-size: 20px">Friend Groups</span>
+            </div>
+            <div class="planBox" style="flex-grow: 3">
+                <div class="planLine" v-for="(g,i) in groups" style="border-bottom: 1px solid white" v-bind:id = "'group' + i" v-on:click="chooseGroup(i)">
+                    <span style="color:white">{{ g.name }}</span>
+                </div>
+            </div>
+            <div class="bottom-row-space-around">
+                <img src="Assets/images/img_370724.png" class="plus-icon" onclick="showGroups()">
             </div>
         </div>
 
@@ -94,6 +112,8 @@
             </div>
         </div>
 
+        <div id="back" class="back" onclick="confirmBack()"></div>
+
         <div style="display: none;margin-left: 0.2cm" id="textbox">
             <div class="pair">
                 <div class="pair">
@@ -111,8 +131,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="back" onclick="confirmBack()"></div>
 
     </div>
     <script src="Assets/js/helpers.js"></script>
