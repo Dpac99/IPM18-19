@@ -16,7 +16,10 @@
         <div class="screen" id="screen" style="justify-content: flex-start;">
             <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black;padding-bottom: 0.5cm; ">
                 <span style="color:white; font-size:25px">{{currFriends.name}}</span>
-                <img class="plus-icon" src="Assets/images/plus.png" onclick="addGroup()">
+                <div>
+                    <img class="plus-icon" src="Assets/images/plus.png" onclick="showSpeech('textbox1')">
+                    <img class="plus-icon" src="Assets/images/cross.png" onclick="deleteGroup()" v-if="currFriends.name != 'All Friends'">
+                </div>
             </div>
             <div class='screen-horizontal'>
                 <div class="planBox" v-for="(g,j) in friendsArr" v-bind:id="'group'+j">
@@ -39,7 +42,6 @@
         <div class="screen" style="justify-content: flex-start; display: none" id="addToGroup">
             <div class="top-row-space-between" style="align-items:center;border-radius: 15%;border-bottom: 2px solid black;padding-bottom: 0.5cm; ">
                 <span style="color:white; font-size:25px"> {{currFriends.name}}</span>
-                <img class="plus-icon" src="Assets/images/check.png" onclick="confirmEdit()">
             </div>
             <div class="planBox">
                 <div class="planLine" v-for="(f,i) in friendsToAdd" v-on:click="addToGroup(i)">
@@ -47,6 +49,10 @@
                     <div class="greenDot" v-if="f.in == true"></div>
                     <div class="emptyDot" v-else-if="f.in == false"></div>
                 </div>
+            </div>
+            <div class="bottom-row-space-between" style="align-items:center;border-radius: 15%;border-top: 2px solid black;padding-top: 0.5cm; ">
+                <img class="plus-icon" src="Assets/images/img_370724.png" onclick="confirmEdit()">
+                <img class="plus-icon" src="Assets/images/cross.png" onclick="confirmBackEdit()">
             </div>
         </div>
 
@@ -63,16 +69,25 @@
             </div>
         </div>
 
-        <div class="back" onclick="myTrip()"></div>
+        <div id="back" class="back" onclick="myTrip()"></div>
 
         <img class="arrows" onclick="nextGroup()" src="Assets/images/right.svg">
 
         <div style="display: none;margin-left: 0.2cm" id="textbox">
             <div class="pair">
-                Simulate speech by typing here: <input v-model="newFriend">
+                Friend name: <input v-model="newFriend">
                 <div class="top-row-space-between">
                     <img class="plus-icon" src="Assets/images/cross.png" onclick="showSpeech()">
                     <img class="plus-icon" src="Assets/images/img_370724.png" onclick="addFriend()">
+                </div>
+            </div>
+        </div>
+
+        <div style="display: none;margin-left: 0.2cm" id="textbox1">
+            <div class="pair">
+                Group name: <input v-model="newGroup.name">
+                <div class="top-row-space-between">
+                    <img class="plus-icon" src="Assets/images/img_370724.png" onclick="addGroup()">
                 </div>
             </div>
         </div>

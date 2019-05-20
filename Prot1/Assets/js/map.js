@@ -6,6 +6,7 @@ var interestPoints = JSON.parse(sessionStorage.getItem("interests"))
 var fr = JSON.parse(sessionStorage.getItem("friends"))
 var meetingDelete
 var settings = JSON.parse(sessionStorage.getItem("interestSettings"))
+var groups = JSON.parse(sessionStorage.getItem("friendGroups"))
 
 var interestDB = [
     {
@@ -40,12 +41,13 @@ var interestDB = [
     }
 ]
 var dist = Math.floor((Math.random() * 20) + 1)
-var time = Math.floor((Math.random()*30)+8)
+var time = Math.floor((Math.random() * 30) + 8)
 
 var meetingTemplate = {
     location: "",
     description: "",
-    date: ""
+    date: "",
+    groupName: ""
 }
 
 var exp = new Vue({
@@ -57,6 +59,8 @@ var exp = new Vue({
         meetings: meetingPoints,
         friends: fr,
         interests: interestPoints,
+        groups: groups,
+        selectedGroup: null,
         conds: {
             meetings: meetingPoints.length != 0,
             friends: fr.length != 0,
@@ -90,15 +94,28 @@ var exp = new Vue({
                 showRadius()
             }
         },
-        friendsLocation:  function (name){
+        friendsLocation: function (name) {
             document.getElementById("screen").style.display = "none"
             document.getElementById("friendLocation").style.display = "flex"
-            document.getElementById("back").onclick = function(){
+            document.getElementById("back").onclick = function () {
                 maps()
             }
             randImg()
             this.name = name
             sessionStorage.setItem("routeDistance", dist)
+        },
+        chooseGroup: function (n) {
+            console.log(n)
+            for (let i = 0; i < this.groups.length; i++) {
+                if (i == this.selectedGroup) {
+                    document.getElementById('group' + i).style.backgroundColor = ""
+                }
+                if (n == i) {
+                    document.getElementById('group' + i).style.backgroundColor = "green"
+                }
+            }
+            this.selectedGroup = n
+            this.newMeeting.groupName = this.groups[n].name
         }
     }
 })
@@ -122,11 +139,11 @@ function pushRadius() {
     showRadius()
 }
 
-function loadInterestPoints(){
+function loadInterestPoints() {
     interestPoints = []
-    for(i=0; i<interestDB.length; i++){
+    for (i = 0; i < interestDB.length; i++) {
         let ipoint = interestDB[i]
-        if(settings[ipoint.kind] && ipoint.radius <= settings.Radius ){
+        if (settings[ipoint.kind] && ipoint.radius <= settings.Radius) {
             interestPoints.push(ipoint)
         }
     }
@@ -135,8 +152,8 @@ function loadInterestPoints(){
     maps()
 }
 
-function confirmSettings(){
-    confirmation(loadInterestPoints, function(){}, "Confirm changes?")
+function confirmSettings() {
+    confirmation(loadInterestPoints, function () { }, "Confirm changes?")
 }
 
 function changeRadius(am, type) {
@@ -282,13 +299,20 @@ function showHours() {
     if (hours.style.display == "none") {
         screen.style.display = "none"
         hours.style.display = "flex"
+        document.getElementById("back").onclick = function () {
+            showHours()
+        }
     } else {
         screen.style.display = "flex"
         hours.style.display = "none"
+        document.getElementById("back").onclick = function () {
+            confirmBack()
+        }
     }
 }
 
 function pushHours() {
+    document.getElementById("date").style.color = "white"
     exp.newMeeting.date =
         exp.dateTemplate.day + "/" +
         exp.dateTemplate.month + "/" +
@@ -299,17 +323,29 @@ function pushHours() {
 }
 
 function pushMeetingPointAux() {
-    meetingPoints.push(exp.newMeeting)
-    sessionStorage.setItem("meetings", JSON.stringify(meetingPoints));
-    maps()
+    if (exp.newMeeting.description != "" && exp.newMeeting.date != "") {
+        console.log("pushing")
+        meetingPoints.push(exp.newMeeting)
+        sessionStorage.setItem("meetings", JSON.stringify(meetingPoints));
+        maps()
+        return
+    }
+    if (exp.newMeeting.description == "") {
+        exp.newMeeting.description = "Mandatory"
+        document.getElementById("label").style.color = "red"
+    }
+    if (exp.newMeeting.date == "") {
+        exp.newMeeting.date = "Mandatory"
+        document.getElementById("date").style.color = "red"
+    }
 }
 
 function pushMeetingPoint() {
     confirmation(pushMeetingPointAux, function () { }, "Add this meeting Point?")
 }
 
-function confirmBack(){
-    confirmation(maps, function(){}, "Go Back? Changes are not saved")
+function confirmBack() {
+    confirmation(maps, function () { }, "Go Back? Changes are not saved")
 }
 function randImg2() {
     var r = Math.floor((Math.random() * 5) + 1)
@@ -330,6 +366,14 @@ function randImg2() {
             document.getElementById('imageBox').src = 'Assets/images/map_path_portugalia.jpg'
             return
     }
+}
+
+function showDescription() {
+    if (exp.newMeeting.description == "Mandatory") {
+        exp.newMeeting.description = ""
+        document.getElementById("label").style.color = "white"
+    }
+    showSpeech('textbox1')
 }
 
 function changeDirection() {
@@ -369,11 +413,30 @@ function randDirections() {
     var r = Math.floor((Math.random() * 5) + 5)
     exp.distance = sessionStorage.getItem("routeDistance")
     for (i = 1; i <= r; i++) {
-        setTimeout(changeDirection, i*2000)
+        setTimeout(changeDirection, i * 2000)
     }
-    setTimeout(arrived, (i+1)*2000)
+    setTimeout(arrived, (i + 1) * 2000)
 }
 
 function inFindFriend(val) {
     inFindFriend = val
+}
+
+function showGroups() {
+    let screen = document.getElementById("screen")
+    let groups = document.getElementById("groups")
+    if (groups.style.display == "none") {
+        groups.style.display = "flex"
+        screen.style.display = "none"
+        document.getElementById("back").onclick = function () {
+            showGroups()
+        }
+    }
+    else {
+        groups.style.display = "none"
+        screen.style.display = "flex"
+        document.getElementById("back").onclick = function () {
+            confirmBack()
+        }
+    }
 }
