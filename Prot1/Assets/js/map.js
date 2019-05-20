@@ -7,6 +7,7 @@ var fr = JSON.parse(sessionStorage.getItem("friends"))
 var meetingDelete
 var settings = JSON.parse(sessionStorage.getItem("interestSettings"))
 var groups = JSON.parse(sessionStorage.getItem("friendGroups"))
+var notifsArr = JSON.parse(sessionStorage.getItem("notifs"))
 
 var interestDB = [
     {
@@ -145,10 +146,18 @@ function loadInterestPoints() {
         let ipoint = interestDB[i]
         if (settings[ipoint.kind] && ipoint.radius <= settings.Radius) {
             interestPoints.push(ipoint)
+            var id = notifsArr[notifsArr.length - 1] === undefined ? 0 : notifsArr[notifsArr.length - 1].id + 1
+            notifsArr.push({
+                img: "Assets/images/binoculars.png",
+                text:  ipoint.name + " at " + ipoint.radius + "km!",
+                id: id,
+                href: "maps.html"
+            })
         }
     }
     exp.interests = interestPoints
     sessionStorage.setItem("interests", JSON.stringify(interestPoints))
+    sessionStorage.setItem("notifs", JSON.stringify(notifsArr))
     maps()
 }
 

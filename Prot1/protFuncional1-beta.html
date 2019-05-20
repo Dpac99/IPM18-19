@@ -29,9 +29,11 @@
                     </div>
                 </div>
                 <div class="planBox" style="max-height: 1.17cm">
-                    <div class="notifLine" style="margin-bottom: 0.05cm"v-for="n in notifs" v-bind:id="n.id">
-                        <img v-bind:src="n.img" class="plus-icon" v-on:click="selectNotification(n.id)">
-                        <span v-on:click="selectNotification(n.id)">{{n.text}}</span>
+                    <div class="notifLine" style="margin-bottom: 0.05cm" v-for="n in notifs" v-bind:id="n.id">
+                        <div style="display: flex; align-items: center">
+                            <img v-bind:src="n.img" class="plus-icon" v-on:click="selectNotification(n.id)">
+                            <span v-on:click="selectNotification(n.id)">{{n.text}}</span>
+                        </div>
                         <img class="plus-icon" src="Assets/images/cross.png" v-on:click="deleteNotification(n.id)">
                     </div>
                 </div>
