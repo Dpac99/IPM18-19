@@ -36,7 +36,7 @@
                         <img class="plus-icon" src="Assets/images/cross.png" v-on:click="deleteMeetingPoint(i)">
                     </div>
                     <div v-if="conds.meetings == false" class="planLine">No Meeting Points yet</div>
-                    <div class="planLine" style="justify-content: center">
+                    <div class="planLine" style="justify-content: center; border-bottom: solid transparent">
                         <img class="plus-icon" src="Assets/images/plus.png" style="border: 2px solid black" onclick="addMeetingPoint()">
                     </div>
                 </div>
@@ -50,12 +50,12 @@
                     <div class="planLine" v-for="f in friends" v-if="conds.friends">
                         <span style="color:black">{{ f }}</span>
                         <div>
-                            <img class="plus-icon" src="Assets/images/mapicon.svg" style="width:0.4cm; height:0.4cm"
+                            <img class="plus-icon" src="Assets/images/mapicon.svg" style="width:0.6cm; height:0.6cm; background-color: coral;"
                                 v-on:click="friendsLocation(f)">
                         </div>
                     </div>
                     <span v-else>No Friends selected yet</span>
-                    <div class="planLine" style="justify-content: center">
+                    <div class="planLine" style="justify-content: center; border-bottom: solid transparent">
                         <img class="plus-icon" src="Assets/images/plus.png" style="border: 2px solid black">
                     </div>
                 </div>
@@ -68,11 +68,13 @@
                 </div>
                 <div class="planBox" style="margin-bottom: 0.5cm">
                     <div class="planLine" v-for="i in interests" v-if="conds.interests">
-                        <span>{{ i.name }}</span>
+                        <span style="width: 80px">{{ i.name }}</span>
                         <span>{{i.radius}}km</span>
+                        <img class="plus-icon" src="Assets/images/mapicon.svg" style="width:0.6cm; height:0.6cm; background-color: coral;"
+                                v-on:click="friendsLocation(i.name)">
                     </div>
                     <span v-if="conds.interests == false">No interest points found </span>
-                    <div class="planLine" style="justify-content: center">
+                    <div class="planLine" style="justify-content: center; border-bottom: solid transparent">
                         <img class="plus-icon" src="Assets/images/plus.png" style="border: 2px solid black">
                     </div>
                 </div>
