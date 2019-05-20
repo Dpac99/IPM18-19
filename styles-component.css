@@ -577,6 +577,7 @@ a:hover{
     justify-content: space-between;
     padding: 0.3cm;
     align-items: center;
+    border-bottom: solid 1px gray;
 }
 
 .overlay{
