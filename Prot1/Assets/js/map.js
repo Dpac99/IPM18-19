@@ -149,7 +149,7 @@ function loadInterestPoints() {
             var id = notifsArr[notifsArr.length - 1] === undefined ? 0 : notifsArr[notifsArr.length - 1].id + 1
             notifsArr.push({
                 img: "Assets/images/binoculars.png",
-                text:  ipoint.name + " at " + ipoint.radius + "km!",
+                text: ipoint.name + " at " + ipoint.radius + "km!",
                 id: id,
                 href: "maps.html"
             })
@@ -386,7 +386,7 @@ function showDescription() {
 }
 
 function changeDirection() {
-    var r = Math.floor((Math.random() * 3) + 1)
+    var r = Math.floor((Math.random() * 6) + 1)
 
     closeImgs()
     console.log(r)
@@ -403,6 +403,18 @@ function changeDirection() {
             closeImgs()
             document.getElementById("map3").style.display = "flex"
             return
+        case (4):
+            closeImgs()
+            document.getElementById("map4").style.display = "flex"
+            return
+        case (5):
+            closeImgs()
+            document.getElementById("map5").style.display = "flex"
+            return
+        case (6):
+            closeImgs()
+            document.getElementById("map6").style.display = "flex"
+            return
     }
 }
 
@@ -415,6 +427,9 @@ function closeImgs() {
     document.getElementById("map1").style.display = "none"
     document.getElementById("map2").style.display = "none"
     document.getElementById("map3").style.display = "none"
+    document.getElementById("map4").style.display = "none"
+    document.getElementById("map5").style.display = "none"
+    document.getElementById("map6").style.display = "none"
 }
 
 function randDirections() {
