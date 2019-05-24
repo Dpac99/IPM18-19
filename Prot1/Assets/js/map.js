@@ -1,6 +1,6 @@
 var friendsOn = false
 var meetingOn = false
-var InterestOn = false
+var InterestOn = sessionStorage.getItem("interestOn") == "true"
 var meetingPoints = JSON.parse(sessionStorage.getItem("meetings"))
 var interestPoints = JSON.parse(sessionStorage.getItem("interests"))
 var fr = JSON.parse(sessionStorage.getItem("friends"))
@@ -8,6 +8,11 @@ var meetingDelete
 var settings = JSON.parse(sessionStorage.getItem("interestSettings"))
 var groups = JSON.parse(sessionStorage.getItem("friendGroups"))
 var notifsArr = JSON.parse(sessionStorage.getItem("notifs"))
+
+if (document.location.href.substring(document.location.href.lastIndexOf("/") + 1) == "maps.html" && InterestOn) {
+    InterestOn = false
+    popUp(2)
+}
 
 var interestDB = [
     {
@@ -90,7 +95,6 @@ var exp = new Vue({
             if (name != "Radius") {
                 settings[name] = !settings[name]
                 exp.settings = settings
-                sessionStorage.setItem("interestSettings", JSON.stringify(settings))
             } else {
                 showRadius()
             }
@@ -141,24 +145,34 @@ function pushRadius() {
 }
 
 function loadInterestPoints() {
+    sessionStorage.setItem("interestSettings", JSON.stringify(settings))
     interestPoints = []
     for (i = 0; i < interestDB.length; i++) {
+        var inNotifs = false
         let ipoint = interestDB[i]
         if (settings[ipoint.kind] && ipoint.radius <= settings.Radius) {
             interestPoints.push(ipoint)
-            var id = notifsArr[notifsArr.length - 1] === undefined ? 0 : notifsArr[notifsArr.length - 1].id + 1
-            notifsArr.push({
-                img: "Assets/images/binoculars.png",
-                text: ipoint.name + " at " + ipoint.radius + "km!",
-                id: id,
-                href: "maps.html"
-            })
+            for (let i = 0; i < notifsArr.length; i++) {
+                if (notifsArr[i].text == ipoint.name + " at " + ipoint.radius + "km!") {
+                    inNotifs = true
+                }
+            }
+            if (!inNotifs) {
+                var id = notifsArr[notifsArr.length - 1] === undefined ? 0 : notifsArr[notifsArr.length - 1].id + 1
+                notifsArr.push({
+                    img: "Assets/images/binoculars.png",
+                    text: ipoint.name + " at " + ipoint.radius + "km!",
+                    id: id,
+                    href: "maps.html"
+                })
+            }
         }
     }
     exp.interests = interestPoints
     sessionStorage.setItem("interests", JSON.stringify(interestPoints))
     sessionStorage.setItem("notifs", JSON.stringify(notifsArr))
     maps()
+    sessionStorage.setItem("interestOn", interestOn)
 }
 
 function confirmSettings() {
@@ -201,8 +215,6 @@ function popUp(id) {
                 meetingOn = false;
                 document.getElementById("MeetingIcon").style.backgroundColor = "#ffffff"
                 document.getElementById("plans").style.display = 'none'
-                if (inFindFriend)
-                    document.getElementById("findFriend").style.display = "flex"
             }
             else {
                 closePopups()
@@ -216,8 +228,6 @@ function popUp(id) {
                 friendsOn = false
                 document.getElementById("FriendsIcon").style.backgroundColor = "#ffffff"
                 document.getElementById("friends").style.display = "none"
-                if (inFindFriend)
-                    document.getElementById("findFriend").style.display = "flex"
             }
             else {
                 closePopups()
@@ -229,14 +239,14 @@ function popUp(id) {
         case 2:
             if (InterestOn) {
                 InterestOn = false
+                sessionStorage.setItem("interestOn", InterestOn)
                 document.getElementById("InterestsIcon").style.backgroundColor = "#ffffff"
                 document.getElementById("interests").style.display = "none"
-                if (inFindFriend)
-                    document.getElementById("findFriend").style.display = "flex"
             }
             else {
                 closePopups()
                 InterestOn = true
+                sessionStorage.setItem("interestOn", InterestOn)
                 document.getElementById("interests").style.display = "flex"
                 document.getElementById("InterestsIcon").style.backgroundColor = "#00cc00"
             }
@@ -248,14 +258,13 @@ function closePopups() {
     meetingOn = false
     friendsOn = false
     InterestOn = false
+    sessionStorage.setItem("ch", InterestOn)
     document.getElementById("MeetingIcon").style.backgroundColor = "#ffffff"
     document.getElementById("FriendsIcon").style.backgroundColor = "#ffffff"
     document.getElementById("InterestsIcon").style.backgroundColor = "#ffffff"
     document.getElementById("plans").style.display = "none"
     document.getElementById("friends").style.display = "none"
     document.getElementById("interests").style.display = "none"
-    if (inFindFriend)
-        document.getElementById("findFriend").style.display = "none"
 }
 
 function randImg() {
@@ -440,10 +449,6 @@ function randDirections() {
         setTimeout(changeDirection, i * 2000)
     }
     setTimeout(arrived, (i + 1) * 2000)
-}
-
-function inFindFriend(val) {
-    inFindFriend = val
 }
 
 function showGroups() {

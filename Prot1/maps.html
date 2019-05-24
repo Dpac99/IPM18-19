@@ -9,7 +9,7 @@
     <script src="Assets/js/vue.js"></script>
 </head>
 
-<body onload="inFindFriend(false)">
+<body>
     <div class="frame" id="wrapper">
         <div class="lock" onclick="lock()"></div>
         <div class="screen" style="flex-direction: row" id="screen">
@@ -21,7 +21,7 @@
                     onclick="popUp(0)">
                 <img class="plus-icon" id="FriendsIcon" src="Assets/images/friends.png" style="border: 1px solid black; width: 1cm; height: 1cm"
                     onclick="popUp(1)">
-                <img class="plus-icon" id="InterestsIcon" src="Assets/images/binoculars.png" style="border: 1px solid black; width: 1cm; height: 1cm"
+                <img class="plus-icon" id="InterestsIcon" src="Assets/images/library.png" style="border: 1px solid black; width: 1cm; height: 1cm"
                     onclick="popUp(2)">
             </div>
 
@@ -31,9 +31,14 @@
                 </div>
                 <div class="planBox" style="margin-bottom: 0.5cm">
                     <div class="planLine" v-if="conds.meetings" v-for="(p,i) in meetings" v-bind:id="'meetPoint' + i">
-                        <span style="color:black">{{ p.description }}</span>
-                        <span style="color:black">{{ p.date }}</span>
-                        <img class="plus-icon" src="Assets/images/cross.png" v-on:click="deleteMeetingPoint(i)">
+                        <div class="pair">
+                            <span style="color:black">{{ p.description }}</span>
+                            <img class="plus-icon" src="Assets/images/cross.png" v-on:click="deleteMeetingPoint(i)">
+                        </div>
+                        <div class="pair">
+                            <span style="color:black">{{ p.date }}</span>
+                            <img class="plus-icon" src="Assets/images/mapicon.svg" v-on:click="friendsLocation(p.description)" style="width:0.6cm; height:0.6cm; background-color: coral;">
+                        </div>
                     </div>
                     <div v-if="conds.meetings == false" class="planLine">No Meeting Points yet</div>
                     <div class="planLine" style="justify-content: center; border-bottom: solid transparent">
@@ -62,21 +67,18 @@
             </div>
 
             <div class="mapPopup" id="interests" style="display: none">
-                <div class="top-row-space-between" style="border-radius: 15%;border-bottom: 2px solid black; padding-bottom: 0.5cm">
+                <div class="top-row-space-between" style="border-radius: 15%;border-bottom: 2px solid black; padding-bottom: 0.4cm">
                     <span style="color:black; font-size:20px">Interests</span>
-                    <img src="Assets/images/edit-icon-6.png" class="plus-icon" onclick="editInterestPoints()">
+                    <img src="Assets/images/edit-icon-6.png" class="plus-icon" onclick="editInterestPoints()" style="border: 2px solid black">
                 </div>
                 <div class="planBox" style="margin-bottom: 0.5cm">
                     <div class="planLine" v-for="i in interests" v-if="conds.interests">
                         <span style="width: 80px">{{ i.name }}</span>
                         <span>{{i.radius}}km</span>
                         <img class="plus-icon" src="Assets/images/mapicon.svg" style="width:0.6cm; height:0.6cm; background-color: coral;"
-                                v-on:click="friendsLocation(i.name)">
+                            v-on:click="friendsLocation(i.name)">
                     </div>
                     <span v-if="conds.interests == false">No interest points found </span>
-                    <div class="planLine" style="justify-content: center; border-bottom: solid transparent">
-                        <img class="plus-icon" src="Assets/images/plus.png" style="border: 2px solid black">
-                    </div>
                 </div>
             </div>
 

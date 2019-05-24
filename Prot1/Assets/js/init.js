@@ -83,30 +83,6 @@ if (sessionStorage.getItem("hotels") === null) {
                     time: "08:30"
                 },
                 {
-                    content: "Lunch",
-                    time: "13:00"
-                },
-                {
-                    content: "Museum",
-                    time: "14:30"
-                },
-                {
-                    content: "Dinner",
-                    time: "21:00"
-                },
-                {
-                    content: "Disco",
-                    time: "01:00"
-                },
-                {
-                    content: "Breakfast",
-                    time: "08:30"
-                },
-                {
-                    content: "Lunch",
-                    time: "13:00"
-                },
-                {
                     content: "Museum",
                     time: "14:30"
                 },
@@ -241,6 +217,8 @@ if (sessionStorage.getItem("hotels") === null) {
         Gardens: false,
         Radius: 10
     }))
+
+    sessionStorage.setItem("interestOn", false)
 
     sessionStorage.setItem("friendGroups", JSON.stringify([{
         name: "All Friends",
