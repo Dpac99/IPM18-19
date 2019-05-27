@@ -3,7 +3,7 @@ var notifsArr = JSON.parse(sessionStorage.getItem("notifs"))
 var notifs = new Vue({
     el: "#notifs",
     data:{
-        notifs: notifsArr
+        notifs: notifsArr,
     },
     methods:{
         selectNotification: function(id){

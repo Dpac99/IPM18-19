@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="frame" id="notifs">
+    <div class="frame">
         <div class="lock"></div>
         <div class="screen" id="screen">
             <div class="top-row" style="margin-bottom: -0.5cm">
@@ -19,16 +19,16 @@
                 <img class="battery" src="Assets/images/battery.png">
             </div>
             <div class="screen-body">
-                <div class="center-row-space-around">
+                <div class="center-row-space-around" id="hours">
                     <div class="pair">
-                        <span style="color: white;">MON</span>
-                        <span style="color: white;">25 mar</span>
+                        <span style="color: white;">{{day}}</span>
+                        <span style="color: white;">{{date}}</span>
                     </div>
-                    <span class="hours">13:00</span>
+                    <span class="hours">{{hours}}</span>
                     <div class="pair">
                     </div>
                 </div>
-                <div class="planBox" style="max-height: 1.17cm">
+                <div id="notifs" class="planBox" style="max-height: 1.17cm">
                     <div class="notifLine" style="margin-bottom: 0.05cm" v-for="n in notifs" v-bind:id="n.id">
                         <div style="display: flex; align-items: center">
                             <img v-bind:src="n.img" class="plus-icon" v-on:click="selectNotification(n.id)">
@@ -58,6 +58,7 @@
     <script src="Assets/js/helpers.js"></script>
     <script src="Assets/js/init.js"></script>
     <script src="Assets/js/notifs.js"></script>
+    <script src='Assets/js/hours.js'></script>
 </body>
 
 </html>
